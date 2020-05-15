@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
+{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme") "targetPath" "css/header.css") }}
 {{ $style := resources.Get "sass/header.scss" | toCSS $sassOptions | minify | fingerprint }}
 
 <link rel="stylesheet" href="{{ $style.Permalink }}" />

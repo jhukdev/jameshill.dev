@@ -1,4 +1,5 @@
-baseURL = "https://jhuk.dev"
+baseURL = "/"
 languageCode = "en-us"
 title = "JHDevUK"
 theme = "jhdevuk"
+relativeURLs = true

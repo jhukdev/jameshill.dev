@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
+{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme") "targetPath" "css/document.css") }}
 {{ $style := resources.Get "sass/document.scss" | toCSS $sassOptions  | minify | fingerprint }}
 
 <!DOCTYPE html>
