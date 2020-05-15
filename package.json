@@ -1,0 +1,9 @@
+{
+  "name": "jhuk.dev",
+  "version": "1.0.0",
+  "description": "Personal home of jhdevuk",
+  "main": "index.js",
+  "author": "James Hill",
+  "license": "UNLICENSED",
+  "private": true
+}
