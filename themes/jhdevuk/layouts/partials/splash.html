@@ -1,0 +1,9 @@
+<!-- prettier-ignore -->
+{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
+{{ $style := resources.Get "sass/splash.scss" | toCSS $sassOptions | minify | fingerprint }}
+
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
+
+<section class="splash">
+  Development, strategy, performance.
+</section>

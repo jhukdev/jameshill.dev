@@ -5,6 +5,7 @@
  * -------------------------------- */
 
 %container {
+  box-sizing: border-box;
   max-width: $screen-xl;
   padding-left: 20px;
   padding-right: 20px;

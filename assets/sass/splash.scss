@@ -2,12 +2,12 @@
 
 /* -----------------------------------
  *
- * Document
+ * Splash
  *
  * -------------------------------- */
 
-body {
-  background: $colour-background;
-  font-family: $font-sans;
-  margin: 0;
+.splash {
+  @extend %container;
+
+  color: $colour-white;
 }
