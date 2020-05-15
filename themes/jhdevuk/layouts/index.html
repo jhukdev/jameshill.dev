@@ -1,17 +1,28 @@
+<!-- prettier-ignore -->
 {{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
 {{ $style := resources.Get "sass/document.scss" | toCSS $sassOptions  | minify | fingerprint }}
 
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>ME!</title>
-      <link rel="stylesheet" href="{{ $style.Permalink }}">
-   </head>
-   <body>
-      {{ partial "header.html" . }}
+  <head>
+    <title>ME!</title>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    {{ partial "header.html" . }}
 
-      WELCOME
+    WELCOME
 
-      {{ partial "footer.html" . }}
-   </body>
+    <!-- prettier-ignore -->
+    {{ partial "footer.html" . }}
+  </body>
 </html>

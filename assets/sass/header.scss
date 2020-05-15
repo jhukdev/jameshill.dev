@@ -1,4 +1,28 @@
+@import 'theme';
+
+/* -----------------------------------
+ *
+ * Header
+ *
+ * -------------------------------- */
+
 .header {
-   background: black;
-   height: 50px;
+  @extend %container;
+
+  height: 50px;
+  text-align: center;
+  line-height: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include breakpoint('md') {
+    text-align: left;
+  }
+
+  .logo {
+    display: inline-block;
+    font-size: 42px;
+    color: $colour-white;
+    text-decoration: none;
+  }
 }

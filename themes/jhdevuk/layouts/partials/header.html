@@ -1,6 +1,9 @@
-{{ $style := resources.Get "sass/header.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+<!-- prettier-ignore -->
+{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
+{{ $style := resources.Get "sass/header.scss" | toCSS $sassOptions | minify | fingerprint }}
+
+<link rel="stylesheet" href="{{ $style.Permalink }}" />
 
 <header class="header">
-   OI
+  <a href="/" class="logo">jhdev</a>
 </header>
