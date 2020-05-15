@@ -1,0 +1,4 @@
+baseURL = "https://jhuk.dev"
+languageCode = "en-us"
+title = "JHDevUK"
+theme = "jhdevuk"

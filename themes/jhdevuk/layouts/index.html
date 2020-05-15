@@ -1,0 +1,17 @@
+{{ $sassOptions := (dict "includePaths" (slice "assets/sass/theme")) }}
+{{ $style := resources.Get "sass/document.scss" | toCSS $sassOptions  | minify | fingerprint }}
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ME!</title>
+      <link rel="stylesheet" href="{{ $style.Permalink }}">
+   </head>
+   <body>
+      {{ partial "header.html" . }}
+
+      WELCOME
+
+      {{ partial "footer.html" . }}
+   </body>
+</html>
