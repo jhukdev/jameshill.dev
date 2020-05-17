@@ -1,0 +1,28 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Header
+ *
+ * -------------------------------- */
+
+.header {
+  @extend %container;
+
+  text-align: center;
+  line-height: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include breakpoint('md') {
+    text-align: left;
+  }
+
+  .logo {
+    font-family: $font-jost;
+    display: inline-block;
+    font-size: 42px;
+    color: $colour-white;
+    text-decoration: none;
+  }
+}
