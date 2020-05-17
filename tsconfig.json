@@ -10,14 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "esModuleInterop": true,
-    "target": "es2017",
+    "target": "es2015",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "strictNullChecks": true,
     "incremental": true,
     "jsx": "react",
-    "jsxFactory": "React.createElement",
     "paths": {
       "@/*": ["./src/*"]
     }
