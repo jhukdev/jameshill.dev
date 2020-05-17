@@ -9,7 +9,7 @@ import { Link } from 'gatsby';
 
 import Layout from '@/components/layout.component';
 import Image from '@/components/image.component';
-import SEO from '@/components/seo.component';
+import Document from '@/components/document.component';
 
 /* -----------------------------------
  *
@@ -20,7 +20,7 @@ import SEO from '@/components/seo.component';
 function IndexPage() {
   return (
     <Layout>
-      <SEO title="Home" />
+      <Document title="Home" />
       <p>HOME</p>
     </Layout>
   );
