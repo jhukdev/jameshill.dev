@@ -37,6 +37,7 @@ function Layout({ children }) {
   return (
     <div className={style.wrapper}>
       <Header siteTitle={data.site.siteMetadata.title} />
+      {children}
     </div>
   );
 }
