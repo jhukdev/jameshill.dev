@@ -9,6 +9,7 @@ import style from './social.module.scss';
 
 import twitterIcon from '../images/twitter-icon.svg';
 import linkedinIcon from '../images/linkedin-icon.svg';
+import githubIcon from '../images/github-icon.svg';
 
 /* -----------------------------------
  *
@@ -25,7 +26,12 @@ const socialIcons = [
   {
     title: 'LinkedIn',
     src: linkedinIcon,
-    url: 'https://www.linkedin.com/in/james-hill-6bb080112/',
+    url: 'https://www.linkedin.com/in/james-hill-6bb080112',
+  },
+  {
+    title: 'Github',
+    src: githubIcon,
+    url: 'https://github.com/jhdevuk',
   },
 ];
 

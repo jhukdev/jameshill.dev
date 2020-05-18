@@ -16,7 +16,7 @@
     position: absolute;
     text-align: right;
     width: 100%;
-    bottom: 30px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -43,7 +43,7 @@
   font-weight: 300;
   font-size: 18px;
   text-align: center;
-  margin: 0 0 0.5em;
+  margin: 0 0 1em;
 }
 
 /* -----------------------------------
@@ -66,7 +66,7 @@
 
 .item {
   display: inline-block;
-  padding: 0 10px;
+  padding: 0 20px;
   border-right: 1px solid $colour-border;
 
   &:last-child {
@@ -92,5 +92,5 @@
 
 .icon {
   display: block;
-  width: 28px;
+  width: 24px;
 }
