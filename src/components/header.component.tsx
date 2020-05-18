@@ -21,7 +21,7 @@ function Header({ siteTitle }: IProps) {
   return (
     <header className={style.header}>
       <a href="/" className={style.logo}>
-        jhdev
+        jhuk
       </a>
     </header>
   );
