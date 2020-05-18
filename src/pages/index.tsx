@@ -21,7 +21,6 @@ function IndexPage() {
   return (
     <Layout>
       <Document title="Home" />
-      <p>HOME</p>
     </Layout>
   );
 }
