@@ -15,11 +15,21 @@ import Img from 'gatsby-image';
 
 /* -----------------------------------
  *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps {
+  imagePath: string;
+}
+
+/* -----------------------------------
+ *
  * Image
  *
  * -------------------------------- */
 
-function Image() {
+function Image({ imagePath }: IProps) {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {

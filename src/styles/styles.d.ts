@@ -14,3 +14,27 @@ declare module '*.scss' {
   export { IStyle };
   export default style;
 }
+
+/* -----------------------------------
+ *
+ * SVG
+ *
+ * -------------------------------- */
+
+declare module '*.svg' {
+  const value: string;
+
+  export default value;
+}
+
+/* -----------------------------------
+ *
+ * PNG
+ *
+ * -------------------------------- */
+
+declare module '*.png' {
+  const value: string;
+
+  export default value;
+}

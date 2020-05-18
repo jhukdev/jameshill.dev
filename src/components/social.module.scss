@@ -1,0 +1,96 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Social
+ *
+ * -------------------------------- */
+
+.social {
+  @extend %container;
+
+  color: $colour-white;
+  text-align: center;
+
+  @include breakpoint('lg') {
+    position: absolute;
+    text-align: right;
+    width: 100%;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* -----------------------------------
+ *
+ * Inner
+ *
+ * -------------------------------- */
+
+.inner {
+  display: inline-block;
+}
+
+/* -----------------------------------
+ *
+ * Title
+ *
+ * -------------------------------- */
+
+.title {
+  font-family: $font-accent;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 0 0.5em;
+}
+
+/* -----------------------------------
+ *
+ * List
+ *
+ * -------------------------------- */
+
+.list {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------------
+ *
+ * Item
+ *
+ * -------------------------------- */
+
+.item {
+  display: inline-block;
+  padding: 0 10px;
+  border-right: 1px solid $colour-border;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Link
+ *
+ * -------------------------------- */
+
+.link {
+  display: block;
+}
+
+/* -----------------------------------
+ *
+ * Icon
+ *
+ * -------------------------------- */
+
+.icon {
+  display: block;
+  width: 28px;
+}
