@@ -66,11 +66,16 @@
 
 .item {
   display: inline-block;
-  padding: 0 20px;
+  opacity: 0.5;
   border-right: 1px solid $colour-border;
+  transition: opacity 0.3s;
 
   &:last-child {
     border-right: 0;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -82,6 +87,7 @@
 
 .link {
   display: block;
+  padding: 0 20px;
 }
 
 /* -----------------------------------
