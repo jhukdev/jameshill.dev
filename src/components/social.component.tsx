@@ -21,7 +21,7 @@ const socialIcons = [
   {
     title: 'Twitter',
     src: twitterIcon,
-    url: 'https://twitter.com/jhdevuk',
+    url: 'https://twitter.com/jhukdev',
   },
   {
     title: 'LinkedIn',
@@ -31,7 +31,7 @@ const socialIcons = [
   {
     title: 'Github',
     src: githubIcon,
-    url: 'https://github.com/jhdevuk',
+    url: 'https://github.com/jhukdev',
   },
 ];
 
