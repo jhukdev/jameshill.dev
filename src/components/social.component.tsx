@@ -48,7 +48,7 @@ function Social() {
         <h3 className={style.title}>Follow Me</h3>
         <ul className={style.list}>
           {socialIcons.map((icon) => (
-            <li className={style.item}>
+            <li key={icon.url} className={style.item}>
               <a
                 href={icon.url}
                 className={style.link}
