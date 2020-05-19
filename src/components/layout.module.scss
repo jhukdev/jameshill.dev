@@ -2,7 +2,19 @@
 
 /* -----------------------------------
  *
- * Document
+ * Gatsby
+ *
+ * -------------------------------- */
+
+html,
+:global(#___gatsby),
+:global(#gatsby-focus-wrapper) {
+  height: 100%;
+}
+
+/* -----------------------------------
+ *
+ * Body
  *
  * -------------------------------- */
 
@@ -10,6 +22,7 @@ body {
   background: $colour-background;
   font-family: $font-default;
   margin: 0;
+  height: 100%;
 }
 
 /* -----------------------------------
@@ -20,7 +33,7 @@ body {
 
 .wrapper {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 }
 
