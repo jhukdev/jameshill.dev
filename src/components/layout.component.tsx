@@ -16,6 +16,7 @@ import style from './layout.module.scss';
  * -------------------------------- */
 
 import Header from './header.component';
+import Footer from './footer.component';
 
 /* -----------------------------------
  *
@@ -37,7 +38,8 @@ function Layout({ children }) {
   return (
     <div className={style.wrapper}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      {children}
+      <main className={style.content}>{children}</main>
+      <Footer />
     </div>
   );
 }

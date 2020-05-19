@@ -1,0 +1,35 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Footer
+ *
+ * -------------------------------- */
+
+.footer {
+  @extend %container;
+
+  display: flex;
+  width: 100%;
+  color: $colour-white;
+  text-align: center;
+  padding-bottom: 20px;
+  justify-content: center;
+
+  @include breakpoint('lg') {
+    padding-bottom: 50px;
+    justify-content: flex-start;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Social
+ *
+ * -------------------------------- */
+
+.social {
+  @include breakpoint('lg') {
+    margin-left: auto;
+  }
+}

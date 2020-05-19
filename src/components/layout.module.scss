@@ -11,3 +11,25 @@ body {
   font-family: $font-default;
   margin: 0;
 }
+
+/* -----------------------------------
+ *
+ * Wrapper
+ *
+ * -------------------------------- */
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* -----------------------------------
+ *
+ * Content
+ *
+ * -------------------------------- */
+
+.content {
+  flex: 1;
+}

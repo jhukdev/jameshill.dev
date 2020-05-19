@@ -3,6 +3,16 @@ import style from './social.module.scss';
 
 /* -----------------------------------
  *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps {
+  className: string;
+}
+
+/* -----------------------------------
+ *
  * Assets
  *
  * -------------------------------- */
@@ -41,27 +51,25 @@ const socialIcons = [
  *
  * -------------------------------- */
 
-function Social() {
+function Social({ className = '' }: IProps) {
   return (
-    <div className={style.social}>
-      <div className={style.inner}>
-        <h3 className={style.title}>Follow Me</h3>
-        <ul className={style.list}>
-          {socialIcons.map((icon) => (
-            <li key={icon.url} className={style.item}>
-              <a
-                href={icon.url}
-                className={style.link}
-                target="_blank"
-                rel="noopener"
-              >
-                <img className={style.icon} src={icon.src} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <menu className={`${className} ${style.social}`}>
+      <h3 className={style.title}>Follow Me</h3>
+      <ul className={style.list}>
+        {socialIcons.map((icon) => (
+          <li key={icon.url} className={style.item}>
+            <a
+              href={icon.url}
+              className={style.link}
+              target="_blank"
+              rel="noopener"
+            >
+              <img className={style.icon} src={icon.src} />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </menu>
   );
 }
 

@@ -10,11 +10,12 @@
   @extend %container;
 
   text-align: center;
+  width: 100%;
   line-height: 1;
   padding-top: 50px;
   padding-bottom: 50px;
 
-  @include breakpoint('md') {
+  @include breakpoint('lg') {
     text-align: left;
   }
 }
@@ -29,6 +30,7 @@
   font-family: $font-accent;
   display: inline-block;
   font-size: 42px;
+  font-weight: 300;
   color: $colour-white;
   text-decoration: none;
 }

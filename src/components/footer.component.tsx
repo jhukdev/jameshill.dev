@@ -1,5 +1,13 @@
 import React from 'react';
-import style from './splash.module.scss';
+import style from './footer.module.scss';
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import Social from './social.component';
 
 /* -----------------------------------
  *
@@ -9,10 +17,9 @@ import style from './splash.module.scss';
 
 function Footer() {
   return (
-    <section className={style.splash}>
-      {/* <h1>Hi, I'm James.</h1> */}
-      {/* <p>dsad dsd sadds sdsad </p> */}
-    </section>
+    <footer className={style.footer}>
+      <Social className={style.social} />
+    </footer>
   );
 }
 
