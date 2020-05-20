@@ -9,7 +9,6 @@ import React from 'react';
 import Layout from '@/components/layout.component';
 import Document from '@/components/document.component';
 import Splash from '@/components/splash.component';
-// import Social from '@/components/social.component';
 
 /* -----------------------------------
  *
@@ -22,7 +21,6 @@ function IndexPage() {
     <Layout>
       <Document title="Home" />
       <Splash />
-      {/* <Social /> */}
     </Layout>
   );
 }

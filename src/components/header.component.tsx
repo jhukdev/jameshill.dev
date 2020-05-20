@@ -20,7 +20,7 @@ interface IProps {
 function Header({ siteTitle }: IProps) {
   return (
     <header className={style.header}>
-      <a href="/" className={style.logo}>
+      <a href="/" className={style.logo} title={siteTitle}>
         jhuk
       </a>
     </header>

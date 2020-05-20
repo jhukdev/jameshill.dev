@@ -56,15 +56,16 @@ function Social({ className = '' }: IProps) {
     <menu className={`${className} ${style.social}`}>
       <h3 className={style.title}>Follow Me</h3>
       <ul className={style.list}>
-        {socialIcons.map((icon) => (
-          <li key={icon.url} className={style.item}>
+        {socialIcons.map(({ title, src, url }) => (
+          <li key={url} className={style.item}>
             <a
-              href={icon.url}
+              href={url}
               className={style.link}
+              title={title}
               target="_blank"
               rel="noopener"
             >
-              <img className={style.icon} src={icon.src} />
+              <img className={style.icon} alt={title} src={src} />
             </a>
           </li>
         ))}

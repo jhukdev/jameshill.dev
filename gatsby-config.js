@@ -22,7 +22,7 @@ module.exports = {
         short_name: 'starter',
         start_url: '/',
         background_color: '#222',
-        theme_color: '#663399',
+        theme_color: '#00a78e',
         display: 'minimal-ui',
         icon: 'src/images/jhuk-icon.png',
       },
