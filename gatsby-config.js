@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'JHDevUK',
+    title: 'JH',
     description: 'Welcome',
-    author: '@jhdevuk',
+    author: '@jhukdev',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -41,8 +41,16 @@ module.exports = {
         includePaths: ['src/styles'],
       },
     },
+    'gatsby-plugin-preact',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
+    {
+      // This must be *last* in the array
+      resolve: 'gatsby-plugin-no-javascript',
+      options: {
+        excludePaths: void 0,
+      },
+    },
   ],
 };
