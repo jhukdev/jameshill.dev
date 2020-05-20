@@ -13,11 +13,10 @@
   width: 100%;
   color: $colour-white;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   justify-content: center;
 
   @include breakpoint('lg') {
-    padding-bottom: 50px;
     justify-content: flex-start;
   }
 }
