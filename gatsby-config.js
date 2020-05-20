@@ -18,13 +18,19 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'James Hill',
+        short_name: 'jhukdev',
         start_url: '/',
         background_color: '#222',
         theme_color: '#00a78e',
         display: 'minimal-ui',
         icon: 'src/images/jhuk-icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: ['/'],
       },
     },
     {
@@ -42,14 +48,11 @@ module.exports = {
       },
     },
     'gatsby-plugin-preact',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
     {
       // This must be *last* in the array
       resolve: 'gatsby-plugin-no-javascript',
       options: {
-        excludePaths: void 0,
+        excludePaths: '/',
       },
     },
   ],
