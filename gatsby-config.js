@@ -1,3 +1,17 @@
+/* -----------------------------------
+ *
+ * Constants
+ *
+ * -------------------------------- */
+
+const PRODUCTION = process.env.NODE_ENV === 'production';
+
+/* -----------------------------------
+ *
+ * Config
+ *
+ * -------------------------------- */
+
 module.exports = {
   siteMetadata: {
     title: 'JH',
@@ -47,7 +61,7 @@ module.exports = {
         includePaths: ['src/styles'],
       },
     },
-    'gatsby-plugin-preact',
+    ...(PRODUCTION ? ['gatsby-plugin-preact'] : []),
     {
       // This must be *last* in the array
       resolve: 'gatsby-plugin-no-javascript',
