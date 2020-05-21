@@ -67,7 +67,7 @@ function getLinkElements() {
   return [
     {
       href:
-        'https://fonts.googleapis.com/css2?family=Jost:wght@300;400&amp;family=Open+Sans&display=swap',
+        'https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&amp;family=Open+Sans&display=swap',
       rel: 'stylesheet',
       media: 'none',
       onload: 'media="all"',
