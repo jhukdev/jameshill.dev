@@ -58,16 +58,14 @@ function DocumentMeta({ title, description, lang = 'en', meta = [] }: IProps) {
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1"
       ></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-167321875-1');
-          `,
-        }}
-      />
+      <script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-167321875-1');
+        `}
+      </script>
     </Helmet>
   );
 }
