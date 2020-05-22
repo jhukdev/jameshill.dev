@@ -3,15 +3,16 @@ import style from './splash.module.scss';
 
 /* -----------------------------------
  *
- * Footer
+ * Splash
  *
  * -------------------------------- */
 
-function Footer() {
+function Splash() {
   return (
     <section className={style.splash}>
-      {/* <h1>Hi, I'm James.</h1> */}
-      {/* <p>dsad dsd sadds sdsad </p> */}
+      <div className={style.content}>
+        <h1 className={style.title}>Trying to build a better UI...</h1>
+      </div>
     </section>
   );
 }
@@ -22,4 +23,4 @@ function Footer() {
  *
  * -------------------------------- */
 
-export default Footer;
+export default Splash;

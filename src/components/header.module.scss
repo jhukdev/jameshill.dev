@@ -13,11 +13,10 @@
   width: 100%;
   line-height: 1;
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 
   @include breakpoint('lg') {
     text-align: left;
-    padding-bottom: 50px;
   }
 }
 
@@ -34,4 +33,14 @@
   font-weight: 200;
   color: $colour-white;
   text-decoration: none;
+
+  &:before {
+    display: inline-block;
+    content: '';
+    width: 0.45em;
+    height: 0.45em;
+    margin-right: 0.15em;
+    background: $colour-accent;
+    border-radius: 2px;
+  }
 }
