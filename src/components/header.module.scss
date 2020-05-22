@@ -36,10 +36,11 @@
 
   &:before {
     display: inline-block;
+    vertical-align: middle;
     content: '';
-    width: 0.45em;
-    height: 0.45em;
-    margin-right: 0.15em;
+    width: 0.32em;
+    height: 0.32em;
+    margin-right: 0.2em;
     background: $colour-accent;
     border-radius: 2px;
   }
