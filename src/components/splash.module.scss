@@ -9,22 +9,9 @@
 .splash {
   @extend %container;
 
-  display: none; // TEMP
+  align-self: center;
+  justify-self: center;
   color: $colour-white;
-  margin-top: 50px;
-}
-
-/* -----------------------------------
- *
- * Content
- *
- * -------------------------------- */
-
-.content {
-  border: 6px solid $colour-border;
-  padding: 20px;
-  max-width: 480px;
-  min-height: 160px;
 }
 
 /* -----------------------------------
@@ -34,7 +21,75 @@
  * -------------------------------- */
 
 .title {
-  font-size: 18px;
+  font-family: $font-accent;
+  font-size: 16px;
   font-weight: 300;
-  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 3em;
+  text-align: center;
+
+  @include breakpoint('lg') {
+    text-align: left;
+  }
+
+  &::before,
+  &::after {
+    display: none;
+    content: '';
+    height: 2px;
+    width: 45px;
+    vertical-align: middle;
+    background: $colour-border;
+
+    @include breakpoint('sm') {
+      display: inline-block;
+    }
+  }
+
+  &:before {
+    margin-right: 1em;
+  }
+
+  &:after {
+    margin-left: 1em;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Content
+ *
+ * -------------------------------- */
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint('md') {
+    flex-direction: row;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Column
+ *
+ * -------------------------------- */
+
+.column {
+  flex: 1 1 0%;
+}
+
+/* -----------------------------------
+ *
+ * Heading
+ *
+ * -------------------------------- */
+
+.heading {
+  font-family: $font-accent;
+  font-size: 32px;
+  font-weight: 500;
+  color: $colour-white;
 }
