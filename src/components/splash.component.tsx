@@ -3,6 +3,15 @@ import style from './splash.module.scss';
 
 /* -----------------------------------
  *
+ * Assets
+ *
+ * -------------------------------- */
+
+import ideaIcon from '../images/idea-icon.svg';
+import blogIcon from '../images/blog-icon.svg';
+
+/* -----------------------------------
+ *
  * Splash
  *
  * -------------------------------- */
@@ -10,18 +19,23 @@ import style from './splash.module.scss';
 function Splash() {
   return (
     <section className={style.splash}>
-      <h1 className={style.title}>Trying to build a better UI</h1>
-      {/* <div className={style.content}>
+      <div className={style.inner}>
+        <h1 className={`${style.column} ${style.title}`}>
+          Trying to build a better UI
+        </h1>
         <div className={style.column}>
-          <h2 className={style.heading}>Recent Projects</h2>
+          <a href="#" className={style.action}>
+            <img className={style.icon} alt="Recent Projects" src={ideaIcon} />
+            <h2 className={style.heading}>Projects</h2>
+          </a>
         </div>
         <div className={style.column}>
-          <h2 className={style.heading}>Experiments</h2>
+          <a href="#" className={style.action}>
+            <img className={style.icon} alt="Recent Projects" src={blogIcon} />
+            <h2 className={style.heading}>Blog</h2>
+          </a>
         </div>
-        <div className={style.column}>
-          <h2 className={style.heading}>Blog</h2>
-        </div>
-      </div> */}
+      </div>
     </section>
   );
 }

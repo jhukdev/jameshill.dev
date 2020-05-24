@@ -11,7 +11,70 @@
 
   align-self: center;
   justify-self: center;
-  color: $colour-white;
+}
+
+/* -----------------------------------
+ *
+ * Inner
+ *
+ * -------------------------------- */
+
+.inner {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint('lg') {
+    flex-direction: row;
+    margin: 0 -2rem;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Column
+ *
+ * -------------------------------- */
+
+.column {
+  flex: 1 1 0%;
+  padding: 0 0 2rem;
+
+  @include breakpoint('lg') {
+    padding: 0 2rem;
+  }
+
+  &:last-child {
+    @include breakpoint('lg') {
+      border-left: 1px solid $colour-border;
+    }
+  }
+}
+
+/* -----------------------------------
+ *
+ * Button
+ *
+ * -------------------------------- */
+
+.action {
+  display: block;
+  text-decoration: none;
+}
+
+/* -----------------------------------
+ *
+ * Icon
+ *
+ * -------------------------------- */
+
+.icon {
+  display: block;
+  max-width: 68px;
+  margin: 0 auto 2rem;
+
+  @include breakpoint('md') {
+    max-width: 94px;
+  }
 }
 
 /* -----------------------------------
@@ -24,13 +87,17 @@
   font-family: $font-accent;
   font-size: 16px;
   font-weight: 300;
+  color: $colour-white;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 0 3em;
+  margin-top: 0;
+  margin-bottom: 2em;
+  flex: none;
   text-align: center;
 
   @include breakpoint('lg') {
     text-align: left;
+    margin-bottom: 0;
   }
 
   &::before,
@@ -70,38 +137,17 @@
 
 /* -----------------------------------
  *
- * Content
- *
- * -------------------------------- */
-
-.content {
-  display: flex;
-  flex-direction: column;
-
-  @include breakpoint('md') {
-    flex-direction: row;
-  }
-}
-
-/* -----------------------------------
- *
- * Column
- *
- * -------------------------------- */
-
-.column {
-  flex: 1 1 0%;
-}
-
-/* -----------------------------------
- *
  * Heading
  *
  * -------------------------------- */
 
 .heading {
   font-family: $font-accent;
-  font-size: 32px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   font-weight: 500;
+  text-align: center;
   color: $colour-white;
+  margin: 0;
 }
