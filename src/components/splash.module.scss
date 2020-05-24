@@ -35,24 +35,36 @@
 
   &::before,
   &::after {
-    display: none;
+    display: block;
     content: '';
     height: 2px;
     width: 45px;
-    vertical-align: middle;
+    margin: 0 auto;
     background: $colour-border;
 
     @include breakpoint('sm') {
       display: inline-block;
+      vertical-align: middle;
+      margin: 0;
     }
   }
 
   &:before {
-    margin-right: 1em;
+    margin-bottom: 2em;
+
+    @include breakpoint('sm') {
+      margin-right: 1em;
+      margin-bottom: 0;
+    }
   }
 
   &:after {
-    margin-left: 1em;
+    margin-top: 2em;
+
+    @include breakpoint('sm') {
+      margin-top: 0;
+      margin-left: 1em;
+    }
   }
 }
 
