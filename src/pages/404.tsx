@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './404.module.scss';
 
 /* -----------------------------------
  *
@@ -19,8 +20,11 @@ function Error404() {
   return (
     <Layout>
       <Document title="404: Not found" />
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <section className={style.wrapper}>
+        <h1 className={style.title}>
+          <em className={style.code}>404</em> Oops, wrong turn..
+        </h1>
+      </section>
     </Layout>
   );
 }
