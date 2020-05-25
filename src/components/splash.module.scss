@@ -44,7 +44,9 @@
   }
 
   &:nth-child(n + 3):not(.title) {
-    border-left: 1px dashed $colour-border;
+    @include breakpoint('sm') {
+      border-left: 1px dashed $colour-border;
+    }
   }
 }
 
@@ -68,11 +70,15 @@
 
 .icon {
   display: block;
-  max-width: 68px;
+  max-width: rem(48);
   margin: 0 auto 2rem;
 
   @include breakpoint('sm') {
-    max-width: 94px;
+    max-width: rem(62);
+  }
+
+  @include breakpoint('md') {
+    max-width: rem(76);
   }
 }
 

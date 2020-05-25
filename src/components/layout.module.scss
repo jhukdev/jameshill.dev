@@ -21,7 +21,7 @@ html,
 body {
   background: $colour-background;
   font-family: $font-default;
-  font-size: 15px;
+  font-size: rem($font-size-body);
   margin: 0;
   height: 100%;
 }
