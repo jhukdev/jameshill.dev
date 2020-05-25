@@ -32,7 +32,7 @@ function Splash() {
         <div className={style.column}>
           <a href="#" className={style.action}>
             <img className={style.icon} alt="Recent Projects" src={blogIcon} />
-            <h2 className={style.heading}>Blog</h2>
+            <h2 className={style.heading}>Articles</h2>
           </a>
         </div>
       </div>

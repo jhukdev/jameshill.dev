@@ -21,10 +21,10 @@
 
 .inner {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 
   @include breakpoint('lg') {
-    flex-direction: row;
+    flex-wrap: nowrap;
     margin: 0 -2rem;
   }
 }
@@ -44,9 +44,7 @@
   }
 
   &:last-child {
-    @include breakpoint('lg') {
-      border-left: 1px solid $colour-border;
-    }
+    border-left: 1px dashed $colour-border;
   }
 }
 
@@ -58,6 +56,7 @@
 
 .action {
   display: block;
+  cursor: none; // TEMP
   text-decoration: none;
 }
 
@@ -72,7 +71,7 @@
   max-width: 68px;
   margin: 0 auto 2rem;
 
-  @include breakpoint('md') {
+  @include breakpoint('sm') {
     max-width: 94px;
   }
 }
@@ -85,17 +84,22 @@
 
 .title {
   font-family: $font-accent;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   color: $colour-white;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 0;
   margin-bottom: 2em;
-  flex: none;
+  flex: 100%;
   text-align: center;
 
+  @include breakpoint('sm') {
+    font-size: 16px;
+  }
+
   @include breakpoint('lg') {
+    flex: none;
     text-align: left;
     margin-bottom: 0;
   }
@@ -105,7 +109,7 @@
     display: block;
     content: '';
     height: 2px;
-    width: 45px;
+    width: 60px;
     margin: 0 auto;
     background: $colour-border;
 
@@ -117,7 +121,7 @@
   }
 
   &:before {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
     @include breakpoint('sm') {
       margin-right: 1em;
@@ -126,7 +130,7 @@
   }
 
   &:after {
-    margin-top: 2em;
+    margin-top: 1em;
 
     @include breakpoint('sm') {
       margin-top: 0;
@@ -143,11 +147,15 @@
 
 .heading {
   font-family: $font-accent;
-  font-size: 18px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 500;
   text-align: center;
   color: $colour-white;
   margin: 0;
+
+  @include breakpoint('sm') {
+    font-size: 18px;
+  }
 }
