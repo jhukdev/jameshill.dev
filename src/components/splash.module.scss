@@ -58,7 +58,6 @@
 
 .action {
   display: block;
-  cursor: default; // TEMP
   text-decoration: none;
 }
 
@@ -76,6 +75,14 @@
   @include breakpoint('sm') {
     max-width: rem(62);
     margin-bottom: rem(20);
+  }
+
+  @include breakpoint('lg') {
+    max-width: rem(78);
+  }
+
+  @include breakpoint('xl') {
+    max-width: rem(92);
   }
 }
 
