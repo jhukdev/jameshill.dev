@@ -37,7 +37,6 @@
 
 .column {
   flex: 1 0 auto;
-  padding: 0 0 2rem;
 
   @include breakpoint('lg') {
     padding: 0 2rem;
@@ -75,14 +74,6 @@
   @include breakpoint('sm') {
     max-width: rem(62);
     margin-bottom: rem(20);
-  }
-
-  @include breakpoint('lg') {
-    max-width: rem(78);
-  }
-
-  @include breakpoint('xl') {
-    max-width: rem(92);
   }
 }
 
@@ -131,9 +122,11 @@
   }
 
   &:before {
+    display: none;
     margin-bottom: 1em;
 
     @include breakpoint('sm') {
+      display: inline-block;
       margin-right: 1em;
       margin-bottom: 0;
     }
