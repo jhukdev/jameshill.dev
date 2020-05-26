@@ -43,7 +43,7 @@
   }
 
   &:nth-child(n + 3):not(.title) {
-    @include breakpoint('sm') {
+    @include breakpoint('sm-md') {
       border-left: 1px dashed $colour-border;
     }
   }
