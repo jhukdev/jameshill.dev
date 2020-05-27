@@ -31,10 +31,10 @@ function Splash() {
           </Link>
         </div>
         <div className={style.column}>
-          <a href="#" className={style.action}>
+          <Link to="/articles" className={style.action}>
             <img className={style.icon} alt="Recent Projects" src={blogIcon} />
             <h2 className={style.heading}>Articles</h2>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

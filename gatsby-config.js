@@ -62,6 +62,7 @@ module.exports = {
       },
     },
     ...(PRODUCTION ? ['gatsby-plugin-preact'] : []),
+    /*
     {
       // This must be *last* in the array
       resolve: 'gatsby-plugin-no-javascript',
@@ -69,5 +70,6 @@ module.exports = {
         excludePaths: '/',
       },
     },
+    */
   ],
 };

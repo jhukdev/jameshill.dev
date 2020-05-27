@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './projects.module.scss';
+import style from './articles.module.scss';
 
 /* -----------------------------------
  *

@@ -80,7 +80,7 @@ function getLinkElements() {
   return [
     {
       href:
-        'https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Montserrat:wght@200;300&display=swap',
+        'https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Montserrat:wght@200;300;400&display=swap',
       rel: 'stylesheet',
       media: 'none',
       onload: 'media="all"',

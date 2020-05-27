@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import style from './header.module.scss';
 
 /* -----------------------------------
@@ -20,9 +21,9 @@ interface IProps {
 function Header({ siteTitle }: IProps) {
   return (
     <header className={style.header}>
-      <a href="/" className={style.logo} title={siteTitle}>
+      <Link className={style.logo} title={siteTitle} to="/">
         james.
-      </a>
+      </Link>
     </header>
   );
 }
