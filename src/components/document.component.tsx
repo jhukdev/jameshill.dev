@@ -54,18 +54,6 @@ function DocumentMeta({ title, description, lang = 'en', meta = [] }: IProps) {
       <meta property="twitter:creator" content={site.siteMetadata.author} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={metaDescription} />
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1"
-      ></script>
-      <script>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-167321875-1');
-        `}
-      </script>
     </Helmet>
   );
 }
