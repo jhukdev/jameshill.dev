@@ -7,10 +7,21 @@
  * -------------------------------- */
 
 .wrapper {
+  width: 100%;
+  background-color: $colour-white;
+}
+
+/* -----------------------------------
+ *
+ * Container
+ *
+ * -------------------------------- */
+
+.container {
   @extend %container;
 
   display: flex;
-  background-color: $colour-white;
+  height: 100%;
   padding-top: rem(50);
   padding-bottom: rem(50);
 }

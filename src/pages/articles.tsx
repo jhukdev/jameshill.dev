@@ -21,7 +21,9 @@ function Projects() {
     <Layout>
       <Document title="404: Not found" />
       <section className={style.wrapper}>
-        <h1 className={style.title}>Coming soon..</h1>
+        <div className={style.container}>
+          <h1 className={style.title}>Coming soon..</h1>
+        </div>
       </section>
     </Layout>
   );
