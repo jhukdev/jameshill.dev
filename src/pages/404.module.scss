@@ -24,11 +24,11 @@
   display: block;
   text-align: center;
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
   color: $colour-white;
 
-  @include breakpoint('lg') {
-    font-size: 36px;
+  @include breakpoint('md') {
+    font-size: 24px;
   }
 }
 
