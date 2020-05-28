@@ -12,7 +12,11 @@ function HTML(props) {
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <link rel="preconnect" href="//fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="//fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
         <link rel="preconnect" href="//www.googletagmanager.com" />
         <link rel="preconnect" href="//www.google-analytics.com" />
         <meta
