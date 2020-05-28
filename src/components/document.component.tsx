@@ -42,7 +42,6 @@ function DocumentMeta({ title, description, lang = 'en', meta = [] }: IProps) {
     <Helmet
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={getLinkElements()}
       meta={meta}
     >
       <html lang={lang} />
@@ -56,24 +55,6 @@ function DocumentMeta({ title, description, lang = 'en', meta = [] }: IProps) {
       <meta property="twitter:description" content={metaDescription} />
     </Helmet>
   );
-}
-
-/* -----------------------------------
- *
- * getLinkElements
- *
- * -------------------------------- */
-
-function getLinkElements() {
-  return [
-    {
-      href:
-        'https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Montserrat:wght@200;300;400&display=swap',
-      rel: 'stylesheet',
-      media: 'none',
-      onload: 'media="all"',
-    },
-  ];
 }
 
 /* -----------------------------------
