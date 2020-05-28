@@ -22,7 +22,7 @@ function Projects() {
       <Document title="Articles" />
       <section className={style.wrapper}>
         <div className={style.container}>
-          <h1 className={style.title}>Coming soon..</h1>
+          <h1 className={style.title}>Not quite ready...</h1>
         </div>
       </section>
     </Layout>
