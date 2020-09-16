@@ -6,13 +6,14 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean build:ts watch:* -- --watch",
-    "build": "npm-run-all clean build:ts -p build:11ty",
-    "build:11ty": "eleventy --quiet",
-    "watch:11ty": "eleventy --serve --quiet",
+    "start": "npm-run-all clean build:ts -p watch:* -- --watch",
+    "clean": "rimraf dist src/_js",
+    "build": "npm-run-all clean build:ts build:11ty",
     "build:ts": "tsc --outDir src/_js",
+    "build:11ty": "eleventy --quiet",
     "watch:ts": "yarn build:ts --watch",
-    "clean": "rimraf dist src/_js"
+    "watch:11ty": "eleventy --serve --quiet",
+    "test": "jest"
   },
   "dependencies": {
     "htm": "^3.0.4",
