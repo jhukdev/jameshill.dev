@@ -1,0 +1,30 @@
+{
+  "name": "jameshill.dev",
+  "version": "1.0.0",
+  "description": "Home",
+  "main": "index.js",
+  "author": "jhukdev",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm-run-all clean build:ts watch:* -- --watch",
+    "build": "npm-run-all clean build:ts -p build:11ty",
+    "build:11ty": "eleventy --quiet",
+    "watch:11ty": "eleventy --serve --quiet",
+    "build:ts": "tsc --outDir src/_js",
+    "watch:ts": "yarn build:ts --watch",
+    "clean": "rimraf dist src/_js"
+  },
+  "dependencies": {
+    "htm": "^3.0.4",
+    "preact": "^10.4.8",
+    "preact-render-to-string": "^5.1.10"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@types/node": "^14.10.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.5"
+  }
+}
