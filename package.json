@@ -7,25 +7,25 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all clean build:ts -p watch:*",
-    "clean": "rimraf dist src/_js",
+    "clean": "rimraf dist _js",
     "build": "npm-run-all clean build:ts build:11ty",
-    "build:ts": "tsc --outDir src/_js",
+    "build:ts": "tsc --outDir _js",
     "build:11ty": "eleventy --quiet",
     "watch:ts": "yarn build:ts --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",
     "test": "jest"
   },
   "dependencies": {
-    "htm": "^3.0.4",
-    "preact": "^10.4.8",
-    "preact-render-to-string": "^5.1.10"
+    "htm": "3.0.4",
+    "preact": "10.4.8",
+    "preact-render-to-string": "5.1.10"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
-    "@types/node": "^14.10.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.9.5"
+    "@11ty/eleventy": "0.11.0",
+    "@types/node": "14.10.2",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.1.2",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.5"
   }
 }
