@@ -5,5 +5,9 @@
  * -------------------------------- */
 
 module.exports = `
-  <p>These can span multiple lines !!???!</p>
+  <html>
+    <body>
+      <p>These can span multiple lines!</p>
+    </body>
+  </html>
 `;
