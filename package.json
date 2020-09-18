@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "npm-run-all clean build:ts -p watch:*",
-    "clean": "rimraf dist _js",
+    "clean": "rimraf dist src/.js",
     "build": "npm-run-all clean build:ts build:11ty",
-    "build:ts": "tsc --outDir _js",
+    "build:ts": "tsc --outDir src/.js",
     "build:11ty": "eleventy --quiet",
     "watch:ts": "yarn build:ts --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",

@@ -13,9 +13,9 @@ module.exports = function (config) {
 
   return {
     dir: {
-      input: '_js',
+      input: 'src/.js',
       output: 'dist',
-      // layouts: 'layouts',
+      layouts: 'layouts',
     },
   };
 };

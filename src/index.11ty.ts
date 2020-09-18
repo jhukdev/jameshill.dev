@@ -7,7 +7,7 @@
 module.exports = `
   <html>
     <body>
-      <p>These can span multiple lines! -???</p>
+      <p>These can span multiple lines!</p>
     </body>
   </html>
 `;
