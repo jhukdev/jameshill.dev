@@ -4,7 +4,7 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
+  extends: ['prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['@typescript-eslint'],
   rules: {
     'no-unused-vars': 'off',
     'no-void': 'off',
@@ -24,13 +24,8 @@ module.exports = {
     'linebreak-style': 'off',
     'padding-line-between-statements': [
       'error',
-      { blankLine: 'always', prev: 'var', next: '*' },
+      { blankLine: 'always', prev: 'const', next: 'function' },
     ],
-    'react/jsx-one-expression-per-line': 'off',
-    'react/prop-types': 'off',
-    'react/no-danger': 'off',
-    'react/require-default-props': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     '@typescript-eslint/no-unused-vars': 'error',
   },
   overrides: [
