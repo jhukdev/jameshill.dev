@@ -11,6 +11,8 @@ module.exports = function (config) {
     files: ['dist/**/*'],
   });
 
+  config.setUseGitIgnore(false);
+
   return {
     dir: {
       input: 'src/_js',
