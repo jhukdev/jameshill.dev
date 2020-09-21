@@ -3,6 +3,14 @@ const chokidar = require('chokidar');
 
 /* -----------------------------------
  *
+ * Flags
+ *
+ * -------------------------------- */
+
+const WATCH = process.argv.includes('--watch');
+
+/* -----------------------------------
+ *
  * Variables
  *
  * -------------------------------- */
@@ -26,9 +34,11 @@ module.exports = function (config) {
 
   copydir.sync(articlePath, './src/_js/articles');
 
-  chokidar.watch(`${articlePath}/**/*.md`).on('all', () => {
-    copydir.sync(articlePath, './src/_js/articles');
-  });
+  if (WATCH) {
+    chokidar.watch(`${articlePath}/**/*.md`).on('all', () => {
+      copydir.sync(articlePath, './src/_js/articles');
+    });
+  }
 
   return {
     dir: {

@@ -26,7 +26,7 @@ import { Html } from './components/shared';
  * -------------------------------- */
 
 function Home() {
-  return <p>Oh right? !!!</p>;
+  return <p>Oh right?</p>;
 }
 
 /* -----------------------------------
