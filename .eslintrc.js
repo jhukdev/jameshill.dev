@@ -26,7 +26,6 @@ module.exports = {
       'error',
       { blankLine: 'always', prev: 'const', next: 'function' },
     ],
-    '@typescript-eslint/no-unused-vars': 'error',
   },
   overrides: [
     {

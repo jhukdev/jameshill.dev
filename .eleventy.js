@@ -17,7 +17,6 @@ module.exports = function (config) {
     dir: {
       input: 'src/_js',
       output: 'dist',
-      layouts: 'layouts',
     },
   };
 };
