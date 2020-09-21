@@ -22,13 +22,16 @@ import { Html } from '../components/shared';
 
 /* -----------------------------------
  *
- * Layout
+ * Article
  *
  * -------------------------------- */
 
-module.exports = ({ title, content }: IProps) =>
-  render(
-    <Html title={title}>
-      <article dangerouslySetInnerHTML={{ __html: content }} />
-    </Html>
-  );
+export class Page {
+  render({ title, content }: IProps) {
+    return render(
+      <Html title={title}>
+        <article dangerouslySetInnerHTML={{ __html: content }} />
+      </Html>
+    );
+  }
+}

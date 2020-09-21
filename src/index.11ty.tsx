@@ -26,7 +26,7 @@ import { Html } from './components/shared';
  * -------------------------------- */
 
 function Home() {
-  return <p>Oh right!!!!</p>;
+  return <p>Oh right? !!!</p>;
 }
 
 /* -----------------------------------
@@ -35,7 +35,7 @@ function Home() {
  *
  * -------------------------------- */
 
-module.exports = class Page {
+export class Page {
   data(): IData {
     return {
       title: 'Home - JH',
@@ -49,4 +49,4 @@ module.exports = class Page {
       </Html>
     );
   }
-};
+}

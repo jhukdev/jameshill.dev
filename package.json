@@ -6,12 +6,12 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean build:ts -p watch:*",
+    "start": "npm-run-all clean build:server -p watch:*",
     "clean": "rimraf dist src/_js",
-    "build": "npm-run-all clean build:ts build:11ty",
-    "build:ts": "tsc --outDir src/_js",
+    "build": "npm-run-all clean build:server build:11ty",
+    "build:server": "webpack --config webpack.server.js",
     "build:11ty": "eleventy --quiet",
-    "watch:ts": "yarn build:ts --watch",
+    "watch:server": "yarn build:server --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",
     "lint": "eslint ./src/**/*.ts*",
     "test": "jest"
@@ -31,9 +31,13 @@
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
+    "glob": "^7.1.6",
     "npm-run-all": "4.1.5",
     "prettier": "2.1.2",
     "rimraf": "3.0.2",
-    "typescript": "3.9.5"
+    "ts-loader": "^8.0.4",
+    "typescript": "3.9.5",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
