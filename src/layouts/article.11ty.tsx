@@ -7,7 +7,7 @@ import { render } from 'preact-render-to-string';
  *
  * -------------------------------- */
 
-interface IProps {
+interface IData {
   title: string;
   content: string;
 }
@@ -27,7 +27,7 @@ import { Html } from '../components/shared';
  * -------------------------------- */
 
 export class Page {
-  render({ title, content }: IProps) {
+  render({ title, content }: IData) {
     return render(
       <Html title={title}>
         <article dangerouslySetInnerHTML={{ __html: content }} />

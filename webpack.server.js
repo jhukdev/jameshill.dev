@@ -1,6 +1,26 @@
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+const ExtractCssPlugin = require('mini-css-extract-plugin');
+
+/* -----------------------------------
+ *
+ * SASS
+ *
+ * -------------------------------- */
+
+const sassLoader = {
+  loader: 'sass-loader',
+  options: {
+    sassOptions: {
+      fiber: false,
+      data: '@import "template";',
+      outputStyle: 'compressed',
+      sourceMap: false,
+      includePaths: ['./src/style'],
+    },
+  },
+};
 
 /* -----------------------------------
  *
@@ -28,6 +48,7 @@ module.exports = {
       '@': path.resolve(__dirname, `./src/`),
     },
   },
+  plugins: [new ExtractCssPlugin()],
   module: {
     rules: [
       {
@@ -36,6 +57,39 @@ module.exports = {
           {
             loader: 'ts-loader',
           },
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /\.module\.(sa|sc|c)ss$/,
+        use: [
+          ExtractCssPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: 'global',
+              importLoaders: 2,
+              sourceMap: false,
+            },
+          },
+          sassLoader,
+        ],
+      },
+      {
+        test: /\.module\.(sa|sc|c)ss$/,
+        use: [
+          ExtractCssPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]_[hash:base64:6]',
+              },
+              importLoaders: 2,
+              sourceMap: false,
+            },
+          },
+          sassLoader,
         ],
       },
     ],

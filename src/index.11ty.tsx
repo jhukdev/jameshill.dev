@@ -18,16 +18,7 @@ interface IData {
  * -------------------------------- */
 
 import { Html } from './components/shared';
-
-/* -----------------------------------
- *
- * Home
- *
- * -------------------------------- */
-
-function Home() {
-  return <p>Oh right? HELL</p>;
-}
+import { Home } from './components/home';
 
 /* -----------------------------------
  *
