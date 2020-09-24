@@ -1,3 +1,4 @@
+const { isValidElement } = require('preact');
 const { render } = require('preact-render-to-string');
 
 /* -----------------------------------
@@ -15,8 +16,8 @@ module.exports = function (config) {
 
   config.setUseGitIgnore(false);
 
-  config.addTransform('transform-jsx', function (content, outputPath) {
-    if (outputPath.endsWith('.html') && typeof content === 'object') {
+  config.addTransform('transform-jsx', (content) => {
+    if (isValidElement(content)) {
       return render(content);
     }
 
