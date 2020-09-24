@@ -26,7 +26,7 @@ import { Home } from './components/home';
  *
  * -------------------------------- */
 
-export class Page {
+class Page {
   data(): IData {
     return {
       title: 'Home - JH',
@@ -41,3 +41,11 @@ export class Page {
     );
   }
 }
+
+/* -----------------------------------
+ *
+ * Export
+ *
+ * -------------------------------- */
+
+export { Page };

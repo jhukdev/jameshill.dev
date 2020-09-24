@@ -24,7 +24,7 @@ const articlePath = './src/articles';
  * -------------------------------- */
 
 module.exports = function (config) {
-  config.addPassthroughCopy({ public: './' });
+  config.addPassthroughCopy('./src/_js/assets');
 
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
@@ -41,10 +41,12 @@ module.exports = function (config) {
   }
 
   return {
+    passthroughFileCopy: true,
     dir: {
       input: 'src/_js',
       output: 'dist',
       layouts: 'layouts',
+      includes: '_includes',
     },
   };
 };

@@ -8,8 +8,6 @@ import style from './home.module.scss';
  * -------------------------------- */
 
 function Home() {
-  console.log('Style:', style);
-
   return <p class={style.text}>Oh right</p>;
 }
 

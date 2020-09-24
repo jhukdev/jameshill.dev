@@ -48,7 +48,11 @@ module.exports = {
       '@': path.resolve(__dirname, `./src/`),
     },
   },
-  plugins: [new ExtractCssPlugin()],
+  plugins: [
+    new ExtractCssPlugin({
+      filename: './assets/[name].css',
+    }),
+  ],
   module: {
     rules: [
       {
@@ -103,7 +107,7 @@ module.exports = {
  * -------------------------------- */
 
 function getEntryFile(result, file) {
-  const [name] = file.split('src').slice(-1);
+  const [name] = file.split('src/').slice(-1);
 
   result[name.replace('.tsx', '')] = file;
 
