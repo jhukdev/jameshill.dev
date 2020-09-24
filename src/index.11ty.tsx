@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { render } from 'preact-render-to-string';
 
 /* -----------------------------------
  *
@@ -34,7 +33,7 @@ class Page {
   }
 
   render({ title }: IData) {
-    return render(
+    return (
       <Html title={title}>
         <Home />
       </Html>

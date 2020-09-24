@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { render } from 'preact-render-to-string';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -29,7 +28,7 @@ import { Html } from '../components/shared';
 
 class Page {
   render({ title, content }: IData) {
-    return render(
+    return (
       <Html title={title}>
         <article class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
       </Html>
