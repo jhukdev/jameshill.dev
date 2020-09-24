@@ -8,7 +8,11 @@ import style from './home.module.scss';
  * -------------------------------- */
 
 function Home() {
-  return <p class={style.text}>Oh right</p>;
+  return (
+    <main class={style.content}>
+      <p class={style.text}>11ty Starter</p>
+    </main>
+  );
 }
 
 /* -----------------------------------

@@ -2,11 +2,24 @@
 
 /* -----------------------------------
  *
+ * Content
+ *
+ * -------------------------------- */
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -----------------------------------
+ *
  * Text
  *
  * -------------------------------- */
 
 .text {
-  font-size: 20px;
-  color: #b6b6b6;
+  font-size: 64px;
+  font-weight: 100;
+  color: white;
 }
