@@ -1,22 +1,3 @@
-const copydir = require('copy-dir');
-const chokidar = require('chokidar');
-
-/* -----------------------------------
- *
- * Flags
- *
- * -------------------------------- */
-
-const WATCH = process.argv.includes('--watch');
-
-/* -----------------------------------
- *
- * Variables
- *
- * -------------------------------- */
-
-const articlePath = './src/articles';
-
 /* -----------------------------------
  *
  * 11ty
@@ -31,14 +12,6 @@ module.exports = function (config) {
   });
 
   config.setUseGitIgnore(false);
-
-  copydir.sync(articlePath, './src/_js/articles');
-
-  if (WATCH) {
-    chokidar.watch(`${articlePath}/**/*.md`).on('all', () => {
-      copydir.sync(articlePath, './src/_js/articles');
-    });
-  }
 
   return {
     passthroughFileCopy: true,

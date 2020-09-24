@@ -2,6 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /* -----------------------------------
  *
@@ -17,7 +18,7 @@ const sassLoader = {
       data: '@import "template";',
       outputStyle: 'compressed',
       sourceMap: false,
-      includePaths: ['./src/style'],
+      includePaths: ['./src/styles'],
     },
   },
 };
@@ -50,7 +51,10 @@ module.exports = {
   },
   plugins: [
     new ExtractCssPlugin({
-      filename: './assets/[name].css',
+      filename: 'assets/[name].css',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'articles', to: 'articles' }],
     }),
   ],
   module: {
