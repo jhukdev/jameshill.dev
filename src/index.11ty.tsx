@@ -34,7 +34,7 @@ class Page {
 
   render({ title }: IData) {
     return (
-      <Html title={title}>
+      <Html title={title} cssPath="index.11ty.css">
         <Home />
       </Html>
     );

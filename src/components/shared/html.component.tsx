@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import style from './html.module.scss';
 
 /* -----------------------------------
  *
@@ -8,6 +9,7 @@ import { h } from 'preact';
 
 interface IProps {
   title?: string;
+  cssPath?: string;
   children: any;
 }
 
@@ -17,13 +19,14 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = 'JH', children }: IProps) {
+function Html({ title = 'JH', cssPath, children }: IProps) {
   return (
-    <html>
+    <html lang="en" class={style.html}>
       <head>
         <title>{title}</title>
+        {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
       </head>
-      <body>{children}</body>
+      <body class={style.body}>{children}</body>
     </html>
   );
 }
