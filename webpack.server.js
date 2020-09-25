@@ -7,6 +7,14 @@ const AssetsManifestPlugin = require('webpack-assets-manifest');
 
 /* -----------------------------------
  *
+ * Flags
+ *
+ * -------------------------------- */
+
+const RELEASE = !process.argv.includes('--watch');
+
+/* -----------------------------------
+ *
  * SASS
  *
  * -------------------------------- */
@@ -31,7 +39,7 @@ const sassLoader = {
  * -------------------------------- */
 
 module.exports = {
-  mode: 'development',
+  mode: RELEASE ? 'production' : 'development',
   entry: glob.sync(__dirname + '/src/**/*.11ty.ts*').reduce(getEntryFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
@@ -52,7 +60,7 @@ module.exports = {
   },
   plugins: [
     new ExtractCssPlugin({
-      filename: 'assets/[name].css',
+      filename: RELEASE ? 'assets/[name].[hash:8].css' : 'assets/[name].css',
     }),
     new CopyPlugin({
       patterns: [{ from: 'articles', to: 'articles' }],
@@ -62,9 +70,16 @@ module.exports = {
       merge: true,
       customize: (item) => {
         const [key] = item.key.split('/').slice(-1);
-        const [value] = item.key.split('/').slice(-1);
+        const [value] = item.value.split('/').slice(-1);
 
         return { key, value };
+      },
+      transform: (data) => {
+        Object.keys(data)
+          .filter((key) => key.endsWith('.11ty.js'))
+          .forEach((key) => delete data[key]);
+
+        return data;
       },
     }),
   ],
