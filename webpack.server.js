@@ -66,7 +66,7 @@ module.exports = {
       patterns: [{ from: 'articles', to: 'articles' }],
     }),
     new AssetsManifestPlugin({
-      output: 'assets/assets.json',
+      output: 'assets.json',
       merge: true,
       customize: (item) => {
         const [key] = item.key.split('/').slice(-1);

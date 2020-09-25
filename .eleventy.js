@@ -50,12 +50,10 @@ module.exports = function (config) {
  * -------------------------------- */
 
 function transformFileHash(content) {
-  const assets = require('./src/_js/assets/assets.json');
+  const assets = require('./src/_js/assets.json');
   const keys = Object.keys(assets);
 
   return keys.reduce((result, key) => {
-    console.log('HASH', key, assets[key]);
-
     return result.replace(key, assets[key]);
   }, content);
 }
