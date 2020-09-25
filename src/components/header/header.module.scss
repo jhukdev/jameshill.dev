@@ -9,9 +9,11 @@
 .header {
   @extend %container;
 
+  position: relative;
   display: flex;
   max-width: none;
   padding-top: rem(30);
+  z-index: 2;
 }
 
 /* -----------------------------------

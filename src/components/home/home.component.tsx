@@ -17,9 +17,10 @@ import { Header } from '@/components/header';
 
 function Home() {
   return (
-    <main class={style.content}>
+    <div class={style.wrapper}>
       <Header />
-    </main>
+      <main class={style.content}>YOLO</main>
+    </div>
   );
 }
 
