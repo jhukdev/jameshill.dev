@@ -32,8 +32,7 @@ module.exports = {
   entry: glob.sync(__dirname + '/src/entry/*.entry.ts*').reduce(getEntryFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
-  target: 'node',
-  externals: fs.readdirSync('node_modules'),
+  target: 'web',
   output: {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: '[name].js',
@@ -51,6 +50,11 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
+            options: {
+              compilerOptions: {
+                target: 'es5',
+              },
+            },
           },
         ],
       },

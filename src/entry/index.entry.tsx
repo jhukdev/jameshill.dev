@@ -1,7 +1,17 @@
+import { mount } from '@/utility/hydrate.utility';
+
 /* -----------------------------------
  *
  * Components
  *
  * -------------------------------- */
 
-console.log('HOME!');
+import { Form } from '@/components/form';
+
+/* -----------------------------------
+ *
+ * Mount
+ *
+ * -------------------------------- */
+
+mount({ Form });
