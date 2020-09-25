@@ -1,0 +1,58 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Header
+ *
+ * -------------------------------- */
+
+.header {
+  @extend %container;
+
+  display: flex;
+  max-width: none;
+  padding-top: rem(30);
+}
+
+/* -----------------------------------
+ *
+ * Logo
+ *
+ * -------------------------------- */
+
+.logo {
+  font-size: rem(24);
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:before {
+    display: inline-block;
+    vertical-align: baseline;
+    content: '';
+    width: 0.35em;
+    height: 0.35em;
+    margin: 0 0.3em 0 0;
+    background: #00a78e;
+    border-radius: rem(1);
+  }
+}
+
+/* -----------------------------------
+ *
+ * Menu
+ *
+ * -------------------------------- */
+
+.menu {
+  margin-left: auto;
+
+  a {
+    color: white;
+    font-size: rem(20);
+    font-weight: 300;
+    text-decoration: none;
+    margin: 0 rem(20);
+  }
+}

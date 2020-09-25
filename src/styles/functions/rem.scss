@@ -1,9 +1,9 @@
 /* -----------------------------------
  *
- * Variables
+ * REM
  *
  * -------------------------------- */
 
-@import './colours';
-@import './typography';
-@import './breakpoints';
+@function rem($pixels) {
+  @return $pixels / $font-size-base * 1rem;
+}
