@@ -31,9 +31,9 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
-        ></meta>
+        />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&family=Roboto:wght@300;400;500&display=swap"
           rel="stylesheet"
         />
         {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}

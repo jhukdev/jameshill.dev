@@ -19,7 +19,9 @@ function Home() {
   return (
     <div class={style.wrapper}>
       <Header />
-      <main class={style.content}>YOLO</main>
+      <main class={style.content}>
+        <div class={style.container}>HOME</div>
+      </main>
     </div>
   );
 }
