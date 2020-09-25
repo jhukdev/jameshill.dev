@@ -40,7 +40,7 @@ const sassLoader = {
 
 module.exports = {
   mode: 'development',
-  entry: glob.sync(__dirname + '/src/**/*.11ty.ts*').reduce(getEntryFile, {}),
+  entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce(getEntryFile, {}),
   context: path.join(__dirname, '/src/'),
   cache: true,
   target: 'node',
@@ -129,6 +129,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
+              name: '[hash:8].[ext]',
               outputPath: 'assets',
               publicPath: './',
             },
