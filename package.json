@@ -6,12 +6,14 @@
   "author": "jhukdev",
   "license": "MIT",
   "scripts": {
-    "start": "npm-run-all clean build:pages -p watch:*",
+    "start": "npm-run-all clean build:pages build:entry -p watch:*",
     "clean": "rimraf dist src/_js",
     "build": "npm-run-all clean build:pages build:11ty",
     "build:pages": "webpack --config webpack.server.js",
+    "build:entry": "webpack --config webpack.client.js",
     "build:11ty": "eleventy --quiet",
     "watch:pages": "yarn build:pages --watch",
+    "watch:entry": "yarn build:entry --watch",
     "watch:11ty": "eleventy --serve --quiet --watch",
     "lint": "eslint ./src/**/*.ts*",
     "test": "jest"
