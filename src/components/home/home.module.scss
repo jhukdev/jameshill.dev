@@ -24,7 +24,18 @@
   font-size: 64px;
   font-weight: 100;
   color: white;
-  margin: 0 0 0.6em;
+  margin: 0 0 0.3em;
+}
+
+/* -----------------------------------
+ *
+ * Link
+ *
+ * -------------------------------- */
+
+.link {
+  font-size: 18px;
+  color: white;
 }
 
 /* -----------------------------------
@@ -35,4 +46,5 @@
 
 .form {
   display: block;
+  margin: 3em 0 0;
 }

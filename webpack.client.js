@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+const AssetsManifestPlugin = require('webpack-assets-manifest');
 
 /* -----------------------------------
  *
@@ -43,6 +44,12 @@ module.exports = {
       '@': path.resolve(__dirname, `./src/`),
     },
   },
+  plugins: [
+    new AssetsManifestPlugin({
+      output: 'assets.json',
+      merge: true,
+    }),
+  ],
   module: {
     rules: [
       {

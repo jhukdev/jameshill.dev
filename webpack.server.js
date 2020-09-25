@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const AssetsManifestPlugin = require('webpack-assets-manifest');
 
 /* -----------------------------------
  *
@@ -55,6 +56,16 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [{ from: 'articles', to: 'articles' }],
+    }),
+    new AssetsManifestPlugin({
+      output: 'assets/assets.json',
+      merge: true,
+      customize: (item) => {
+        const [key] = item.key.split('/').slice(-1);
+        const [value] = item.key.split('/').slice(-1);
+
+        return { key, value };
+      },
     }),
   ],
   module: {
