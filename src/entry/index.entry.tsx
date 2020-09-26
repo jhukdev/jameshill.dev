@@ -6,7 +6,7 @@ import { mount } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-// import { Form } from '@/components/form';
+import { Header } from '@/components/header';
 
 /* -----------------------------------
  *
@@ -14,4 +14,4 @@ import { mount } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-// mount({ Form });
+mount({ Header });
