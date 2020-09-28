@@ -32,16 +32,11 @@
 .link {
   display: inline-block;
   vertical-align: middle;
-  padding: 0 rem(10);
+  padding: 0 rem(15);
   border-right: rem(1) solid #444;
-  opacity: 0.5;
 
   &:last-of-type {
     border: 0;
-  }
-
-  &:hover {
-    opacity: 1;
   }
 }
 
@@ -53,4 +48,10 @@
 
 .icon {
   width: rem(26);
+  opacity: 0.5;
+  transition: opacity 0.5s;
+
+  :hover > & {
+    opacity: 1;
+  }
 }

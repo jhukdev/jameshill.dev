@@ -30,13 +30,28 @@ import linkedinIcon from '@/styles/images/linkedin-icon.svg';
 function SocialMenu({ className = '' }: IProps) {
   return (
     <nav class={`${style.social} ${className}`}>
-      <a href="#twitter" class={style.link}>
+      <a
+        href="https://twitter.com/jhukdev"
+        target="_blank"
+        rel="noreferrer"
+        class={style.link}
+      >
         <img src={twitterIcon} class={style.icon} alt="Twitter" />
       </a>
-      <a href="#github" class={style.link}>
+      <a
+        href="https://github.com/jhukdev"
+        target="_blank"
+        rel="noreferrer"
+        class={style.link}
+      >
         <img src={githubIcon} class={style.icon} alt="Twitter" />
       </a>
-      <a href="#github" class={style.link}>
+      <a
+        href="https://www.linkedin.com/in/james-hill-6bb080112"
+        target="_blank"
+        rel="noreferrer"
+        class={style.link}
+      >
         <img src={linkedinIcon} class={style.icon} alt="Twitter" />
       </a>
     </nav>
