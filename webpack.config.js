@@ -178,7 +178,7 @@ const entry = {
   output: {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
-    publicPath: '/',
+    publicPath: '/assets/',
     jsonpFunction: '_jh_',
   },
   resolve: {
@@ -248,7 +248,6 @@ const entry = {
             loader: 'file-loader',
             options: {
               name: '[hash:8].[ext]',
-              outputPath: 'assets',
             },
           },
         ],
