@@ -11,7 +11,7 @@ function Header() {
   return (
     <header class={style.header}>
       <a href="/" class={style.logo}>
-        James.
+        James
       </a>
       <nav class={style.menu}>
         <a href="/articles">Articles</a>
