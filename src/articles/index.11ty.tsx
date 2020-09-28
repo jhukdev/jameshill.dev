@@ -40,9 +40,15 @@ class Page {
   render({ title, cssPath, jsPath }: IData) {
     return (
       <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <Header />
         <div class={style.wrapper}>
-          <div class={style.container}>ARTICLES</div>
+          <Header />
+          <main class={style.content}>
+            <div class={style.container}>
+              <h1 class={style.title}>
+                Not <em>quite</em> ready..
+              </h1>
+            </div>
+          </main>
         </div>
       </Html>
     );
