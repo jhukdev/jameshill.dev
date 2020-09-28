@@ -14,8 +14,8 @@ function Header() {
         James.
       </a>
       <nav class={style.menu}>
-        <a href="/projects">Projects</a>
         <a href="/articles">Articles</a>
+        <a href="/projects">Projects</a>
       </nav>
     </header>
   );
