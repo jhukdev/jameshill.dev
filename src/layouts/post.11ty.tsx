@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
-import style from './article.module.scss';
+import style from './post.module.scss';
 
 /* -----------------------------------
  *

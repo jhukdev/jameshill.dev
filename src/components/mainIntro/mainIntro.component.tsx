@@ -8,15 +8,15 @@ import style from './mainIntro.module.scss';
  * -------------------------------- */
 
 function MainIntro() {
-  console.log('MainIntro');
-
   return (
     <section class={style.wrapper}>
       <div class={style.container}>
         <em class={style.callout}>Hello</em>
         <em class={style.callout}>there</em>
         <p class={style.text}>
-          I'm Tech Lead for all things front-end at <i class={style.company} /> coupons
+          I'm Tech Lead for all things front-end at
+          <i class={style.company} role="img" />
+          coupons
         </p>
         <a
           href="https://www.linkedin.com/in/james-hill-6bb080112"

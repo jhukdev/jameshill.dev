@@ -17,7 +17,9 @@
  * -------------------------------- */
 
 .body {
-  background: $colour-background;
+  background-color: $colour-background;
+  background-image: url('@/styles/images/background.png');
+  background-position: center;
   font-family: $font-default;
   margin: 0;
   height: 100%;

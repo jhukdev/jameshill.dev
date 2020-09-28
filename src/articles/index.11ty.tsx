@@ -19,10 +19,8 @@ interface IData {
  *
  * -------------------------------- */
 
-import { Html } from './components/shared';
+import { Html } from '@/components/shared';
 import { Header } from '@/components/header';
-import { MainIntro } from '@/components/mainIntro';
-import { Footer } from '@/components/footer';
 
 /* -----------------------------------
  *
@@ -33,21 +31,18 @@ import { Footer } from '@/components/footer';
 class Page {
   data(): IData {
     return {
-      title: 'Home - JH',
-      cssPath: 'index.11ty.css',
-      jsPath: 'index.entry.js',
+      title: 'Articles - 11ty',
+      cssPath: 'articles/index.11ty.css',
+      jsPath: 'articles.entry.js',
     };
   }
 
   render({ title, cssPath, jsPath }: IData) {
     return (
       <Html title={title} cssPath={cssPath} jsPath={jsPath}>
+        <Header />
         <div class={style.wrapper}>
-          <Header />
-          <main class={style.content}>
-            <MainIntro />
-          </main>
-          <Footer />
+          <div class={style.container}>ARTICLES</div>
         </div>
       </Html>
     );

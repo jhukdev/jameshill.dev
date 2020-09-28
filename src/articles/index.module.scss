@@ -1,0 +1,26 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Wrapper
+ *
+ * -------------------------------- */
+
+.wrapper {
+  display: flex;
+  height: 0;
+  min-height: 100%;
+  flex-direction: column;
+  background-color: white;
+  padding: rem(40) 0 0;
+}
+
+/* -----------------------------------
+ *
+ * Container
+ *
+ * -------------------------------- */
+
+.container {
+  @extend %container;
+}
