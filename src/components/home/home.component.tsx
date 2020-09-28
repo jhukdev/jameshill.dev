@@ -8,6 +8,7 @@ import style from './home.module.scss';
  * -------------------------------- */
 
 import { Header } from '@/components/header';
+import { MainIntro } from '@/components/mainIntro';
 
 /* -----------------------------------
  *
@@ -20,7 +21,7 @@ function Home() {
     <div class={style.wrapper}>
       <Header />
       <main class={style.content}>
-        <div class={style.container}>HOME</div>
+        <MainIntro />
       </main>
     </div>
   );

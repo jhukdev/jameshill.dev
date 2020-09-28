@@ -1,8 +1,11 @@
+@import 'template';
+
 /* -----------------------------------
  *
- * Components
+ * Wrapper
  *
  * -------------------------------- */
 
-import '@/components/header';
-import '@/components/mainIntro';
+.wrapper {
+  display: block;
+}
