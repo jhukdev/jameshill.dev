@@ -7,7 +7,7 @@ import { applyHydration } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-const Header = applyHydration(Component);
+const Header = applyHydration('Header', Component);
 
 /* -----------------------------------
  *

@@ -9,6 +9,7 @@ import style from './home.module.scss';
 
 import { Header } from '@/components/header';
 import { MainIntro } from '@/components/mainIntro';
+import { Footer } from '@/components/footer';
 
 /* -----------------------------------
  *
@@ -23,6 +24,7 @@ function Home() {
       <main class={style.content}>
         <MainIntro />
       </main>
+      <Footer />
     </div>
   );
 }

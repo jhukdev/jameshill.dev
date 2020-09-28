@@ -8,7 +8,13 @@ import style from './mainIntro.module.scss';
  * -------------------------------- */
 
 function MainIntro() {
-  return <section class={style.wrapper}>INTRO!</section>;
+  console.log('MainIntro');
+
+  return (
+    <section class={style.wrapper}>
+      <div class={style.container}>INTRO!</div>
+    </section>
+  );
 }
 
 /* -----------------------------------
