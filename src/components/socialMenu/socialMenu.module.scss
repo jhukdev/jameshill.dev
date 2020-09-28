@@ -1,0 +1,56 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Social
+ *
+ * -------------------------------- */
+
+.social {
+  display: block;
+}
+
+/* -----------------------------------
+ *
+ * Title
+ *
+ * -------------------------------- */
+
+.title {
+  font-style: normal;
+  font-weight: 300;
+  color: white;
+  margin: 0 rem(10) 0 0;
+}
+
+/* -----------------------------------
+ *
+ * Link
+ *
+ * -------------------------------- */
+
+.link {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 rem(10);
+  border-right: rem(1) solid #444;
+  opacity: 0.5;
+
+  &:last-of-type {
+    border: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Icon
+ *
+ * -------------------------------- */
+
+.icon {
+  width: rem(26);
+}

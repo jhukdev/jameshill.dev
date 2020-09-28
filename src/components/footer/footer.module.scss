@@ -9,9 +9,20 @@
 .footer {
   @extend %container;
 
-  display: block;
+  display: flex;
   max-width: none;
   padding-top: rem(30);
   padding-bottom: rem(30);
   color: white;
+  flex-direction: row;
+}
+
+/* -----------------------------------
+ *
+ * Social
+ *
+ * -------------------------------- */
+
+.social {
+  margin-left: auto;
 }

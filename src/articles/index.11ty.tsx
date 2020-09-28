@@ -21,6 +21,7 @@ interface IData {
 
 import { Html } from '@/components/shared';
 import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 /* -----------------------------------
  *
@@ -49,6 +50,7 @@ class Page {
               </h1>
             </div>
           </main>
+          <Footer />
         </div>
       </Html>
     );
