@@ -41,6 +41,7 @@ component-main-intro {
  * -------------------------------- */
 
 .callout {
+  display: inline-block;
   font-family: $font-accent;
   font-size: rem(120);
   font-weight: 100;
@@ -61,7 +62,10 @@ component-main-intro {
 
 .text {
   color: white;
+  font-size: rem(22);
+  font-weight: 300;
   padding-left: rem(8);
+  margin: rem(10) 0 0;
 }
 
 /* -----------------------------------
@@ -74,8 +78,21 @@ component-main-intro {
   display: inline-block;
   background-image: url('@/styles/images/groupon.svg');
   background-repeat: no-repeat;
-  width: rem(74);
-  height: rem(16);
+  width: rem(100);
+  height: rem(22);
   vertical-align: middle;
-  margin: 0 rem(1) 0 0;
+  margin: 0;
+}
+
+/* -----------------------------------
+ *
+ * Profile
+ *
+ * -------------------------------- */
+
+.profile {
+  display: inline-block;
+  color: white;
+  padding-left: rem(8);
+  margin: rem(50) 0 0;
 }
