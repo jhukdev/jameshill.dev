@@ -137,8 +137,7 @@ const pages = {
             loader: 'file-loader',
             options: {
               name: '[hash:8].[ext]',
-              outputPath: 'assets',
-              publicPath: './',
+              outputPath: '/assets',
             },
           },
         ],
@@ -249,6 +248,7 @@ const entry = {
             loader: 'file-loader',
             options: {
               name: '[hash:8].[ext]',
+              outputPath: 'assets',
             },
           },
         ],

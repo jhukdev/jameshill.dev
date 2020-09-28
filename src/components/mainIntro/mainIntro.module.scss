@@ -18,7 +18,10 @@ component-main-intro {
  * -------------------------------- */
 
 .wrapper {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 /* -----------------------------------
@@ -29,4 +32,50 @@ component-main-intro {
 
 .container {
   @extend %container;
+}
+
+/* -----------------------------------
+ *
+ * Callout
+ *
+ * -------------------------------- */
+
+.callout {
+  font-family: $font-accent;
+  font-size: rem(120);
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  line-height: 1;
+
+  &:first-of-type {
+    font-weight: 300;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Text
+ *
+ * -------------------------------- */
+
+.text {
+  color: white;
+  padding-left: rem(8);
+}
+
+/* -----------------------------------
+ *
+ * Company
+ *
+ * -------------------------------- */
+
+.company {
+  display: inline-block;
+  background-image: url('@/styles/images/groupon.svg');
+  background-repeat: no-repeat;
+  width: rem(74);
+  height: rem(16);
+  vertical-align: middle;
+  margin: 0 rem(1) 0 0;
 }
