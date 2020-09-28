@@ -14,7 +14,7 @@ function MainIntro() {
     <section class={style.wrapper}>
       <div class={style.container}>
         <em class={style.callout}>Hello</em>
-        <em class={style.callout}>There</em>
+        <em class={style.callout}>there</em>
         <p class={style.text}>
           I'm Tech Lead for all things front-end at <i class={style.company} /> coupons
         </p>
