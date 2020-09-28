@@ -92,7 +92,19 @@ component-main-intro {
 
 .profile {
   display: inline-block;
+  font-family: $font-accent;
+  font-weight: 300;
   color: white;
-  padding-left: rem(8);
-  margin: rem(50) 0 0;
+  margin: rem(40) 0 0 rem(8);
+  padding: rem(4) rem(1);
+  background: linear-gradient(to bottom, $colour-accent 0%, $colour-accent 100%);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  text-decoration: none;
+  transition: background-size ease-in-out 0.2s;
+
+  &:hover {
+    background-size: 2px 50px;
+  }
 }
