@@ -4,6 +4,7 @@ const fs = require('fs');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AssetsManifestPlugin = require('webpack-assets-manifest');
+const TerserPlugin = require('terser-webpack-plugin');
 
 /* -----------------------------------
  *
@@ -39,7 +40,7 @@ const sassLoader = {
  * -------------------------------- */
 
 const pages = {
-  mode: 'development',
+  mode: RELEASE ? 'production' : 'development',
   entry: glob.sync(`${__dirname}/src/**/*.11ty.ts*`).reduce((result, file) => {
     const [name] = file.split('src/').slice(-1);
 
@@ -144,6 +145,17 @@ const pages = {
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: !RELEASE,
+        parallel: true,
+        terserOptions: {
+          keep_fnames: true,
+        },
+      }),
+    ],
+  },
 };
 
 /* -----------------------------------
@@ -168,6 +180,7 @@ const entry = {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
     publicPath: '/',
+    jsonpFunction: '_jh_',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],

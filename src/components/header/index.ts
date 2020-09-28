@@ -1,5 +1,5 @@
-import { hydrate } from '@/utility/hydrate.utility';
 import { Header as Component } from './header.component';
+import { applyHydration } from '@/utility/hydrate.utility';
 
 /* -----------------------------------
  *
@@ -7,7 +7,7 @@ import { Header as Component } from './header.component';
  *
  * -------------------------------- */
 
-const Header = hydrate(Component);
+const Header = applyHydration(Component);
 
 /* -----------------------------------
  *
