@@ -48,13 +48,17 @@ component-main-intro {
 .callout {
   display: inline-block;
   font-family: $font-accent;
-  font-size: rem(64);
+  font-size: rem(42);
   font-weight: 100;
   font-style: normal;
   color: white;
   line-height: 1;
 
   @include breakpoint('md') {
+    font-size: rem(90);
+  }
+
+  @include breakpoint('lg') {
     font-size: rem(120);
   }
 
@@ -134,7 +138,7 @@ component-main-intro {
     left: 0;
     background-color: #fff;
     visibility: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   &:after {
@@ -152,7 +156,7 @@ component-main-intro {
   &:hover {
     &:before {
       visibility: visible;
-      width: calc(100% - #{rem(26)});
+      width: calc(100% - #{rem(25)});
     }
   }
 }
