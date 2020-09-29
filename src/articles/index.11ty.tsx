@@ -21,6 +21,7 @@ interface IData {
 
 import { Html } from '@/components/shared';
 import { Header } from '@/components/header';
+import { Banner } from '@/components/banner';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -44,11 +45,9 @@ class Page {
         <div class={style.wrapper}>
           <Header />
           <main class={style.content}>
-            <div class={style.container}>
-              <h1 class={style.title}>
-                Not <em>quite</em> ready..
-              </h1>
-            </div>
+            <Banner>
+              <h1>Articles</h1>
+            </Banner>
           </main>
           <Footer />
         </div>

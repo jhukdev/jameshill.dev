@@ -1,0 +1,54 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Banner
+ *
+ * -------------------------------- */
+
+.banner {
+  display: block;
+  padding: rem(10) 0;
+  background: #fbfbfb;
+
+  @include breakpoint('md') {
+    padding: rem(30) 0;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Container
+ *
+ * -------------------------------- */
+
+.container {
+  @extend %container;
+}
+
+/* -----------------------------------
+ *
+ * Title
+ *
+ * -------------------------------- */
+
+.banner h1 {
+  font-family: $font-accent;
+  font-weight: 100;
+  font-size: rem(32);
+  margin: 0;
+
+  @include breakpoint('md') {
+    font-size: rem(46);
+  }
+}
+
+/* -----------------------------------
+ *
+ * Text
+ *
+ * -------------------------------- */
+
+.banner p {
+  margin: 0;
+}

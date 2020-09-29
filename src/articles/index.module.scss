@@ -21,15 +21,9 @@
 
 .content {
   position: relative;
-  display: flex;
   z-index: 2;
-  padding: rem(30) 0 0;
   flex: 1 0 auto;
   background-color: white;
-
-  // temp
-  justify-content: center;
-  align-items: center;
 }
 
 /* -----------------------------------
@@ -40,23 +34,4 @@
 
 .container {
   @extend %container;
-}
-
-/* -----------------------------------
- *
- * Title
- *
- * -------------------------------- */
-
-.title {
-  text-align: center;
-  font-weight: 300;
-  font-family: $font-accent;
-  font-size: rem(32);
-  margin: 0;
-
-  em {
-    font-weight: 500;
-    font-style: normal;
-  }
 }
