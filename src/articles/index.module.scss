@@ -37,10 +37,8 @@
   @extend %layout-sidebar;
 
   padding-top: rem(20);
-  padding-bottom: rem(20);
 
   @include breakpoint('md') {
-    padding-top: rem(40);
-    padding-bottom: rem(40);
+    padding-top: rem(50);
   }
 }

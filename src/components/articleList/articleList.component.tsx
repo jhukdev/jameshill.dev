@@ -21,7 +21,10 @@ function ArticleList({ articles }: IProps) {
   return (
     <article class={style.articles}>
       {articles.map((article) => (
-        <div>{article.title}</div>
+        <div>
+          <img src={`https://picsum.photos/seed/${article.id}/800/240`} alt="Post" />
+          <h3>{article.title}</h3>
+        </div>
       ))}
     </article>
   );
