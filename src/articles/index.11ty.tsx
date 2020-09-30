@@ -11,6 +11,7 @@ interface IData {
   title: string;
   cssPath: string;
   jsPath: string;
+  articles: any[];
 }
 
 /* -----------------------------------
@@ -22,6 +23,7 @@ interface IData {
 import { Html } from '@/components/shared';
 import { Header } from '@/components/header';
 import { Banner } from '@/components/banner';
+import { ArticleList } from '@/components/articleList';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -36,10 +38,14 @@ class Page {
       title: 'Articles - 11ty',
       cssPath: 'articles/index.11ty.css',
       jsPath: 'articles.entry.js',
+      articles: [
+        { id: 1, title: 'Lorem ipsum dolor' },
+        { id: 2, title: 'Sit amet amour' },
+      ],
     };
   }
 
-  render({ title, cssPath, jsPath }: IData) {
+  render({ title, cssPath, jsPath, articles }: IData) {
     return (
       <Html title={title} cssPath={cssPath} jsPath={jsPath}>
         <div class={style.wrapper}>
@@ -48,6 +54,10 @@ class Page {
             <Banner>
               <h1>Articles</h1>
             </Banner>
+            <div class={style.container}>
+              <ArticleList articles={articles} />
+              <aside>SIDEBAR</aside>
+            </div>
           </main>
           <Footer />
         </div>

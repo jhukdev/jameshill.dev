@@ -1,0 +1,26 @@
+/* -----------------------------------
+ *
+ * Sidebar
+ *
+ * -------------------------------- */
+
+%layout-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint('lg') {
+    flex-direction: row;
+  }
+
+  & > :not(aside) {
+    flex: 1 1 auto;
+  }
+
+  & > aside {
+    flex: 0 1 auto;
+
+    @include breakpoint('lg') {
+      width: 25%;
+    }
+  }
+}

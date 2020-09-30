@@ -1,8 +1,11 @@
+@import 'template';
+
 /* -----------------------------------
  *
- * Placeholders
+ * Articles
  *
  * -------------------------------- */
 
-@import './container';
-@import './layout-sidebar';
+.articles {
+  display: block;
+}
