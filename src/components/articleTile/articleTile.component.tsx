@@ -23,7 +23,7 @@ interface IProps {
 function ArticleTile({ post, url, className = '' }: IProps) {
   return (
     <section class={`${style.tile} ${className}`}>
-      <a href={url} class={style.link}>
+      <a href={url} class={style.inner}>
         <img
           src={`https://picsum.photos/seed/${post.title}/450/600`}
           class={style.image}
@@ -33,7 +33,7 @@ function ArticleTile({ post, url, className = '' }: IProps) {
           <h3 class={style.title}>
             <span>{post.title}</span>
           </h3>
-          <p class={style.text}>{post.excerpt}</p>
+          <p class={style.tagline}>{post.tagline}</p>
         </div>
       </a>
     </section>

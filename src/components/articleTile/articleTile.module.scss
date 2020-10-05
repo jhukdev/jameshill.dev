@@ -13,16 +13,16 @@
 
 /* -----------------------------------
  *
- * Link
+ * Inner
  *
  * -------------------------------- */
 
-.link {
+.inner {
   position: relative;
   display: block;
   text-decoration: none;
-  box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.5);
-  border-radius: rem(6);
+  box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.3);
+  border-radius: rem(3);
   overflow: hidden;
 
   &:before,
@@ -78,11 +78,18 @@
 
 .content {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   width: 100%;
-  padding: rem(30) rem(10) 0;
+  height: 100%;
+  padding: rem(30) rem(10);
   box-sizing: border-box;
   z-index: 3;
+
+  @include breakpoint('md') {
+    padding: rem(30) rem(20);
+  }
 
   &:before {
     position: absolute;
@@ -104,41 +111,40 @@
 
 .title {
   color: black;
-  margin: 0 auto;
-  max-width: 90%;
   font-family: $font-accent;
   font-size: rem(24);
   font-weight: 300;
+  margin: 0;
 
   $background: rgba(255, 255, 255, 0.85);
 
+  @include breakpoint('xl') {
+    font-size: rem(32);
+  }
+
   span {
     background: $background;
-    padding: rem(5) 0;
-    line-height: 2;
-    box-shadow: rem(10) 0 0 $background, rem(-10) 0 0 $background;
+    display: inline;
+    padding: rem(2);
+    line-height: 1.7;
+    box-shadow: rem(2) 0 0 $background, rem(-2) 0 0 $background;
+
+    @include breakpoint('md') {
+      box-shadow: rem(10) 0 0 $background, rem(-10) 0 0 $background;
+    }
   }
 }
 
 /* -----------------------------------
  *
- * Text
+ * Tagline
  *
  * -------------------------------- */
 
-.text {
-  color: black;
-  margin: rem(60) rem(5) 0;
-  padding: rem(10);
-  font-weight: 400;
-  font-size: rem(14);
-  opacity: 0.5;
-  transform: translateY(rem(500));
-  transition: transform ease-in-out 0.3s, opacity ease-in-out 0.5s;
-  background: rgba(255, 255, 255, 0.85);
-
-  .link:hover & {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.tagline {
+  display: block;
+  bottom: rem(40);
+  font-weight: 300;
+  color: white;
+  margin: auto 0 0;
 }
