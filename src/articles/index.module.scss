@@ -23,7 +23,7 @@
   position: relative;
   z-index: 2;
   flex: 1 0 auto;
-  background-color: white;
+  background: linear-gradient(to bottom, rgba(68, 68, 68, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* -----------------------------------
@@ -37,8 +37,10 @@
   @extend %layout-sidebar;
 
   padding-top: rem(20);
+  padding-bottom: rem(20);
 
   @include breakpoint('md') {
     padding-top: rem(50);
+    padding-bottom: rem(50);
   }
 }

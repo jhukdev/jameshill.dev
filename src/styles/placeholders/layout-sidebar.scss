@@ -21,6 +21,7 @@
 
     @include breakpoint('lg') {
       width: 25%;
+      margin-left: rem(30);
     }
   }
 }

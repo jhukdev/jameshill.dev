@@ -7,5 +7,31 @@
  * -------------------------------- */
 
 .articles {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include breakpoint('md') {
+    margin: 0 rem(-20);
+    flex-direction: row;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Item
+ *
+ * -------------------------------- */
+
+.item {
+  width: 100%;
+
+  @include breakpoint('md') {
+    width: 50%;
+    margin: 0 rem(20) rem(40);
+  }
+
+  @include breakpoint('xl') {
+    width: calc(33% - #{rem(40)});
+  }
 }

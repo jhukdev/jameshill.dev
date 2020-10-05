@@ -1,4 +1,6 @@
 import { h } from 'preact';
+import { ICollection } from '@/model/collection.model';
+import { IPost } from '@/model/post.model';
 import style from './articleList.module.scss';
 
 /* -----------------------------------
@@ -8,8 +10,16 @@ import style from './articleList.module.scss';
  * -------------------------------- */
 
 interface IProps {
-  articles: any[];
+  articles: ICollection<IPost>[];
 }
+
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
+
+import { ArticleTile } from '@/components/articleTile';
 
 /* -----------------------------------
  *
@@ -20,11 +30,11 @@ interface IProps {
 function ArticleList({ articles }: IProps) {
   return (
     <article class={style.articles}>
-      {articles.map((article) => (
-        <div>
-          <img src={`https://picsum.photos/seed/${article.id}/800/240`} alt="Post" />
-          <h3>{article.title}</h3>
-        </div>
+      {articles.map(({ data, url }) => (
+        <ArticleTile className={style.item} post={data} url={url} />
+      ))}
+      {articles.map(({ data, url }) => (
+        <ArticleTile className={style.item} post={data} url={url} />
       ))}
     </article>
   );
