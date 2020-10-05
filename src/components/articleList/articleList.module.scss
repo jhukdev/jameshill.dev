@@ -23,4 +23,17 @@
   @include breakpoint('md') {
     margin: 0 0 rem(40);
   }
+
+  &:after {
+    display: block;
+    content: '';
+    width: 90%;
+    height: rem(1);
+    margin: rem(20) auto 0;
+    background: #363636;
+
+    @include breakpoint('md') {
+      margin: rem(40) auto 0;
+    }
+  }
 }

@@ -31,10 +31,9 @@ function ArticleList({ articles }: IProps) {
   return (
     <article class={style.articles}>
       {articles.map(({ data, url }) => (
-        <ArticleTile className={style.item} post={data} url={url} />
-      ))}
-      {articles.map(({ data, url }) => (
-        <ArticleTile className={style.item} post={data} url={url} />
+        <div class={style.item}>
+          <ArticleTile post={data} url={url} />
+        </div>
       ))}
     </article>
   );
