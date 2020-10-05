@@ -8,13 +8,7 @@
 
 .articles {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0 rem(-10);
-
-  @include breakpoint('md') {
-    margin: 0 rem(-20);
-  }
+  flex-direction: column;
 }
 
 /* -----------------------------------
@@ -24,15 +18,9 @@
  * -------------------------------- */
 
 .item {
-  width: calc(100% - #{rem(20)});
-  margin: 0 rem(10) rem(20);
-
-  @include breakpoint('sm') {
-    width: calc(50% - #{rem(20)});
-  }
+  margin: 0 0 rem(20);
 
   @include breakpoint('md') {
-    width: calc(33% - #{rem(40)});
-    margin: 0 rem(20) rem(40);
+    margin: 0 0 rem(40);
   }
 }

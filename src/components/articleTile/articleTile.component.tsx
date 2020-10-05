@@ -23,19 +23,18 @@ interface IProps {
 function ArticleTile({ post, url, className = '' }: IProps) {
   return (
     <section class={`${style.tile} ${className}`}>
-      <a href={url} class={style.inner}>
-        <img
-          src={`https://picsum.photos/seed/${post.title}/450/600`}
-          class={style.image}
-          alt="Post"
-        />
-        <div class={style.content}>
-          <h3 class={style.title}>
+      <figure class={style.image}>
+        <img src={`https://picsum.photos/seed/${post.title}/420/300`} alt="Post" />
+      </figure>
+      <div class={style.content}>
+        <h2 class={style.title}>
+          <a href={url} class={style.link}>
             <span>{post.title}</span>
-          </h3>
-          <p class={style.tagline}>{post.tagline}</p>
-        </div>
-      </a>
+          </a>
+        </h2>
+        <h3 class={style.tagline}>{post.tagline}</h3>
+        <p class={style.excerpt}>{post.excerpt}</p>
+      </div>
     </section>
   );
 }
