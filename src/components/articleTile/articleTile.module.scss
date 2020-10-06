@@ -117,13 +117,13 @@
  * -------------------------------- */
 
 .title {
+  $background: #fbfbfb;
+
   color: black;
   font-family: $font-accent;
   font-size: rem(24);
   font-weight: 300;
   margin: 0;
-
-  $background: rgba(255, 255, 255, 0.85);
 
   @include breakpoint('lg') {
     font-size: rem(32);
@@ -152,7 +152,7 @@
   display: block;
   font-weight: 500;
   font-size: rem(12);
-  letter-spacing: rem(2);
+  letter-spacing: 0.2em;
   color: white;
   margin: rem(20) 0 0;
   text-transform: uppercase;
