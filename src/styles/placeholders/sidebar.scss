@@ -4,7 +4,7 @@
  *
  * -------------------------------- */
 
-%layout-sidebar {
+%sidebar {
   display: flex;
   flex-direction: column;
 
@@ -17,10 +17,10 @@
   }
 
   & > aside {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 
     @include breakpoint('lg') {
-      width: 25%;
+      width: 20%;
       margin-left: rem(30);
     }
   }

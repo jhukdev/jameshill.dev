@@ -2,15 +2,74 @@
 
 /* -----------------------------------
  *
+ * Wrapper
+ *
+ * -------------------------------- */
+
+.wrapper {
+  display: flex;
+  height: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+/* -----------------------------------
+ *
  * Content
  *
  * -------------------------------- */
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  position: relative;
+  z-index: 2;
+  flex: 1 0 auto;
+  background: #fbfbfb;
+}
+
+/* -----------------------------------
+ *
+ * Container
+ *
+ * -------------------------------- */
+
+.container {
+  @extend %container;
+
+  padding-top: rem(30);
+  padding-bottom: rem(30);
+
+  @include breakpoint('md') {
+    padding-top: rem(60);
+    padding-bottom: rem(60);
+  }
+}
+
+/* -----------------------------------
+ *
+ * Layout
+ *
+ * -------------------------------- */
+
+.layout {
+  @extend %sidebar;
+}
+
+/* -----------------------------------
+ *
+ * Title
+ *
+ * -------------------------------- */
+
+.title {
+  font-family: $font-accent;
+  font-size: rem(26);
+  font-weight: 400;
+  margin: 0 0 rem(20);
+
+  @include breakpoint('md') {
+    font-size: rem(42);
+    margin: 0 0 rem(40);
+  }
 }
 
 /* -----------------------------------
@@ -20,7 +79,7 @@
  * -------------------------------- */
 
 .article {
+  @extend %article;
+
   font-size: 18px;
-  color: white;
-  text-align: center;
 }

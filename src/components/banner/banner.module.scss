@@ -10,6 +10,7 @@
   display: block;
   padding: rem(10) 0;
   background: #fbfbfb;
+  border-bottom: rem(1) solid #b6b6b6;
 
   @include breakpoint('md') {
     padding: rem(20) 0;
@@ -32,14 +33,19 @@
  *
  * -------------------------------- */
 
-.banner h1 {
-  font-family: $font-accent;
-  font-weight: 100;
-  font-size: rem(32);
-  margin: 0;
+.banner {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: $font-accent;
+    font-weight: 100;
+    font-size: rem(32);
+    margin: 0;
 
-  @include breakpoint('md') {
-    font-size: rem(46);
+    @include breakpoint('md') {
+      font-size: rem(46);
+    }
   }
 }
 

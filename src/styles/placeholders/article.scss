@@ -1,0 +1,26 @@
+/* -----------------------------------
+ *
+ * Article
+ *
+ * -------------------------------- */
+
+%article {
+  color: #222;
+
+  blockquote {
+    margin: 0;
+    padding: 0 0 0 rem(20);
+    border-left: rem(4) solid #b6b6b6;
+    color: #444;
+  }
+
+  p {
+    font-size: rem(16);
+    margin: 0 0 1.5em;
+    line-height: 1.5;
+
+    @include breakpoint('md') {
+      font-size: rem(18);
+    }
+  }
+}

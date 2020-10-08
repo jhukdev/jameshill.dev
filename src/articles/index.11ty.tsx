@@ -51,8 +51,10 @@ class Page {
               <h1>Articles</h1>
             </Banner>
             <div class={style.container}>
-              <ArticleList articles={collections.post} />
-              <aside>SIDEBAR</aside>
+              <div class={style.layout}>
+                <ArticleList articles={collections.post} />
+                <aside>SIDEBAR</aside>
+              </div>
             </div>
           </main>
           <Footer />

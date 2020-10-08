@@ -34,13 +34,22 @@
 
 .container {
   @extend %container;
-  @extend %layout-sidebar;
+}
 
-  padding-top: rem(20);
-  padding-bottom: rem(20);
+/* -----------------------------------
+ *
+ * Layout
+ *
+ * -------------------------------- */
+
+.layout {
+  @extend %sidebar;
+
+  padding-top: rem(30);
+  padding-bottom: rem(30);
 
   @include breakpoint('md') {
-    padding-top: rem(50);
-    padding-bottom: rem(50);
+    padding-top: rem(60);
+    padding-bottom: rem(60);
   }
 }
