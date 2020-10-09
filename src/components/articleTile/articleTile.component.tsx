@@ -24,7 +24,7 @@ function ArticleTile({ post, url, className = '' }: IProps) {
   return (
     <section class={`${style.tile} ${className}`}>
       <a href={url} class={style.image}>
-        <img src={`https://picsum.photos/seed/${post.title}/420/300`} alt="Post" />
+        <img src={`/articles/_images/${post.image}`} alt="Post" />
       </a>
       <div class={style.content}>
         <h2 class={style.title}>

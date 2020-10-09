@@ -3,6 +3,8 @@ title: Simplify tooling with CLI-fun
 tagline: Finding simplicity in chaos
 tags: ['post', 'analytics', 'ga']
 excerpt: When it comes to managing multiple projects, keeping your tooling consistent and bug free can become a painful prospect.
+image: simplify-tooling-thumbnail.jpg
+date: 2020-10-09
 layout: post.11ty.js
 cssPath: layouts/post.11ty.css
 ---
