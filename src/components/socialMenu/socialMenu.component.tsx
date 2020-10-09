@@ -47,7 +47,7 @@ function SocialMenu({ className = '' }: IProps) {
         <img src={githubIcon} class={style.icon} alt="Twitter" />
       </a>
       <a
-        href="https://www.linkedin.com/in/james-hill-6bb080112"
+        href="https://www.linkedin.com/in/jameshill-dev"
         target="_blank"
         rel="noreferrer"
         class={style.link}

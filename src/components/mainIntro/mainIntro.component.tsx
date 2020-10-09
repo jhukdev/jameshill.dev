@@ -19,7 +19,7 @@ function MainIntro() {
           coupons
         </p>
         <a
-          href="https://www.linkedin.com/in/james-hill-6bb080112"
+          href="https://www.linkedin.com/in/jameshill-dev"
           target="_blank"
           rel="noreferrer"
           class={style.profile}
