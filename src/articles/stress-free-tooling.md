@@ -9,7 +9,7 @@ layout: post.11ty.js
 cssPath: layouts/post.11ty.css
 ---
 
-For a long time now, we've tackled new projects with a pretty common formula; We bootstrap the approved framework, tools and build processes for each new project, and do so in isolation. This works great, and initially speeds up development and prototyping. _However_, once a project matures, and tooling moves on, it becomes tricky to uniformally update and maintain these build tools across all projects. This article is a short story about how we tackled this problem.
+For some time now, we've tackled new projects with a pretty common formula; We bootstrap the approved framework, tools and build processes for each new project, and do so in isolation. This works great, and initially speeds up development and prototyping. _However_, once a project matures, and tooling moves on, it becomes tricky to uniformally update and maintain these build tools across all projects. This article is a short story about how we tackled this problem.
 
 ## In the beggining, there was Gulp
 
@@ -34,7 +34,7 @@ A few options were available. We looked at running Webpack via the CLI and "inst
 
 We then turned our attention to NPM scripts, small js files that could be run via `npm run ..` or in our case, just `yarn ..`. This made use of the Node API's that many of our third party tools expose, and gave us the added flexibility that drew us to Gulp in the first place. These could again be defined and maintained in one place, and installed via a package manager to each and every project that required them. But how to run these in a concerted manner? How could each task uniformly output the result to another, that could write the hashed file names to a manifest for example? For this we would need some kind of orchestrator, the same purpose that Gulp had served us in the past.
 
-## Finally, a workable solution
+## Last but not least
 
 After looking at our options, and our findings during this period, it became evident that to meet all of our requirements we would need to develop something that served the same purpose as Gulp. We wanted it to provide a thin wrapper around our existing third party toolset, that exposed a very simple API that wouldn't cause issues in the future if we wanted to swap out one tool for another. Here enters our CLI.
 
