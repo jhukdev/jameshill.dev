@@ -19,15 +19,13 @@ The removal of these things, and more, can potentially reduce overall complexity
 
 ## Shipped code overload
 
-So in my spare time I decided to put this very site together in a handful of the most popular static generators. I looked at Gatsby, which is wonderful, I looked a Next.js, which is great, and I looked at Hugo, which is speedy.
+Each of these build tools provides a super quick CLI to get up and running, going from nothing to a working project in no time at all. There are many, but the two front runners in the React space at the time of writing are Gatsby and Next.js.
 
-Each of these provide a super quick CLI to get up and running with, going from nothing to a working project in no time at all. I weighed each of the three projects, and decided I didn't feel like switching to Go right now, so Hugo was out. That left Gatsby and Next.js.
+Both of these projects are heavily focused on performance, and they do a _great_ job at it. For anything that isn't a simple site, the architecture they use will serve you well. But there is a catch.
 
-Now, it's worth pointing out that both of these projects are heavily focused on performance, and they do a _great_ job at it. For anything that isn't a simple site, the architecture they use will serve you well. But there is a catch.
+Ultimately, both of these projects are SPA's, with a pre-built HTML file that your application sits ontop of. This fixes two of the most common complaints for sites built in this way; Initial paint times, and SEO indexing. By providing a complete HTML document, perceived render is instantaneous and search engines are happy.
 
-Ultimately, both of these projects are SPA's, but with a pre-built HTML file that your application sits ontop of. This fixes two of the most common complaints for sites built in this way; Initial paint times, and SEO indexing. By providing a complete HTML document, perceived render is instantaneous and search engines are happy.
-
-But what if you have very little interactivity on your page, if any at all? Well in this scenario, you have to ship _all_ of the necessary javascript required to render the page, even though it's _already_ rendered, with little to no hydration actually needed. This, to me, seems wasteful and I wanted to find a way to avoid it.
+But what if you have very little interactivity on your page, if any at all? Well in this scenario, you have to ship _all_ of the necessary javascript required to render the page, even though it's _already_ rendered, with little to no hydration actually needed. This is commonly referred to as the "double payload" problem. To me, this seems wasteful and I wanted to find a way to avoid it.
 
 ## Here, and by that I mean, this
 
