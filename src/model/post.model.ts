@@ -10,6 +10,7 @@ interface IPost {
   excerpt: string;
   image: string;
   tags: string[];
+  date: Date;
   cssPath: string;
   jsPath: string;
 }

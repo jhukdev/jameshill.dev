@@ -12,6 +12,7 @@ interface IData {
   title: string;
   content: string;
   cssPath: string;
+  jsPath: string;
 }
 
 /* -----------------------------------
@@ -32,9 +33,14 @@ import { Footer } from '@/components/footer';
  * -------------------------------- */
 
 class Page {
-  render({ title, content, cssPath }: IData) {
+  render({
+    title,
+    content,
+    cssPath = 'layouts/post.11ty.css',
+    jsPath = 'post.entry.js',
+  }: IData) {
     return (
-      <Html title={title} cssPath={cssPath}>
+      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
         <div class={style.wrapper}>
           <Header />
           <main class={style.content}>

@@ -32,6 +32,7 @@ function ArticleTile({ post, url, className = '' }: IProps) {
             <span>{post.title}</span>
           </a>
         </h2>
+        <time>{post.date.getFullYear()}</time>
         <h3 class={style.tagline}>{post.tagline}</h3>
         <p class={style.excerpt}>{post.excerpt}</p>
       </div>
