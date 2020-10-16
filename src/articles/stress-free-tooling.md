@@ -41,9 +41,12 @@ After looking at our options, and our findings during this period, it became evi
 Once installed into a project via Yarn, we wanted to define a series of NPM scripts in the `package.json` that would look something like the following:
 
 ```json
-"scripts": {
-  "build:js": "our-cli js",
-  "build:css": "our-cli css
+{
+  /* [...] */
+  "scripts": {
+    "build:js": "our-cli js",
+    "build:css": "our-cli css"
+  }
 }
 ```
 
