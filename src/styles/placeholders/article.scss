@@ -96,4 +96,20 @@
       }
     }
   }
+
+  pre {
+    font-size: rem(16);
+    margin: 0 0 1.5em;
+
+    @include breakpoint('md') {
+      font-size: rem(18);
+    }
+  }
+
+  code[class^='language-'] {
+    max-width: rem(560);
+    padding: rem(15) !important;
+    box-sizing: border-box;
+    border-radius: rem(4);
+  }
 }
