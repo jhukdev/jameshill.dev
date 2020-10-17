@@ -9,3 +9,13 @@ layout: post.11ty.js
 ---
 
 ## Lorem ipsum
+
+```typescript
+function withHydration(uniqueName: string, component: ComponentFactory) {
+  const preRender = typeof window === 'undefined';
+
+  if(preRender){
+    return h(component, {};)
+  }
+}
+```

@@ -107,7 +107,8 @@
   }
 
   code[class^='language-'] {
-    max-width: rem(560);
+    display: inline-block;
+    min-width: rem(560);
     padding: rem(15) !important;
     box-sizing: border-box;
     border-radius: rem(4);
