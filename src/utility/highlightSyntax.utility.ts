@@ -27,9 +27,10 @@ async function applySyntaxHighlight() {
     return;
   }
 
-  const library = await highlight();
-
-  await import('highlight.js/styles/monokai-sublime.css');
+  const [library] = await Promise.all([
+    highlight(),
+    import('highlight.js/styles/monokai-sublime.css'),
+  ]);
 
   for (const block of codeBlocks) {
     const language = getLanguageFromClass(block.className);
