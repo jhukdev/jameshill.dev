@@ -110,7 +110,7 @@
 
   pre {
     font-size: rem(16);
-    margin: 0 0 1.5em;
+    margin: 0 0 2em;
 
     @include breakpoint('md') {
       font-size: rem(18);

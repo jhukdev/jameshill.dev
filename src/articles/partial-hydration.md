@@ -20,8 +20,8 @@ In a typical SPA, you'll have a single entry file that is responsible for render
 
 This normally looks something like this:
 
-```typescript
-import { h, hydrate } from 'preact';
+```tsx
+import { hydrate } from 'preact';
 import { App } from './components/app';
 
 /*[...]*/
@@ -50,7 +50,7 @@ function App() {
 }
 ```
 
-Here we have one `<Button />` component that must be hydrated to bind event listeners, and another _enormous_ tree under `<MegaHugeContents />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render these has been wasted, and is duplicated on the client.
+Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHugeContents />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted.
 
 ## How do we fix this
 
