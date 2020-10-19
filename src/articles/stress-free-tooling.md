@@ -16,7 +16,7 @@ For some time now, we've tackled new projects with a pretty common formula; We b
 We have a fairly well established setup for FE tooling, a series of simple task files orchestrated by Gulp. We'd use these common tasks across each and every project that the business required. All was well. One day, we'd need to tweak how a particular asset was processed, or output, so this would inevitably be done locally within that specific project. This was fine, kind of. If another project required that same change, there were two potential outcomes:
 
 1. The developer would copy the changes from one project into another, potentially tweaking how it worked, but ultimately drawing on previous work.
-2. Not having prior knowledge of previous changes, the developer would _re-implement_ these changes in complete isolation, duplicating work.
+2. Not having prior knowledge of changes, the developer would _re-implement_ these changes in complete isolation, duplicating work.
 
 In either case, the implementations would not be consistent. If a bug arose in one of those changed tasks, the same fix would almost never be carried over to another in the same manner. This produced slight variations in how each task worked, causing maintainance overhead, and bad times.
 
@@ -56,15 +56,16 @@ Each script could then be configured via arguments, or a config file local to th
 module.exports = {
   js: {
     sourcePath: './src/**/*.entry.ts'
-    watch: false
+    release: false
   }
+  /* [...] */
 }
 ```
 
 Eac of these values could then be overridden if needed by their command line counterparts, e.g:
 
 ```bash
-$ our-cli js --watch
+$ our-cli js --release
 ```
 
 It turns out, creating a CLI with Node is incredibly simple. Once you have your package setup, all that's needed is a simple property in your `package.json` file and an entry script for Node to run. There's a great introduction to this over on `npmjs.org`'s blog: <a href="https://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="noopener">Building a simple command line tool with npm</a>
