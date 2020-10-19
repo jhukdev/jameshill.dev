@@ -35,7 +35,7 @@ Take this component for example:
 
 ```tsx
 import { h } from 'preact';
-import { MegaHugeContent } from './banner';
+import { MegaHuge } from './banner';
 import { Button } from './button';
 
 /*[...]*/
@@ -43,14 +43,14 @@ import { Button } from './button';
 function App() {
   return (
     <div>
-      <MegaHugeContents />
       <Button>Buy Stuff</Button>
+      <MegaHuge />
     </div>
   );
 }
 ```
 
-Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHugeContents />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted.
+Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted.
 
 ## How do we fix this
 
