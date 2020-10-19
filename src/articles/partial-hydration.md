@@ -14,7 +14,7 @@ The days of shoving everything into a `vendor.js` file and calling it a day are 
 
 This article focuses on Preact, but is in no way exclusive to this library. In particular we'll look at pre-rendered applications, be it server side or statically generated.
 
-## Common patterns seen in the wild
+## Common patterns
 
 In a typical SPA, you'll have a single entry file that is responsible for rendering the application. Ideally there will be one per view that will be responsible for running the code specifically for that page, but commonly a single file will be shared across each.
 
@@ -52,7 +52,7 @@ function App() {
 
 Here we have one `<Button />` component that must be hydrated to bind event listeners, and another _enormous_ tree under `<MegaHugeContents />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render these has been wasted, and is duplicated on the client.
 
-## Example hydrate function
+## How do we fix this
 
 ```typescript
 function withHydration(uniqueName: string, component: ComponentFactory) {

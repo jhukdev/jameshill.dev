@@ -32,6 +32,15 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1" />
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-167321875-1');
+          `}
+        </script>
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&family=Roboto:wght@300;400;500&display=swap"
           rel="stylesheet"
