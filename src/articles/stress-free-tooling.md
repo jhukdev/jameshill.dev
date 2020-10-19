@@ -68,7 +68,7 @@ Eac of these values could then be overridden if needed by their command line cou
 $ our-cli js --release
 ```
 
-It turns out, creating a CLI with Node is incredibly simple. Once you have your package setup, all that's needed is a simple property in your `package.json` file and an entry script for Node to run. There's a great introduction to this over on `npmjs.org`'s blog: <a href="https://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="noopener">Building a simple command line tool with npm</a>
+It turns out, creating a CLI with Node is incredibly simple. Once you have your package setup, all that's needed is a simple property in your `package.json` file and an entry script for Node to run. There's a great introduction to this over on npmjs.org's blog: <a href="https://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="noopener">Building a simple command line tool with npm</a>
 
 With our new repo setup, the package configured to expose a CLI, and our intial requirements met, we were ready to strip out Gulp, and move on to good times.
 

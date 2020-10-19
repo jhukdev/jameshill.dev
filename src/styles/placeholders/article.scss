@@ -59,6 +59,16 @@
     }
   }
 
+  strong {
+    font-weight: 500;
+  }
+
+  a {
+    font-family: $font-accent;
+    color: #222;
+    font-weight: 600;
+  }
+
   ul,
   ol {
     line-height: 1.4;
@@ -105,18 +115,31 @@
     @include breakpoint('md') {
       font-size: rem(18);
     }
-
-    code {
-      display: inline-block;
-    }
   }
 
-  code[class^='language-'] {
+  pre[class*='language-'] {
     display: inline-block;
-    min-width: rem(560);
+    width: 100%;
+    max-width: 100%;
     padding: rem(15) !important;
     box-sizing: border-box;
     border-radius: rem(4);
     background: #23241f;
+
+    @include breakpoint('md') {
+      width: auto;
+      min-width: rem(620);
+    }
+  }
+
+  code:not([class*='language-']) {
+    display: inline-block;
+    font-weight: 400;
+    background: #23241f;
+    padding: 0 rem(4);
+    border-radius: rem(2);
+    font-size: inherit;
+    color: white;
+    box-sizing: border-box;
   }
 }

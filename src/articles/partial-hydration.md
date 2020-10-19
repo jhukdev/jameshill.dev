@@ -8,9 +8,9 @@ date: 2020-10-13
 layout: post.11ty.js
 ---
 
-In the time of our modern web, there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end engineers mind.
+In the time of our modern web, there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
 
-Shoving everything into a `vendor.js` file and calling it a day are long gone. DevRels and people of import across the internet are promoting an open and accessible web, where regardless of how powerful your device maybe, it performs the best it can.
+The days of shoving everything into a `vendor.js` file and calling it a day are long gone. DevRels and others across the internet are promoting an open and accessible web, where regardless of how powerful your device may be, an app performs as best it can.
 
 This article focuses on Preact, but is in no way exclusive to this library. In particular we'll look at pre-rendered applications, be it server side or statically generated.
 
@@ -33,9 +33,9 @@ This is all fine and well, and if your application is relatively small, this app
 
 Take this component for example:
 
-```typescript
+```tsx
 import { h } from 'preact';
-import { HugeBanner } from './banner';
+import { MegaHugeContent } from './banner';
 import { Button } from './button';
 
 /*[...]*/
@@ -43,14 +43,16 @@ import { Button } from './button';
 function App() {
   return (
     <div>
-      <HugeBanner />
+      <MegaHugeContents />
       <Button>Buy Stuff</Button>
     </div>
   );
 }
 ```
 
-# Example hydrate function
+Here we have one `<Button />` component that must be hydrated to bind event listeners, and another _enormous_ tree under `<MegaHugeContents />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render these has been wasted, and is duplicated on the client.
+
+## Example hydrate function
 
 ```typescript
 function withHydration(uniqueName: string, component: ComponentFactory) {

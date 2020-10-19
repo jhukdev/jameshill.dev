@@ -1,5 +1,3 @@
-const highlight = () => import('highlight.js/lib/core');
-
 /* -----------------------------------
  *
  * Languages
@@ -7,10 +5,16 @@ const highlight = () => import('highlight.js/lib/core');
  * -------------------------------- */
 
 const languages = {
-  javascript: () => import('highlight.js/lib/languages/javascript'),
-  typescript: () => import('highlight.js/lib/languages/typescript'),
-  json: () => import('highlight.js/lib/languages/json'),
-  bash: () => import('highlight.js/lib/languages/bash'),
+  typescript: () => import('prismjs/components/prism-typescript'),
+  javascript: () => import('prismjs/components/prism-javascript'),
+  bash: () => import('prismjs/components/prism-bash'),
+  scss: () => import('prismjs/components/prism-scss'),
+  json: () => import('prismjs/components/prism-json'),
+  tsx: () => [
+    import('prismjs/components/prism-typescript'),
+    import('prismjs/components/prism-jsx'),
+    import('prismjs/components/prism-tsx'),
+  ],
 };
 
 /* -----------------------------------
@@ -21,33 +25,34 @@ const languages = {
 
 async function applySyntaxHighlight() {
   const codeBlocks = [].slice.call(document.querySelectorAll('pre code'));
-  const languageList = {};
+  const loadList = {};
 
   if (!codeBlocks.length) {
     return;
   }
 
-  const [library] = await Promise.all([
-    highlight(),
-    import('highlight.js/styles/monokai-sublime.css'),
+  const [{ highlightAll }] = await Promise.all([
+    import('prismjs'),
+    import('@/styles/monokai.css'),
   ]);
 
   for (const block of codeBlocks) {
-    const language = getLanguageFromClass(block.className);
+    const key = getLanguageFromClass(block.className);
 
-    languageList[language] = languages[language];
+    if (languages[key]) {
+      loadList[key] = languages[key];
+
+      continue;
+    }
+
+    console.warn(`Prism: language missing: ${key}`);
   }
 
-  const languageKeys = Object.keys(languageList);
-  const languageFiles = await Promise.all(languageKeys.map((key) => languageList[key]()));
+  const syntax: any = Object.keys(loadList).map((key) => loadList[key]());
 
-  languageFiles.forEach((language, index) =>
-    library.registerLanguage(languageKeys[index], language.default)
-  );
+  await Promise.all([].concat(...syntax));
 
-  for (const block of codeBlocks) {
-    library.highlightBlock(block as HTMLElement);
-  }
+  await highlightAll();
 }
 
 /* -----------------------------------
@@ -59,7 +64,7 @@ async function applySyntaxHighlight() {
 function getLanguageFromClass(className: string) {
   const [languageClass] = className
     .split(' ')
-    .filter((value) => value.indexOf('language') > -1);
+    .filter((value) => value.indexOf('language-') > -1);
 
   return languageClass.replace('language-', '');
 }
