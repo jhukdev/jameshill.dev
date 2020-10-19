@@ -104,6 +104,10 @@
     @include breakpoint('md') {
       font-size: rem(18);
     }
+
+    code {
+      display: inline-block;
+    }
   }
 
   code[class^='language-'] {

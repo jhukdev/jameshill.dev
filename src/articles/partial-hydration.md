@@ -14,7 +14,7 @@ layout: post.11ty.js
 function withHydration(uniqueName: string, component: ComponentFactory) {
   const preRender = typeof window === 'undefined';
 
-  if(preRender){
+  if (preRender) {
     return h(component, {};)
   }
 }

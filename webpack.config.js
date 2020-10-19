@@ -211,6 +211,7 @@ const entry = {
             options: {
               compilerOptions: {
                 target: 'es5',
+                module: 'esnext',
               },
             },
           },
@@ -265,16 +266,6 @@ const entry = {
   optimization: {
     moduleIds: 'hashed',
     runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
   },
 };
 

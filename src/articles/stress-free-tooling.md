@@ -50,7 +50,22 @@ Once installed into a project via Yarn, we wanted to define a series of NPM scri
 }
 ```
 
-Each script could then be configured via arguments, or a config file local to that project.
+Each script could then be configured via arguments, or a config file local to that project. This config file would house base config values for each task, say "js" as seen above.
+
+```javascript
+module.exports = {
+  js: {
+    sourcePath: './src/**/*.entry.ts'
+    watch: false
+  }
+}
+```
+
+Eac of these values could then be overridden if needed by their command line counterparts, e.g:
+
+```bash
+$ our-cli js --watch
+```
 
 It turns out, creating a CLI with Node is incredibly simple. Once you have your package setup, all that's needed is a simple property in your `package.json` file and an entry script for Node to run. There's a great introduction to this over on `npmjs.org`'s blog: <a href="https://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="noopener">Building a simple command line tool with npm</a>
 

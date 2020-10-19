@@ -21,7 +21,7 @@ interface IProps {
  * -------------------------------- */
 
 function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
-  const scripts = ['vendor.js', jsPath, 'runtime.js'];
+  const scripts = [jsPath, 'runtime.js'];
 
   return (
     <html lang="en" class={style.html}>
