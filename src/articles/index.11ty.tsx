@@ -8,9 +8,6 @@ import style from './index.module.scss';
  * -------------------------------- */
 
 interface IData {
-  title: string;
-  cssPath: string;
-  jsPath: string;
   collections?: any;
 }
 
