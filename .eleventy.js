@@ -33,12 +33,12 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addCollection('post', (collection) => {
-    return collection
+  config.addCollection('post', (collection) =>
+    collection
       .getAllSorted()
       .filter(({ data: { tags = [] } }) => tags.includes('post'))
-      .reverse();
-  });
+      .reverse()
+  );
 
   return {
     passthroughFileCopy: true,

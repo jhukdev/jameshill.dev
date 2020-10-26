@@ -35,31 +35,87 @@ Take this component for example:
 
 ```tsx
 import { h } from 'preact';
-import { MegaHuge } from './banner';
+import { MegaHuge } from './megaHuge';
 import { Button } from './button';
 
 /*[...]*/
 
 function App() {
   return (
-    <div>
+    <main>
       <Button>Buy Stuff</Button>
       <MegaHuge />
-    </div>
+    </main>
   );
 }
 ```
 
 Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted.
 
-## How do we fix this
+## How do we fix this?
+
+Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the component in question. This gives you a point of control to hydrate your component, accessing any properties that the server has provided and kicking of a render within a root element. This HOC could look something like this:
 
 ```typescript
-function withHydration(uniqueName: string, component: ComponentFactory) {
-  const preRender = typeof window === 'undefined';
+import { h, hydrate } from 'preact';
 
-  if (preRender) {
-    return h(component, {};)
+/*[...]*/
+
+function withHydration(uniqueName: string, component: any) {
+  const preRender = typeof window === 'undefined';
+  const elementName = getElementName(uniqueName);
+
+  if (!preRender) {
+    const root = document?.querySelectorAll(elementName);
+    const data = root?.querySelector('[type="application/json"]');
+
+    return hydrate(h(component, JSON.parse(data?.innerHTML)), root);
   }
+
+  return (props: any) =>
+    h(elementName, {}, [
+      h('script', {
+        type: 'application/json',
+        dangerouslySetInnerHTML: { __html: JSON.stringify(props) },
+      }),
+      h(component, props),
+    ]);
 }
 ```
+
+There's quite a lot going on here so let's step through..
+
+First, we check whether the function is being run on the server, or the client. We can achieve this with an assumption that `window` will only be defined in a browser. E.g: `typeof window === 'undefined'`
+
+Next, we construct an element handle using the `uniqueName` argument. If we used `LoginForm` as the `uniqueName` value, the result of `getElementName()` will look something like `login-form-component`.
+
+If the function is running in the browser, we query the DOM for our element name, e.g `<login-form-component>`, extract some JSON data held within, and run Preact's `hydrate` function with our component reference and data.
+
+If the function is running server side, we simply return a function that accepts some props, and generates the container used above. The result of this will look something like the following:
+
+```html
+<login-form-component>
+  <script type="application/json">
+    { "className": "login", "formTitle": "Login Form" }
+  </script>
+  <form class="login">
+    <h3>Login Form</h3>
+    <!-- rest of component -->
+  </form>
+</login-form-component>
+```
+
+## Using the higher order function
+
+Finally, to use the `withHydration()` function you'll do something like the following. Where you place this is up to you, but I tend to have an `index.ts` file within a component's folder that handles anything related to implementation detail:
+
+```tsx
+import { LoginForm as Component } from './login-form';
+import { withHydration } from './withHydration';
+
+/*[...]*/
+
+const LoginForm = withHydration('LoginForm', Component);
+```
+
+And there it is. One approach to solving the double payload problem. There's a lot of work happening to make this process less manual, but if you want total control over how and what code gets sent to a client, this pattern is a pretty good solution.

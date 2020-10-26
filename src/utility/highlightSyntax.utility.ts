@@ -24,7 +24,7 @@ const languages = {
  * -------------------------------- */
 
 async function applySyntaxHighlight() {
-  const codeBlocks = [].slice.call(document.querySelectorAll('pre code'));
+  const codeBlocks: Element[] = [].slice.call(document.querySelectorAll('pre code'));
   const loadList = {};
 
   if (!codeBlocks.length) {
@@ -32,7 +32,7 @@ async function applySyntaxHighlight() {
   }
 
   const [{ highlightAll }] = await Promise.all([
-    import('prismjs'),
+    import(/* webpackChunkName: "prism" */ 'prismjs'),
     import('@/styles/monokai.css'),
   ]);
 
@@ -44,11 +44,9 @@ async function applySyntaxHighlight() {
 
       continue;
     }
-
-    console.warn(`Prism: language missing: ${key}`);
   }
 
-  const syntax: any = Object.keys(loadList).map((key) => loadList[key]());
+  const syntax = Object.keys(loadList).map((key) => loadList[key]());
 
   await Promise.all([].concat(...syntax));
 

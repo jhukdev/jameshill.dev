@@ -264,10 +264,39 @@ const entry = {
     ],
   },
   optimization: {
+    mergeDuplicateChunks: true,
     moduleIds: 'hashed',
     runtimeChunk: 'single',
+    splitChunks: {
+      name: true,
+      chunks: 'async',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: splitVendorChunks,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
 };
+
+/* -----------------------------------
+ *
+ * Vendor
+ *
+ * -------------------------------- */
+
+function splitVendorChunks(module, chunks) {
+  const chunkNames = chunks.filter(({ name }) => !(name || '').endsWith('.entry'));
+
+  if (chunkNames.length) {
+    return chunkNames[0].name;
+  }
+
+  return 'vendor';
+}
 
 /* -----------------------------------
  *
