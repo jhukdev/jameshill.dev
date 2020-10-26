@@ -82,3 +82,19 @@
 .article {
   @extend %article;
 }
+
+/* -----------------------------------
+ *
+ * Heading
+ *
+ * -------------------------------- */
+
+.heading {
+  font-family: $font-accent;
+  font-size: rem(18);
+  margin: 0 0 0.5em;
+
+  @include breakpoint('md') {
+    font-size: rem(24);
+  }
+}

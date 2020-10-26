@@ -13,6 +13,7 @@ interface IData {
   content: string;
   cssPath: string;
   jsPath: string;
+  tags: string[];
 }
 
 /* -----------------------------------
@@ -38,6 +39,7 @@ class Page {
     content,
     cssPath = 'layouts/post.11ty.css',
     jsPath = 'post.entry.js',
+    tags,
   }: IData) {
     return (
       <Html title={title} cssPath={cssPath} jsPath={jsPath}>
@@ -48,13 +50,22 @@ class Page {
               <h3>Articles</h3>
             </Banner>
             <div class={style.container}>
-              <h1 class={style.title}>{title}</h1>
               <div class={style.layout}>
-                <article
-                  class={style.article}
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
-                <aside>SIDEBAR</aside>
+                <article>
+                  <h1 class={style.title}>{title}</h1>
+                  <div
+                    class={style.article}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                  />
+                </article>
+                <aside>
+                  <h3 class={style.heading}>Categories</h3>
+                  <nav class={style.tags}>
+                    {tags.map((tag) => (
+                      <a href={`/articles/${tag}`}>{tag}</a>
+                    ))}
+                  </nav>
+                </aside>
               </div>
             </div>
           </main>
@@ -71,4 +82,4 @@ class Page {
  *
  * -------------------------------- */
 
-export { Page };
+module.exports = Page;
