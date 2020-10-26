@@ -118,10 +118,10 @@ import { withHydration } from './withHydration';
 const LoginForm = withHydration('LoginForm', Component);
 ```
 
-Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. I normally just do something like this in an entry file that's built via webpack:
+Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. I normally do something like this in an entry file that's built via a bundler:
 
 ```ts
 import './components/login-form';
 ```
 
-And there it is. One approach to solving the double payload problem. There's a lot of work happening to make this process less manual, but if you want total control over how and what code gets sent to a client, this pattern is a pretty good solution.
+And there it is. One approach to solving the double payload problem. There's a lot of work happening to make this process less manual, but if you want total control over how and what code gets sent to a client, this pattern is a fairly good solution.

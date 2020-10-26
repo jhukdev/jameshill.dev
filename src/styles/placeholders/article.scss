@@ -135,11 +135,11 @@
   code:not([class*='language-']) {
     display: inline-block;
     font-weight: 400;
-    background: #23241f;
+    background: #ddd;
+    border: rem(1) solid #ccc;
     padding: 0 rem(4);
     border-radius: rem(2);
     font-size: inherit;
-    color: white;
     box-sizing: border-box;
   }
 }
