@@ -8,7 +8,7 @@ date: 2020-10-13
 layout: post.11ty.js
 ---
 
-In the time of our modern web, there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
+In the time of the "modern" web (at time of writing), there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
 
 The days of shoving everything into a `vendor.js` file and calling it a day are long gone. DevRels and others across the internet are promoting an open and accessible web, where regardless of how powerful your device may be, an app performs as best it can.
 
@@ -54,7 +54,7 @@ Here we have one `<Button />` component that must be hydrated in order to bind e
 
 ## How do we fix this?
 
-Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the component in question. This gives you a point of control to hydrate your component, accessing any properties that the server has provided and kicking of a render within a root element. This HOC could look something like this:
+Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the section in question. This gives you a point of control to hydrate your component, access any properties that the server has provided, and finally render within a root element. This HOC could look something like this:
 
 ```typescript
 import { h, hydrate } from 'preact';
@@ -116,6 +116,12 @@ import { withHydration } from './withHydration';
 /*[...]*/
 
 const LoginForm = withHydration('LoginForm', Component);
+```
+
+Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. I normally just do something like this in an entry file that's built via webpack:
+
+```ts
+import './components/login-form';
 ```
 
 And there it is. One approach to solving the double payload problem. There's a lot of work happening to make this process less manual, but if you want total control over how and what code gets sent to a client, this pattern is a pretty good solution.
