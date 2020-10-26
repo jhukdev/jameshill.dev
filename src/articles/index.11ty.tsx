@@ -32,36 +32,30 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-class Page {
-  data(): IData {
-    return {
-      title: 'Articles - 11ty',
-      cssPath: 'articles/index.11ty.css',
-      jsPath: 'articles.entry.js',
-    };
-  }
-
-  render({ title, cssPath, jsPath, collections }: IData) {
-    return (
-      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <div class={style.wrapper}>
-          <Header />
-          <main class={style.content}>
-            <Banner>
-              <h1>Articles</h1>
-            </Banner>
-            <div class={style.container}>
-              <div class={style.layout}>
-                <ArticleList articles={collections.post} />
-                <aside>SIDEBAR</aside>
-              </div>
+function Page({ collections }: IData) {
+  return (
+    <Html
+      title="Articles - 11ty"
+      cssPath="articles/index.11ty.css"
+      jsPath="articles.entry.js"
+    >
+      <div class={style.wrapper}>
+        <Header />
+        <main class={style.content}>
+          <Banner>
+            <h1>Articles</h1>
+          </Banner>
+          <div class={style.container}>
+            <div class={style.layout}>
+              <ArticleList articles={collections.post} />
+              <aside>SIDEBAR</aside>
             </div>
-          </main>
-          <Footer />
-        </div>
-      </Html>
-    );
-  }
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </Html>
+  );
 }
 
 /* -----------------------------------

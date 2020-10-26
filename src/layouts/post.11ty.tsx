@@ -33,47 +33,45 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-class Page {
-  render({
-    title,
-    content,
-    cssPath = 'layouts/post.11ty.css',
-    jsPath = 'post.entry.js',
-    tags,
-  }: IData) {
-    return (
-      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <div class={style.wrapper}>
-          <Header />
-          <main class={style.content}>
-            <Banner>
-              <h3>Articles</h3>
-            </Banner>
-            <div class={style.container}>
-              <div class={style.layout}>
-                <article>
-                  <h1 class={style.title}>{title}</h1>
-                  <div
-                    class={style.article}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                  />
-                </article>
-                <aside>
-                  <h3 class={style.heading}>Categories</h3>
-                  <nav class={style.tags}>
-                    {tags.map((tag) => (
-                      <a href={`/articles/${tag}`}>{tag}</a>
-                    ))}
-                  </nav>
-                </aside>
-              </div>
+function Page({
+  title,
+  content,
+  cssPath = 'layouts/post.11ty.css',
+  jsPath = 'post.entry.js',
+  tags,
+}: IData) {
+  return (
+    <Html title={title} cssPath={cssPath} jsPath={jsPath}>
+      <div class={style.wrapper}>
+        <Header />
+        <main class={style.content}>
+          <Banner>
+            <h3>Articles</h3>
+          </Banner>
+          <div class={style.container}>
+            <div class={style.layout}>
+              <article>
+                <h1 class={style.title}>{title}</h1>
+                <div
+                  class={style.article}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                />
+              </article>
+              <aside>
+                <h3 class={style.heading}>Categories</h3>
+                <nav class={style.tags}>
+                  {tags.map((tag) => (
+                    <a href={`/articles/${tag}`}>{tag}</a>
+                  ))}
+                </nav>
+              </aside>
             </div>
-          </main>
-          <Footer />
-        </div>
-      </Html>
-    );
-  }
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </Html>
+  );
 }
 
 /* -----------------------------------

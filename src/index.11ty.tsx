@@ -30,28 +30,18 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-class Page {
-  data(): IData {
-    return {
-      title: 'Home - JH',
-      cssPath: 'index.11ty.css',
-      jsPath: 'index.entry.js',
-    };
-  }
-
-  render({ title, cssPath, jsPath }: IData) {
-    return (
-      <Html title={title} cssPath={cssPath} jsPath={jsPath}>
-        <div class={style.wrapper}>
-          <Header />
-          <main class={style.content}>
-            <MainIntro />
-          </main>
-          <Footer />
-        </div>
-      </Html>
-    );
-  }
+function Page() {
+  return (
+    <Html title="Home - JH" cssPath="index.11ty.css" jsPath="index.entry.js">
+      <div class={style.wrapper}>
+        <Header />
+        <main class={style.content}>
+          <MainIntro />
+        </main>
+        <Footer />
+      </div>
+    </Html>
+  );
 }
 
 /* -----------------------------------
