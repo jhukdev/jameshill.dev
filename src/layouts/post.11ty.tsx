@@ -60,11 +60,9 @@ function Page({
               <aside>
                 <h3 class={style.heading}>Categories</h3>
                 <nav class={style.tags}>
-                  {tags
-                    .filter((tag) => tag !== 'post')
-                    .map((tag) => (
-                      <a href={`/articles/${tag}`}>{tag}</a>
-                    ))}
+                  {tags.map((tag) => (
+                    <a href={`/articles/${tag}`}>{tag}</a>
+                  ))}
                 </nav>
               </aside>
             </div>

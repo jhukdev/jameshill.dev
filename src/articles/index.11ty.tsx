@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { ICollections } from '@/model/collections.model';
 import style from './index.module.scss';
 
 /* -----------------------------------
@@ -8,7 +9,7 @@ import style from './index.module.scss';
  * -------------------------------- */
 
 interface IData {
-  collections?: any;
+  collections?: ICollections;
 }
 
 /* -----------------------------------
@@ -29,7 +30,7 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-function Page({ collections }: IData) {
+function Page({ collections: { articles } }: IData) {
   return (
     <Html
       title="Articles - 11ty"
@@ -44,7 +45,7 @@ function Page({ collections }: IData) {
           </Banner>
           <div class={style.container}>
             <div class={style.layout}>
-              <ArticleList articles={collections.post} />
+              <ArticleList articles={articles} />
               <aside>SIDEBAR</aside>
             </div>
           </div>

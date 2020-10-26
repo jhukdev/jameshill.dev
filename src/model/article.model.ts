@@ -1,10 +1,10 @@
 /* -----------------------------------
  *
- * IPost
+ * IAritcle
  *
  * -------------------------------- */
 
-interface IPost {
+interface IArticle {
   title: string;
   tagline: string;
   excerpt: string;
@@ -21,4 +21,4 @@ interface IPost {
  *
  * -------------------------------- */
 
-export { IPost };
+export { IArticle };

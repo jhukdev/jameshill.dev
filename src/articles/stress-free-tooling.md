@@ -1,10 +1,11 @@
 ---
 title: Simplify tooling with CLI-fun
 tagline: Finding simplicity in chaos
-tags: ['post', 'tooling', 'cli']
+tags: ['tooling', 'cli']
 excerpt: When it comes to managing multiple projects, keeping your tooling consistent and bug free can become a painful prospect.
 image: cli-thumbnail.jpg
 date: 2020-10-09
+article: true
 layout: post.11ty.js
 cssPath: layouts/post.11ty.css
 ---

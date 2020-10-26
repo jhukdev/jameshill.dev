@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { ICollection } from '@/model/collection.model';
-import { IPost } from '@/model/post.model';
+import { IArticle } from '@/model/article.model';
 import style from './articleList.module.scss';
 
 /* -----------------------------------
@@ -10,7 +10,7 @@ import style from './articleList.module.scss';
  * -------------------------------- */
 
 interface IProps {
-  articles: ICollection<IPost>[];
+  articles: ICollection<IArticle>[];
 }
 
 /* -----------------------------------
@@ -32,7 +32,7 @@ function ArticleList({ articles }: IProps) {
     <article class={style.articles}>
       {articles.map(({ data, url }) => (
         <div class={style.item}>
-          <ArticleTile post={data} url={url} />
+          <ArticleTile article={data} url={url} />
         </div>
       ))}
     </article>

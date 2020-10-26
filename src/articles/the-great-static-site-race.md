@@ -1,10 +1,11 @@
 ---
 title: I used 11ty and... It's awesome
 tagline: A tale of many sites
-tags: ['post', '11ty', 'static sites', 'tooling', 'jamstack']
+tags: ['11ty', 'static sites', 'tooling', 'jamstack']
 excerpt: More static site generators, or JAMStack projects, are cropping up by the day. Here's a quick look at how I built this site.
 image: 11ty-thumbnail.jpg
 date: 2020-10-15
+article: true
 layout: post.11ty.js
 cssPath: layouts/post.11ty.css
 ---

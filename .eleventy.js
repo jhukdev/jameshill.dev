@@ -33,10 +33,10 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addCollection('post', (collection) =>
+  config.addCollection('articles', (collection) =>
     collection
       .getAllSorted()
-      .filter(({ data: { tags = [] } }) => tags.includes('post'))
+      .filter(({ data: { article = false } }) => article)
       .reverse()
   );
 

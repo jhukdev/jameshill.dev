@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { IPost } from '@/model/post.model';
+import { IArticle } from '@/model/article.model';
 import style from './articleTile.module.scss';
 
 /* -----------------------------------
@@ -9,7 +9,7 @@ import style from './articleTile.module.scss';
  * -------------------------------- */
 
 interface IProps {
-  post: IPost;
+  article: IArticle;
   url: string;
   className?: string;
 }
@@ -20,21 +20,21 @@ interface IProps {
  *
  * -------------------------------- */
 
-function ArticleTile({ post, url, className = '' }: IProps) {
+function ArticleTile({ article, url, className = '' }: IProps) {
   return (
     <section class={`${style.tile} ${className}`}>
       <a href={url} class={style.image}>
-        <img src={`/articles/_images/${post.image}`} alt="Post" />
+        <img src={`/articles/_images/${article.image}`} alt="Post" />
       </a>
       <div class={style.content}>
         <h2 class={style.title}>
           <a href={url} class={style.link}>
-            <span>{post.title}</span>
+            <span>{article.title}</span>
           </a>
         </h2>
-        <time>{post.date.getFullYear()}</time>
-        <h3 class={style.tagline}>{post.tagline}</h3>
-        <p class={style.excerpt}>{post.excerpt}</p>
+        <time>{article.date.getFullYear()}</time>
+        <h3 class={style.tagline}>{article.tagline}</h3>
+        <p class={style.excerpt}>{article.excerpt}</p>
       </div>
     </section>
   );
