@@ -28,7 +28,9 @@ import profileImage from '@/styles/images/me.jpg';
 function ProfileImage({ className = '' }: IProps) {
   return (
     <figure class={`${style.profile} ${className}`}>
-      <img src={profileImage} class={style.image} alt="James Hill" />
+      <div class={style.image}>
+        <img src={profileImage} alt="James Hill" loading="lazy" />
+      </div>
       <figcaption class={style.caption}>
         <em>
           Tech Lead <span>@groupon</span>
