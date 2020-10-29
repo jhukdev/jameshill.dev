@@ -36,7 +36,7 @@ module.exports = function (config) {
   config.addCollection('articles', (collection) =>
     collection
       .getAllSorted()
-      .filter(({ data: { article = false } }) => article)
+      .filter(({ data: { article = false, draft = false } }) => article && !draft)
       .reverse()
   );
 

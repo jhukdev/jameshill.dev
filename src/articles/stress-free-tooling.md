@@ -4,6 +4,7 @@ tagline: Finding simplicity in chaos
 tags: ['tooling', 'cli']
 excerpt: When it comes to managing multiple projects, keeping your tooling consistent and bug free can become a painful prospect.
 image: cli-thumbnail.jpg
+draft: true
 date: 2020-10-09
 article: true
 layout: article.11ty.js
