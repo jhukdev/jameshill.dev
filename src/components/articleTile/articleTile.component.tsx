@@ -29,7 +29,7 @@ function ArticleTile({ article, url, className = '' }: IProps) {
       <div class={style.content}>
         <h2 class={style.title}>
           <a href={url} class={style.link}>
-            <span>{article.title}</span>
+            {article.title}
           </a>
         </h2>
         <h3 class={style.tagline}>{article.tagline}</h3>
