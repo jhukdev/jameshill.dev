@@ -65,11 +65,11 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
  * -------------------------------- */
 
 function getFontLink() {
-  const url =
-    'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&family=Roboto:wght@300;400;500&display=swap';
+  const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500'];
+  const result = fonts.map((font) => `family=${font}`).join('&');
 
   return h('link', {
-    href: url,
+    href: `https://fonts.googleapis.com/css2?${result}&display=swap`,
     rel: 'stylesheet',
     media: 'none',
     onload: "if(media!='all')media='all'",
