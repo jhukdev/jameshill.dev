@@ -9,11 +9,11 @@ article: true
 layout: article.11ty.js
 ---
 
-In the time of the "modern" web (at time of writing), there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
+In the "modern" web, there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
 
 The days of shoving everything into a `vendor.js` file and calling it a day are long gone. DevRels and others across the internet are promoting an open and accessible web, where regardless of how powerful your device may be, an app performs as best it can.
 
-This article focuses on Preact, but is in no way exclusive to this library. In particular we'll look at pre-rendered applications, be it server side or statically generated.
+This article focuses on Preact, but is in no way exclusive to this library. In particular, we'll look at pre-rendered applications, be it server side or statically generated.
 
 ## Common patterns
 
@@ -108,7 +108,7 @@ If the function is running server side, we simply return a function that accepts
 
 ## Using the higher order function
 
-Finally, to use the `withHydration()` function you'll do something like the following. Where you place this is up to you, but I tend to have an `index.ts` file within a component's folder that handles anything related to implementation detail:
+Finally, to use the `withHydration()` function, you'll do something like the following; Where you place this is up to you, but I tend to have an `index.ts` file within a component's folder that handles anything related to implementation detail:
 
 ```tsx
 import { LoginForm as Component } from './login-form';
