@@ -35,6 +35,21 @@ const sassLoader = {
 
 /* -----------------------------------
  *
+ * PostCSS
+ *
+ * -------------------------------- */
+
+const postCssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      plugins: [['postcss-flexbugs-fixes']],
+    },
+  },
+};
+
+/* -----------------------------------
+ *
  * Pages
  *
  * -------------------------------- */
@@ -117,6 +132,7 @@ const pages = {
             },
           },
           sassLoader,
+          postCssLoader,
         ],
       },
       {
@@ -134,6 +150,7 @@ const pages = {
             },
           },
           sassLoader,
+          postCssLoader,
         ],
       },
       {

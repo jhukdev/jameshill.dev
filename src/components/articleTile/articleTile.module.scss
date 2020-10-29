@@ -92,6 +92,7 @@
   font-size: rem(24);
   font-weight: 300;
   margin: 0;
+  text-shadow: 0 rem(1) rgba(0, 0, 0, 0.8);
 
   @include breakpoint('lg') {
     font-size: rem(32);
