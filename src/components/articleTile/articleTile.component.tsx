@@ -32,7 +32,6 @@ function ArticleTile({ article, url, className = '' }: IProps) {
             <span>{article.title}</span>
           </a>
         </h2>
-        <time>{article.date.getFullYear()}</time>
         <h3 class={style.tagline}>{article.tagline}</h3>
         <p class={style.excerpt}>{article.excerpt}</p>
       </div>

@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: center;
 }
 
 /* -----------------------------------
@@ -24,10 +24,11 @@
   display: none;
   margin: 0;
   width: rem(100);
-  box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.3);
+  border: rem(1) solid #d6d6d6;
   border-radius: rem(5);
   overflow: hidden;
   flex-shrink: 0;
+  align-self: flex-start;
 
   @include breakpoint('sm') {
     display: block;
@@ -39,43 +40,6 @@
 
   @include breakpoint('lg') {
     width: 25%;
-  }
-
-  &:before,
-  &:after {
-    position: absolute;
-    display: block;
-    content: '';
-    z-index: 2;
-    transition: background ease-in-out 0.3s, opacity ease-in-out 0.5s;
-  }
-
-  &:before {
-    position: absolute;
-    display: block;
-    content: '';
-    background: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &:after {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    opacity: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
-  }
-
-  .tile:hover &:before {
-    background: rgba(34, 34, 34, 0.4);
-  }
-
-  .tile:hover &:after {
-    opacity: 1;
   }
 
   img {
@@ -121,9 +85,9 @@
  * -------------------------------- */
 
 .title {
-  $background: #fbfbfb;
+  $background: $colour-background;
 
-  color: black;
+  color: white;
   font-family: $font-accent;
   font-size: rem(24);
   font-weight: 300;
@@ -157,7 +121,7 @@
   font-weight: 500;
   font-size: rem(12);
   letter-spacing: 0.2em;
-  color: white;
+  color: black;
   margin: rem(20) 0 0;
   text-transform: uppercase;
 }
@@ -172,7 +136,7 @@
   display: block;
   font-weight: 300;
   font-size: rem(14);
-  color: white;
+  color: black;
   margin: rem(10) 0 0;
   line-height: 1.4;
 

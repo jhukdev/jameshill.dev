@@ -264,11 +264,12 @@ const entry = {
   optimization: {
     mergeDuplicateChunks: true,
     moduleIds: 'hashed',
-    runtimeChunk: 'single',
+    runtimeChunk: false,
     splitChunks: {
       name: true,
       chunks: 'async',
       cacheGroups: {
+        default: false,
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: splitVendorChunks,

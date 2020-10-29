@@ -31,7 +31,7 @@
     width: 90%;
     height: rem(1);
     margin: rem(20) auto 0;
-    border-bottom: rem(1) solid #424242;
+    border-bottom: rem(1) solid #d6d6d6;
 
     @include breakpoint('md') {
       margin: rem(40) auto 0;
