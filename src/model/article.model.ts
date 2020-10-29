@@ -10,7 +10,7 @@ interface IArticle {
   excerpt: string;
   image: string;
   tags: string[];
-  draft: boolean;
+  publish: boolean;
   date: Date;
   cssPath: string;
   jsPath: string;

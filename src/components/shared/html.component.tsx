@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { h, Fragment } from 'preact';
 import style from './html.module.scss';
 
@@ -9,7 +10,7 @@ import style from './html.module.scss';
 
 interface IProps {
   title?: string;
-  cssPath?: string;
+  cssFile?: string;
   jsPath?: string;
   children: any;
 }
@@ -20,7 +21,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
+function Html({ title = '11ty', cssFile, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
@@ -42,7 +43,7 @@ function Html({ title = '11ty', cssPath, jsPath, children }: IProps) {
           `}
         </script>
         {getFontLink()}
-        {cssPath && <link rel="stylesheet" href={`/assets/${cssPath}`} />}
+        <style dangerouslySetInnerHTML={{ __html: cssFile }} />
       </head>
       <body class={style.body}>
         {children}

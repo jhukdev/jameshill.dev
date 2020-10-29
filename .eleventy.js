@@ -1,4 +1,5 @@
 const { isValidElement } = require('preact');
+const fs = require('fs');
 const { render } = require('preact-render-to-string');
 
 /* -----------------------------------
@@ -33,10 +34,12 @@ module.exports = function (config) {
     return content;
   });
 
+  config.addJavaScriptFunction('stylesheet', inlineStylesheet);
+
   config.addCollection('articles', (collection) =>
     collection
       .getAllSorted()
-      .filter(({ data: { article = false, draft = false } }) => article && !draft)
+      .filter(({ data: { article = false, publish = false } }) => article && publish)
       .reverse()
   );
 
@@ -50,6 +53,22 @@ module.exports = function (config) {
     },
   };
 };
+
+/* -----------------------------------
+ *
+ * Stylesheet
+ *
+ * -------------------------------- */
+
+function inlineStylesheet(path) {
+  const assets = require('./src/_js/assets.json');
+
+  if (!assets[path]) {
+    return;
+  }
+
+  return fs.readFileSync(`./src/_js/assets/${path}`).toString();
+}
 
 /* -----------------------------------
  *

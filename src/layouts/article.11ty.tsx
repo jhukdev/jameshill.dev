@@ -46,7 +46,7 @@ function Page({
   collections: { articles },
 }: IData) {
   return (
-    <Html title={title} cssPath={cssPath} jsPath={jsPath}>
+    <Html title={title} cssFile={this.stylesheet(cssPath)} jsPath={jsPath}>
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>
@@ -66,12 +66,12 @@ function Page({
                 <ProfileImage className={style.profile} />
                 <h3 class={style.heading}>Recent Articles</h3>
                 <RecentArticles className={style.recent} articles={articles} />
-                <h3 class={style.heading}>Tags</h3>
+                {/* <h3 class={style.heading}>Tags</h3>
                 <nav class={style.tags}>
                   {tags.map((tag) => (
-                    <a href={`/articles/${tag}`}>{tag}</a>
+                    <span href={`/articles/${tag}`}>{tag}</span>
                   ))}
-                </nav>
+                </nav> */}
               </aside>
             </div>
           </div>

@@ -35,7 +35,7 @@ function Page({ collections: { articles } }: IData) {
   return (
     <Html
       title="Articles - 11ty"
-      cssPath="articles/index.11ty.css"
+      cssFile={this.stylesheet('articles/index.11ty.css')}
       jsPath="articleList.entry.js"
     >
       <div class={style.wrapper}>

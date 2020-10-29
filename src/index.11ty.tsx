@@ -20,7 +20,11 @@ import { Footer } from '@/components/footer';
 
 function Page() {
   return (
-    <Html title="Home - JH" cssPath="index.11ty.css" jsPath="index.entry.js">
+    <Html
+      title="Home - JH"
+      cssFile={this.stylesheet('index.11ty.css')}
+      jsPath="index.entry.js"
+    >
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>
