@@ -62,14 +62,13 @@
 
 .title {
   font-family: $font-accent;
-  font-size: rem(26);
-  font-weight: 500;
+  font-size: rem(28);
+  font-weight: 300;
   line-height: 1.4;
   margin: 0 0 0.8em;
 
   @include breakpoint('md') {
     font-size: rem(42);
-    font-weight: 300;
   }
 }
 
