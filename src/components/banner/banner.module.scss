@@ -9,8 +9,8 @@
 .banner {
   display: block;
   padding: rem(10) 0;
-  background: #fbfbfb;
-  border-bottom: rem(1) solid #d6d6d6;
+  background: $colour-light;
+  border-bottom: rem(1) solid $colour-shadow;
 
   @include breakpoint('md') {
     padding: rem(20) 0;

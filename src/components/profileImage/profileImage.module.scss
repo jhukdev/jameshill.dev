@@ -7,11 +7,11 @@
  * -------------------------------- */
 
 .profile {
-  border: rem(1) solid #d6d6d6;
+  border: rem(1) solid $colour-shadow;
   border-radius: rem(3);
   padding: rem(10);
   margin: 0;
-  background: #fbfbfb;
+  background: $colour-light;
   box-sizing: border-box;
 
   @include breakpoint('sm') {
@@ -59,7 +59,7 @@
     display: block;
     font-family: $font-accent;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     font-style: rem(16);
     margin: 0 0 rem(20);
 
@@ -69,11 +69,12 @@
 
     span {
       display: block;
+      font-weight: 300;
     }
   }
 
   p {
     margin: 0 0 rem(3);
-    font-size: rem(15);
+    font-size: rem(13);
   }
 }
