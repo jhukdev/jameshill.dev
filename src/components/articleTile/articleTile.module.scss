@@ -40,6 +40,7 @@
 
   @include breakpoint('lg') {
     width: 25%;
+    min-width: rem(180);
   }
 
   img {
@@ -88,6 +89,7 @@
   font-family: $font-accent;
   font-size: rem(24);
   font-weight: 300;
+  line-height: 1.2;
   margin: 0;
 
   @include breakpoint('lg') {

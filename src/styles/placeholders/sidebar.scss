@@ -21,13 +21,14 @@
     flex: 0 1 auto;
 
     @include breakpoint('lg') {
-      width: 30%;
+      width: 25%;
       margin-left: rem(40);
       min-width: rem(240);
     }
 
     @include breakpoint('xl') {
       margin-left: rem(60);
+      width: 30%;
     }
   }
 }
