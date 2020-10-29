@@ -1,0 +1,32 @@
+/* -----------------------------------
+ *
+ * Block
+ *
+ * -------------------------------- */
+
+%block-text {
+  $background: $colour-background;
+
+  color: white;
+  font-family: $font-accent;
+  font-size: rem(24);
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 rem(1) rgba(0, 0, 0, 0.8);
+
+  @include breakpoint('lg') {
+    font-size: rem(32);
+  }
+
+  span {
+    background: $background;
+    display: inline;
+    padding: rem(2);
+    line-height: 1.7;
+    box-shadow: rem(2) 0 0 $background, rem(-2) 0 0 $background;
+
+    @include breakpoint('md') {
+      box-shadow: rem(10) 0 0 $background, rem(-10) 0 0 $background;
+    }
+  }
+}
