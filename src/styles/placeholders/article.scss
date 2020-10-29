@@ -127,8 +127,8 @@
     background: #23241f;
 
     @include breakpoint('md') {
-      width: auto;
-      min-width: rem(620);
+      width: 100%;
+      max-width: rem(620);
     }
   }
 

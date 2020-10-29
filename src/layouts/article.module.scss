@@ -35,8 +35,8 @@
 .container {
   @extend %container;
 
-  padding-top: rem(20);
-  padding-bottom: rem(20);
+  padding-top: rem(30);
+  padding-bottom: rem(30);
 
   @include breakpoint('md') {
     padding-top: rem(50);
@@ -81,16 +81,8 @@
 
 .article {
   @extend %article;
-}
 
-/* -----------------------------------
- *
- * Profile
- *
- * -------------------------------- */
-
-.profile {
-  margin-bottom: rem(30) !important;
+  margin-bottom: rem(40);
 }
 
 /* -----------------------------------
@@ -103,11 +95,31 @@
   font-family: $font-accent;
   font-size: rem(18);
   font-weight: 500;
-  margin: 0 0 0.5em;
+  margin: 0 0 0.75em;
 
   @include breakpoint('md') {
     font-size: rem(24);
   }
+}
+
+/* -----------------------------------
+ *
+ * Profile
+ *
+ * -------------------------------- */
+
+.profile {
+  @extend %margin-normal;
+}
+
+/* -----------------------------------
+ *
+ * Recent
+ *
+ * -------------------------------- */
+
+.recent {
+  @extend %margin-normal;
 }
 
 /* -----------------------------------
@@ -118,4 +130,5 @@
 
 .tags {
   @extend %tags;
+  @extend %margin-normal;
 }

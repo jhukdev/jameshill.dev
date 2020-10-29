@@ -23,6 +23,11 @@
     @include breakpoint('lg') {
       width: 30%;
       margin-left: rem(40);
+      min-width: rem(240);
+    }
+
+    @include breakpoint('xl') {
+      margin-left: rem(60);
     }
   }
 }

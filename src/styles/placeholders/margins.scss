@@ -1,0 +1,13 @@
+/* -----------------------------------
+ *
+ * Normal
+ *
+ * -------------------------------- */
+
+%margin-normal {
+  margin-bottom: rem(30) !important;
+
+  @include breakpoint('lg') {
+    margin-bottom: rem(50) !important;
+  }
+}

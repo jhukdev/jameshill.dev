@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
+import { ICollections } from '@/model/collections.model';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -14,6 +15,7 @@ interface IData {
   cssPath: string;
   jsPath: string;
   tags: string[];
+  collections?: ICollections;
 }
 
 /* -----------------------------------
@@ -26,6 +28,7 @@ import { Html } from '../components/shared';
 import { Header } from '@/components/header';
 import { Banner } from '@/components/banner';
 import { ProfileImage } from '@/components/profileImage';
+import { RecentArticles } from '@/components/recentArticles';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -40,6 +43,7 @@ function Page({
   cssPath = 'layouts/article.11ty.css',
   jsPath = 'article.entry.js',
   tags,
+  collections: { articles },
 }: IData) {
   return (
     <Html title={title} cssPath={cssPath} jsPath={jsPath}>
@@ -60,7 +64,9 @@ function Page({
               </article>
               <aside>
                 <ProfileImage className={style.profile} />
-                <h3 class={style.heading}>Categories</h3>
+                <h3 class={style.heading}>Recent Articles</h3>
+                <RecentArticles className={style.recent} articles={articles} />
+                <h3 class={style.heading}>Tags</h3>
                 <nav class={style.tags}>
                   {tags.map((tag) => (
                     <a href={`/articles/${tag}`}>{tag}</a>
