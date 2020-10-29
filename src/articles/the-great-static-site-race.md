@@ -9,13 +9,13 @@ article: true
 layout: article.11ty.js
 ---
 
-Over the past few years, static sites, and by that I mean sites without a traditional server, have been re-gaining popularity. The benefits of a stack like this are many, not least for performance and reduced architecture costs. I recently re-built this site using 11ty, and here's what I found.
+Static sites, and by that I mean sites without a traditional server, have been re-gaining popularity recently. The benefits of a site like this are many, not least for performance and reduced costs. I recently wanted to go down this route for my site, here's what I found.
 
 ## Ecstatic for static.. site generators
 
-I've been following the growing maturity of tools like Gatsby, Hugo and Next.js over the last few years with increasing interest. No typical back-end you say? No servers in the traditional sense I hear?
+I've been following tools like Gatsby, Hugo and Next.js over the last few years with increasing interest. No typical back-end you say? No servers in the traditional sense I hear?
 
-The removal of these things, and more, can potentially reduce overall complexity and allows a company to ditch vast swathes of servers and architecture in favour of a simple S3 bucket and a CDN. No security vulnerabilities. No server costs. No lag in TTFB. The benefits are great, and that's why they're becoming so popular.
+The removal of these things, and more, _can_ reduce overall complexity and allows a company to ditch swathes of servers and architecture in favour of a simple S3 bucket and a CDN. No security vulnerabilities. No server costs. No lag in TTFB. The benefits are great, and that's why they're becoming so popular.
 
 ## Shipped code overload
 
@@ -25,15 +25,15 @@ Both of these projects are heavily focused on performance, and they do a _great_
 
 Ultimately, both of these projects are SPA's, with a pre-built HTML file that your application sits ontop of. This fixes two of the most common complaints for sites built in this way; Initial paint times, and SEO indexing. By providing a complete HTML document, perceived render is instantaneous and search engines are happy.
 
-But what if you have very little interactivity on your page, if any at all? Well in this scenario, you have to ship _all_ of the necessary javascript required to render the page, even though it's _already_ rendered. This is commonly referred to as the "double payload" problem. There are ways to fix this in both Gatsby and Next.js, but for the purpose of building this site, they just seem like overkill.
+But what if you have very little interactivity on your page, if any at all? Well in this scenario, you still have to ship _all_ of the necessary javascript required to render the page, even though it's _already_ rendered. This is commonly referred to as the "double payload" problem. There are ways to fix this in both Gatsby and Next.js, but for the purpose of building this site, they just seemed like overkill.
 
 ## Here, and by that I mean, this
 
 After sometime, I came across <a href="https://www.11ty.dev/" target="_blank" rel="noopener">eleventy</a>. This project claims to be framework agnostic, and easy to setup and get going. Being framework agnostic was appealing; In some different future I could swap out Preact with whatever else is flavour of the month without completely changing the structure of the site. Nice.
 
-I'm a total convert to TypeScript, and from what I could tell 11ty didn't have first class support. Whatever examples I could find didn't quite fit my needs. So after a quick round of boilerplate to get this site building using 11ty, I decided to have a crack at creating my own setup that provided all of the great DX of Gatsby, but with the simplicity of 11ty.
+I'm a total convert to TypeScript, and from what I could tell 11ty didn't have first class support. Whatever examples I could find didn't quite fit my needs. So after a quick round of boilerplate to get this site building, I decided to have a crack at creating my own setup with all of the great DX of Gatsby, but with the simplicity of 11ty.
 
-What I came up with was this: <a href="https://github.com/jhukdev/11ty-setup" target="_blank" rel="noopener">11ty-setup</a> 🙄. This repo aims to give me a simple starting point to bootstrap whatever project I needed, without the hassle of setup and wasted hours debugging the basics. It has first class TypeScript support, it has SASS and CSS module support and it provides the relevant setup needed for partial hydration. If you're unfamiliar with "partial hydration", have a read of my [article on it here](/articles/partial-hydration).
+What I came up with was this: <a href="https://github.com/jhukdev/11ty-setup" target="_blank" rel="noopener">11ty-setup</a> 🙄. This aims to give me a simple starting point to bootstrap whatever project I needed, without the hassle of setup and wasted hours debugging the basics. It has first class TypeScript support, it has SASS and CSS module support and it provides the relevant setup needed for partial hydration. If you're unfamiliar with "partial hydration", have a read of my [article on it here](/articles/partial-hydration).
 
 ## Some considerations
 
