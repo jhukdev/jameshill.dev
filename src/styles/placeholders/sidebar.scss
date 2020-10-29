@@ -18,11 +18,11 @@
   }
 
   & > aside {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
 
     @include breakpoint('lg') {
-      width: 20%;
-      margin-left: rem(30);
+      width: 30%;
+      margin-left: rem(40);
     }
   }
 }

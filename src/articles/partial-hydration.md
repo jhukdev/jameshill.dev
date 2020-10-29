@@ -6,7 +6,7 @@ excerpt: Reducing the volume of javascript shipped to your users is an ongoing c
 image: preact-thumbnail.jpg
 date: 2020-10-13
 article: true
-layout: post.11ty.js
+layout: article.11ty.js
 ---
 
 In the time of the "modern" web (at time of writing), there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.

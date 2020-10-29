@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
-import style from './post.module.scss';
+import style from './article.module.scss';
 
 /* -----------------------------------
  *
@@ -25,6 +25,7 @@ interface IData {
 import { Html } from '../components/shared';
 import { Header } from '@/components/header';
 import { Banner } from '@/components/banner';
+import { ProfileImage } from '@/components/profileImage';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -36,8 +37,8 @@ import { Footer } from '@/components/footer';
 function Page({
   title,
   content,
-  cssPath = 'layouts/post.11ty.css',
-  jsPath = 'post.entry.js',
+  cssPath = 'layouts/article.11ty.css',
+  jsPath = 'article.entry.js',
   tags,
 }: IData) {
   return (
@@ -58,6 +59,7 @@ function Page({
                 />
               </article>
               <aside>
+                <ProfileImage className={style.profile} />
                 <h3 class={style.heading}>Categories</h3>
                 <nav class={style.tags}>
                   {tags.map((tag) => (

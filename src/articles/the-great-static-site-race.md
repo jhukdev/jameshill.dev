@@ -6,8 +6,7 @@ excerpt: More static site generators, or JAMStack projects, are cropping up by t
 image: 11ty-thumbnail.jpg
 date: 2020-10-15
 article: true
-layout: post.11ty.js
-cssPath: layouts/post.11ty.css
+layout: article.11ty.js
 ---
 
 Over the past few years, static sites, and by that I mean sites without a traditional server, have been re-gaining popularity. The benefits of a stack like this are many, not least for performance and reduced architecture costs. I recently re-built this site using 11ty, and here's what I found.

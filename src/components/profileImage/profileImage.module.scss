@@ -1,0 +1,79 @@
+@import 'template';
+
+/* -----------------------------------
+ *
+ * Profile
+ *
+ * -------------------------------- */
+
+.profile {
+  border: rem(1) solid #d6d6d6;
+  border-radius: rem(3);
+  padding: rem(10);
+  margin: 0;
+  background: #fbfbfb;
+  box-sizing: border-box;
+
+  @include breakpoint('sm') {
+    margin: 0 auto;
+    max-width: rem(240);
+  }
+
+  @include breakpoint('lg') {
+    padding: rem(30);
+    max-width: none;
+  }
+}
+
+/* -----------------------------------
+ *
+ * Image
+ *
+ * -------------------------------- */
+
+.image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+  max-width: rem(160);
+  margin: 0 auto;
+
+  @include breakpoint('xl') {
+    max-width: rem(200);
+  }
+}
+
+/* -----------------------------------
+ *
+ * Caption
+ *
+ * -------------------------------- */
+
+.caption {
+  margin-top: rem(20);
+  text-align: center;
+  line-height: 1.2;
+
+  em {
+    display: block;
+    font-family: $font-accent;
+    font-style: normal;
+    font-weight: 300;
+    font-style: rem(16);
+    margin: 0 0 rem(20);
+
+    @include breakpoint('xl') {
+      font-size: rem(20);
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  p {
+    margin: 0 0 rem(3);
+    font-size: rem(15);
+  }
+}

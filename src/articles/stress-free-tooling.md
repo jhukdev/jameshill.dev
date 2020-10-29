@@ -6,8 +6,7 @@ excerpt: When it comes to managing multiple projects, keeping your tooling consi
 image: cli-thumbnail.jpg
 date: 2020-10-09
 article: true
-layout: post.11ty.js
-cssPath: layouts/post.11ty.css
+layout: article.11ty.js
 ---
 
 For some time now, we've tackled new projects with a pretty common formula; We bootstrap the approved framework, tools and build processes for each new project, and do so in isolation. This works great, and initially speeds up development and prototyping. _However_, once a project matures, and tooling moves on, it becomes tricky to uniformally update and maintain these build tools across all projects. This article is a short story about how we tackled this problem.

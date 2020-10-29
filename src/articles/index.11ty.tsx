@@ -22,6 +22,7 @@ import { Html } from '@/components/shared';
 import { Header } from '@/components/header';
 import { Banner } from '@/components/banner';
 import { ArticleList } from '@/components/articleList';
+import { ProfileImage } from '@/components/profileImage';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -35,7 +36,7 @@ function Page({ collections: { articles } }: IData) {
     <Html
       title="Articles - 11ty"
       cssPath="articles/index.11ty.css"
-      jsPath="articles.entry.js"
+      jsPath="articleList.entry.js"
     >
       <div class={style.wrapper}>
         <Header />
@@ -46,7 +47,9 @@ function Page({ collections: { articles } }: IData) {
           <div class={style.container}>
             <div class={style.layout}>
               <ArticleList articles={articles} />
-              <aside>SIDEBAR</aside>
+              <aside>
+                <ProfileImage />
+              </aside>
             </div>
           </div>
         </main>
