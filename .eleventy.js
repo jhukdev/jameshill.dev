@@ -67,7 +67,9 @@ function inlineStylesheet(path) {
     return;
   }
 
-  return fs.readFileSync(`./src/_js/assets/${path}`).toString();
+  const filePath = `./src/_js/assets/${assets[path]}`;
+
+  return fs.readFileSync(filePath).toString();
 }
 
 /* -----------------------------------
