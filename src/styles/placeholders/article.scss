@@ -109,12 +109,12 @@
   }
 
   pre {
-    font-size: rem(16);
+    font-size: rem(17);
     margin: 0 0 2em;
     border-radius: rem(4);
 
     @include breakpoint('md') {
-      font-size: rem(18);
+      font-size: rem(19);
     }
   }
 
