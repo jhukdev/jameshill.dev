@@ -50,12 +50,12 @@
   }
 
   p {
-    font-size: rem(16);
+    font-size: rem(18);
     margin: 0 0 1.5em;
     line-height: 1.5;
 
     @include breakpoint('md') {
-      font-size: rem(18);
+      font-size: rem(20);
     }
   }
 

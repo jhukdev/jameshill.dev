@@ -87,7 +87,7 @@
 
 .title {
   font-family: $font-accent;
-  font-size: rem(24);
+  font-size: rem(28);
   font-weight: 300;
   line-height: 1.2;
   margin: 0;
@@ -106,7 +106,7 @@
 .tagline {
   display: block;
   font-weight: 500;
-  font-size: rem(12);
+  font-size: rem(14);
   letter-spacing: 0.2em;
   color: black;
   margin: rem(15) 0 0;
@@ -122,12 +122,12 @@
 .excerpt {
   display: block;
   font-weight: 300;
-  font-size: rem(14);
+  font-size: rem(15);
   color: black;
   margin: rem(10) 0 0;
   line-height: 1.4;
 
   @include breakpoint('md') {
-    font-size: rem(16);
+    font-size: rem(17);
   }
 }
