@@ -20,7 +20,7 @@ module.exports = function (config) {
 
   config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
-      return render(content);
+      return `<!doctype html>${render(content)}`;
     }
 
     return content;

@@ -17,6 +17,14 @@ interface IProps {
 
 /* -----------------------------------
  *
+ * Images
+ *
+ * -------------------------------- */
+
+import favicon from '@/styles/images/favicon.png';
+
+/* -----------------------------------
+ *
  * Html
  *
  * -------------------------------- */
@@ -29,6 +37,7 @@ function Html({ title = '11ty', cssFile, jsPath, children }: IProps) {
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
+        <link rel="icon" type="image/png" href={favicon} />
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
