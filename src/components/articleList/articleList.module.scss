@@ -20,7 +20,7 @@
   margin: 0 0 rem(30);
 
   @include breakpoint('md') {
-    margin: 0 0 rem(40);
+    margin: 0 0 rem(50);
   }
 
   &:after {
@@ -32,7 +32,7 @@
     border-bottom: rem(1) solid #d6d6d6;
 
     @include breakpoint('md') {
-      margin: rem(40) auto 0;
+      margin: rem(50) auto 0;
     }
   }
 }
