@@ -8,14 +8,14 @@
 
 .articles {
   display: block;
-  margin: 0 0 0 rem(2);
-  padding: 0 0 0 rem(15);
-  border-left: rem(5) solid $colour-accent;
+  padding: 0;
   list-style: none;
 
   li {
-    margin-bottom: rem(10);
+    margin-bottom: rem(15);
+    padding-bottom: rem(15);
     font-size: rem(16);
+    border-bottom: rem(1) solid $colour-shadow;
   }
 
   a {
