@@ -111,6 +111,7 @@
   pre {
     font-size: rem(16);
     margin: 0 0 2em;
+    border-radius: rem(4);
 
     @include breakpoint('md') {
       font-size: rem(18);
@@ -119,11 +120,10 @@
 
   pre code[class*='language-'] {
     display: inline-block;
-    width: 100%;
     padding: rem(15);
+    min-width: 100%;
     background: #23241f;
     box-sizing: border-box;
-    border-radius: rem(4);
 
     @include breakpoint('md') {
       width: 100%;
