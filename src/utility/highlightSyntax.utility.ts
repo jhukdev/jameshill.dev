@@ -46,9 +46,21 @@ async function applySyntaxHighlight() {
     }
   }
 
-  const syntax = Object.keys(loadList).map((key) => loadList[key]());
+  const syntax = Object.keys(loadList)
+    .map((key) => loadList[key]())
+    .map(async (item) => {
+      if (Array.isArray(item)) {
+        for (let file of item) {
+          await file;
+        }
 
-  await Promise.all([].concat(...syntax));
+        return;
+      }
+
+      return item;
+    });
+
+  await Promise.all(syntax);
 
   await highlightAll();
 }
