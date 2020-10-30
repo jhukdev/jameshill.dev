@@ -71,7 +71,7 @@ function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IPr
  * -------------------------------- */
 
 function getFontLink() {
-  const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500'];
+  const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500;600'];
   const result = fonts.map((font) => `family=${font}`).join('&');
 
   return h('link', {

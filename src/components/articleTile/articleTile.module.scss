@@ -113,7 +113,7 @@
 
 .tagline {
   display: block;
-  font-weight: 500;
+  font-weight: 600;
   font-size: rem(13);
   letter-spacing: 0.1em;
   color: black;
@@ -130,12 +130,12 @@
 .excerpt {
   display: block;
   font-weight: 300;
-  font-size: rem(16);
+  font-size: rem(18);
   color: black;
   margin: rem(10) 0 0;
   line-height: 1.4;
 
   @include breakpoint('md') {
-    font-size: rem(18);
+    font-size: rem(20);
   }
 }
