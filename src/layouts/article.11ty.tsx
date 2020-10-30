@@ -11,6 +11,8 @@ import style from './article.module.scss';
 
 interface IData {
   title: string;
+  excerpt: string;
+  image: string;
   content: string;
   cssPath: string;
   jsPath: string;
@@ -39,6 +41,8 @@ import { Footer } from '@/components/footer';
 
 function Page({
   title,
+  excerpt,
+  image,
   content,
   cssPath = 'layouts/article.11ty.css',
   jsPath = 'article.entry.js',
@@ -46,7 +50,13 @@ function Page({
   collections: { articles },
 }: IData) {
   return (
-    <Html title={title} cssFile={this.stylesheet(cssPath)} jsPath={jsPath}>
+    <Html
+      title={title}
+      summary={excerpt}
+      image={`/articles/_images/${image}`}
+      cssFile={this.stylesheet(cssPath)}
+      jsPath={jsPath}
+    >
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>

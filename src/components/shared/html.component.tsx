@@ -10,6 +10,8 @@ import style from './html.module.scss';
 
 interface IProps {
   title?: string;
+  summary?: string;
+  image?: string;
   cssFile?: string;
   jsPath?: string;
   children: any;
@@ -29,7 +31,7 @@ import favicon from '@/styles/images/favicon.png';
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', cssFile, jsPath, children }: IProps) {
+function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
@@ -42,6 +44,11 @@ function Html({ title = '11ty', cssFile, jsPath, children }: IProps) {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
         />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@jhukdev" />
+        <meta name="twitter:title" content={title} />
+        {summary && <meta name="twitter:description" content={summary} />}
+        {image && <meta name="twitter:image:src" content={image} />}
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1" />
         <script>
           {`
