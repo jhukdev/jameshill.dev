@@ -52,6 +52,15 @@
 
 .layout {
   @extend %sidebar;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('lg') {
+      display: block;
+    }
+  }
 }
 
 /* -----------------------------------
@@ -111,6 +120,8 @@
 
 .profile {
   @extend %margin-normal;
+
+  order: 2;
 }
 
 /* -----------------------------------
@@ -121,6 +132,8 @@
 
 .recent {
   @extend %margin-normal;
+
+  order: 1;
 }
 
 /* -----------------------------------

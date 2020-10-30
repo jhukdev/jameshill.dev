@@ -64,8 +64,10 @@ function Page({
               </article>
               <aside>
                 <ProfileImage className={style.profile} />
-                <h3 class={style.heading}>Recent Articles</h3>
-                <RecentArticles className={style.recent} articles={articles} />
+                <nav class={style.recent}>
+                  <h3 class={style.heading}>Recent Articles</h3>
+                  <RecentArticles articles={articles} />
+                </nav>
                 {/* <h3 class={style.heading}>Tags</h3>
                 <nav class={style.tags}>
                   {tags.map((tag) => (
