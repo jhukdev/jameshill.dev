@@ -24,9 +24,9 @@
   display: none;
   margin: 0;
   width: rem(100);
+  overflow: hidden;
   border: rem(1) solid $colour-shadow;
   border-radius: rem(5);
-  overflow: hidden;
   flex-shrink: 0;
   align-self: flex-start;
 
@@ -43,8 +43,16 @@
     min-width: rem(180);
   }
 
+  &:before {
+    display: block;
+    content: '';
+    padding-bottom: (300 / 420) * 100%;
+  }
+
   img {
+    position: absolute;
     width: 100%;
+    top: 0;
     max-width: 100%;
   }
 }
