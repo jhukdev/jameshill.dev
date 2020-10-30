@@ -7,8 +7,7 @@
  * -------------------------------- */
 
 .articles {
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 /* -----------------------------------
@@ -19,7 +18,6 @@
 
 .item {
   margin: 0 0 rem(20);
-  height: 100%;
 
   @include breakpoint('md') {
     margin: 0 0 rem(40);

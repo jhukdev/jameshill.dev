@@ -23,6 +23,7 @@ import { Header } from '@/components/header';
 import { Banner } from '@/components/banner';
 import { ArticleList } from '@/components/articleList';
 import { ProfileImage } from '@/components/profileImage';
+import { RecentArticles } from '@/components/recentArticles';
 import { Footer } from '@/components/footer';
 
 /* -----------------------------------
@@ -48,7 +49,11 @@ function Page({ collections: { articles } }: IData) {
             <div class={style.layout}>
               <ArticleList articles={articles} />
               <aside>
-                <ProfileImage />
+                <ProfileImage className={style.profile} />
+                <div class={style.recent}>
+                  <h3 class={style.heading}>Recent Articles</h3>
+                  <RecentArticles articles={articles} />
+                </div>
               </aside>
             </div>
           </div>
