@@ -11,9 +11,9 @@ const languages = {
   scss: () => import('prismjs/components/prism-scss'),
   json: () => import('prismjs/components/prism-json'),
   tsx: () => [
-    import('prismjs/components/prism-typescript'),
-    import('prismjs/components/prism-jsx'),
-    import('prismjs/components/prism-tsx'),
+    import(/* webpackChunkName: "prism-tsx" */ 'prismjs/components/prism-typescript'),
+    import(/* webpackChunkName: "prism-tsx" */ 'prismjs/components/prism-jsx'),
+    import(/* webpackChunkName: "prism-tsx"*/ 'prismjs/components/prism-tsx'),
   ],
 };
 
@@ -46,21 +46,11 @@ async function applySyntaxHighlight() {
     }
   }
 
-  const syntax = Object.keys(loadList)
-    .map((key) => loadList[key]())
-    .map(async (item) => {
-      if (Array.isArray(item)) {
-        return item.reduce((p, file) => {
-          return p.then(() => file);
-        }, Promise.resolve());
-      }
+  const syntax = Object.keys(loadList).map((key) => loadList[key]());
 
-      return item;
-    });
+  await Promise.all([].concat(...syntax));
 
-  await Promise.all(syntax);
-
-  await highlightAll();
+  highlightAll();
 }
 
 /* -----------------------------------
