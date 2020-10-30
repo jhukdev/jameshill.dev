@@ -53,7 +53,7 @@ function Page({
     <Html
       title={title}
       summary={excerpt}
-      image={`/articles/_images/${image}`}
+      image={`https://jameshill.dev/articles/_images/${image}`}
       cssFile={this.stylesheet(cssPath)}
       jsPath={jsPath}
     >
