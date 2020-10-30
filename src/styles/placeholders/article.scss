@@ -112,6 +112,7 @@
     font-size: rem(17);
     margin: 0 0 2em;
     border-radius: rem(4);
+    overflow: auto;
 
     @include breakpoint('md') {
       font-size: rem(19);
