@@ -18,9 +18,7 @@ This article focuses on Preact, but is in no way exclusive to this library. In p
 
 ## Common patterns
 
-In a typical SPA, you'll have a single entry file that is responsible for rendering the application. Ideally there will be one per view that will be responsible for running the code specifically for that page, but commonly a single file will be shared across each.
-
-This normally looks something like this:
+In your typical SPA, you'll either have a single entry file, or one per page that's responsible for rendering the application. This can look something like the following:
 
 ```tsx
 import { hydrate } from 'preact';
@@ -31,7 +29,7 @@ import { App } from './components/app';
 hydrate(document.getElementById('root'), <App />);
 ```
 
-This is all fine and well, and if your application is relatively small, this approach will probably be adequate. However, you'll find that much of your application logic is run for little to no reason when pre-rendered on the server. Typically, event handling happens in isolated areas, and in order for Preact to bind those events, it must run through the entire component tree. Less than ideal.
+This is all fine and well, and if your application is relatively small, this approach will probably be adequate. However, you'll find that much of your application is run for little to no reason when pre-rendered on the server. Typically, event handling happens in isolated areas, and in order for Preact to bind those events, it must run through the entire component tree. Less than ideal.
 
 Take this component for example:
 
@@ -52,11 +50,11 @@ function App() {
 }
 ```
 
-Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted.
+Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted, not to mention a bloated js file sent across the network.
 
 ## How do we fix this?
 
-Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the section in question. This gives you a point of control to hydrate your component, access any properties that the server has provided, and finally render within a root element. This HOC could look something like this:
+Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the section in question. This gives you a point of control to hydrate your component, access any properties that the server has provided, and finally, render within a root element. The HOC could look something like this:
 
 ```typescript
 import { h, hydrate } from 'preact';
@@ -65,7 +63,7 @@ import { h, hydrate } from 'preact';
 
 function withHydration(uniqueName: string, component: any) {
   const preRender = typeof window === 'undefined';
-  const elementName = getElementName(uniqueName);
+  const elementName = `component-${value.replace(/([a-z])([A-Z])/g, '$1-$2')}`.toLowerCase();
 
   if (!preRender) {
     const root = document?.querySelectorAll(elementName);
@@ -87,16 +85,16 @@ function withHydration(uniqueName: string, component: any) {
 
 There's quite a lot going on here so let's step through..
 
-First, we check whether the function is being run on the server, or the client. We can achieve this with an assumption that `window` will only be defined in a browser. E.g: `typeof window === 'undefined'`
+First, we check whether the function is being run on the server, or the client. We can achieve this with an assumption that `window` will only be defined in a browser.
 
-Next, we construct an element handle using the `uniqueName` argument. If we used `LoginForm` as the `uniqueName` value, the result of `getElementName()` will look something like `login-form-component`.
+Next, we construct an element handle using the `uniqueName` argument. If we used `LoginForm` as the `uniqueName` value, the result of this will look something like `component-login-form`.
 
-If the function is running in the browser, we query the DOM for our element name, e.g `<login-form-component>`, extract some JSON data held within, and run Preact's `hydrate` function with our component reference and data.
+If the function is running in the browser, we query the DOM for our element name, e.g `<component-login-form>`, extract some JSON data held within, and run Preact's `hydrate` function with our component reference and data.
 
-If the function is running server side, we simply return a function that accepts some props, and generates the container used above. The result of this will look something like the following:
+If the function is running on the server, we simply return a function that accepts some props, and generates the container along with the rendered component. The result of this will look something like the following:
 
 ```html
-<login-form-component>
+<component-login-form>
   <script type="application/json">
     { "className": "login", "formTitle": "Login Form" }
   </script>
@@ -104,12 +102,12 @@ If the function is running server side, we simply return a function that accepts
     <h3>Login Form</h3>
     <!-- rest of component -->
   </form>
-</login-form-component>
+</component-login-form>
 ```
 
 ## Using the higher order function
 
-Finally, to use the `withHydration()` function, you'll do something like the following; Where you place this is up to you, but I tend to have an `index.ts` file within a component's folder that handles anything related to implementation detail:
+Finally, to use the `withHydration()` function, you'll do something like the following:
 
 ```tsx
 import { LoginForm as Component } from './login-form';
@@ -120,7 +118,7 @@ import { withHydration } from './withHydration';
 const LoginForm = withHydration('LoginForm', Component);
 ```
 
-Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. I normally do something like this in an entry file that's built via a bundler:
+Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. This can be achieved by importing the file into your entry point:
 
 ```ts
 import './components/login-form';
