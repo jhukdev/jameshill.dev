@@ -17,7 +17,7 @@
  * -------------------------------- */
 
 .item {
-  margin: 0 0 rem(20);
+  margin: 0 0 rem(30);
 
   @include breakpoint('md') {
     margin: 0 0 rem(40);
@@ -28,7 +28,7 @@
     content: '';
     width: 90%;
     height: rem(1);
-    margin: rem(20) auto 0;
+    margin: rem(30) auto 0;
     border-bottom: rem(1) solid #d6d6d6;
 
     @include breakpoint('md') {
