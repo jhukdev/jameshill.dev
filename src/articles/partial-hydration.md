@@ -109,7 +109,7 @@ If the function is running on the server, we simply return a function that accep
 
 ## Using the higher order function
 
-Finally, to use the `withHydration()` function, you'll do something like the following:
+Finally, to use the `withHydration()` function, you'll do something like the this:
 
 ```tsx
 import { LoginForm as Component } from './login-form';
