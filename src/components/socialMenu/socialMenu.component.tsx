@@ -36,7 +36,7 @@ function SocialMenu({ className = '' }: IProps) {
         rel="noreferrer"
         class={style.link}
       >
-        <img src={twitterIcon} class={style.icon} height="26" alt="Twitter" />
+        <img src={twitterIcon} class={style.icon} width="26" height="26" alt="Twitter" />
       </a>
       <a
         href="https://github.com/jhukdev"
@@ -44,7 +44,7 @@ function SocialMenu({ className = '' }: IProps) {
         rel="noreferrer"
         class={style.link}
       >
-        <img src={githubIcon} class={style.icon} height="26" alt="Twitter" />
+        <img src={githubIcon} class={style.icon} width="26" height="26" alt="Twitter" />
       </a>
       <a
         href="https://www.linkedin.com/in/jameshill-dev"
@@ -52,7 +52,7 @@ function SocialMenu({ className = '' }: IProps) {
         rel="noreferrer"
         class={style.link}
       >
-        <img src={linkedinIcon} class={style.icon} height="26" alt="Twitter" />
+        <img src={linkedinIcon} class={style.icon} width="26" height="26" alt="Twitter" />
       </a>
     </nav>
   );
