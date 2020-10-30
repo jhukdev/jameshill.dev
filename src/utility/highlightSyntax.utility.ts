@@ -50,11 +50,9 @@ async function applySyntaxHighlight() {
     .map((key) => loadList[key]())
     .map(async (item) => {
       if (Array.isArray(item)) {
-        for (let file of item) {
-          await file;
-        }
-
-        return;
+        return item.reduce((p, file) => {
+          return p.then(() => file);
+        }, Promise.resolve());
       }
 
       return item;
