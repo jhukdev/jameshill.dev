@@ -33,7 +33,7 @@ async function applySyntaxHighlight() {
 
   const [{ highlightAll }] = await Promise.all([
     import(/* webpackChunkName: "prism" */ 'prismjs'),
-    import(/* webpackChunkName: "prism" */ '@/styles/monokai.css'),
+    import('@/styles/monokai.css'),
   ]);
 
   for (const block of codeBlocks) {
