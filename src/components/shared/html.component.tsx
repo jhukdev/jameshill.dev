@@ -40,24 +40,13 @@ function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IPr
         <meta charSet="utf-8" />
         <title>{title}</title>
         <link rel="icon" type="image/png" href={favicon} />
-        <meta
-          name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1"
-        />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@jhukdev" />
         <meta name="twitter:title" content={title} />
         {summary && <meta name="twitter:description" content={summary} />}
         {image && <meta name="twitter:image:src" content={image} />}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1" />
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-167321875-1');
-          `}
-        </script>
+        {getAnalytics()}
         {getFontLink()}
         <style dangerouslySetInnerHTML={{ __html: cssFile }} />
       </head>
@@ -91,6 +80,32 @@ function getFontLink() {
     media: 'none',
     onload: "if(media!='all')media='all'",
   });
+}
+
+/* -----------------------------------
+ *
+ * Analytics
+ *
+ * -------------------------------- */
+
+function getAnalytics() {
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+
+  return (
+    <Fragment>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167321875-1" />
+      <script>
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-167321875-1');
+      `}
+      </script>
+    </Fragment>
+  );
 }
 
 /* -----------------------------------
