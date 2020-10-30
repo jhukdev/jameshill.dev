@@ -47,7 +47,7 @@ function Page({ collections: { articles } }: IData) {
           </Banner>
           <div class={style.container}>
             <div class={style.layout}>
-              <ArticleList articles={articles} />
+              <ArticleList className={style.articles} articles={articles} />
               <aside>
                 <ProfileImage className={style.profile} />
                 <div class={style.recent}>

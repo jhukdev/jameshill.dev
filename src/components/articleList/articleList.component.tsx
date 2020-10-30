@@ -10,6 +10,7 @@ import style from './articleList.module.scss';
  * -------------------------------- */
 
 interface IProps {
+  className?: string;
   articles: ICollection<IArticle>[];
 }
 
@@ -27,9 +28,9 @@ import { ArticleTile } from '@/components/articleTile';
  *
  * -------------------------------- */
 
-function ArticleList({ articles }: IProps) {
+function ArticleList({ className = '', articles }: IProps) {
   return (
-    <article class={style.articles}>
+    <article class={`${style.articles} ${className}`}>
       {articles.map(({ data, url }) => (
         <div class={style.item}>
           <ArticleTile article={data} url={url} />

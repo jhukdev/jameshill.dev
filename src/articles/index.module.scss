@@ -45,13 +45,32 @@
 .layout {
   @extend %sidebar;
 
-  padding-top: rem(30);
-  padding-bottom: rem(30);
+  padding-top: rem(40);
+  padding-bottom: rem(40);
 
   @include breakpoint('md') {
     padding-top: rem(50);
     padding-bottom: rem(50);
   }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('lg') {
+      display: block;
+    }
+  }
+}
+
+/* -----------------------------------
+ *
+ * Articles
+ *
+ * -------------------------------- */
+
+.articles {
+  @extend %margin-normal;
 }
 
 /* -----------------------------------
@@ -72,6 +91,8 @@
 
 .profile {
   @extend %margin-normal;
+
+  order: 2;
 }
 
 /* -----------------------------------
@@ -82,4 +103,6 @@
 
 .recent {
   @extend %margin-normal;
+
+  order: 1;
 }
