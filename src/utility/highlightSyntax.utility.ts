@@ -5,15 +5,15 @@
  * -------------------------------- */
 
 const languages = {
-  typescript: () => import(/* webpackChunkName: "prism" */ 'prismjs/components/prism-typescript'),
+  typescript: () => import(/* webpackChunkName: "syntax" */ 'prismjs/components/prism-typescript'),
   javascript: () => import('prismjs/components/prism-javascript'),
   bash: () => import('prismjs/components/prism-bash'),
-  scss: () => import(/* webpackChunkName: "prism" */ 'prismjs/components/prism-scss'),
+  scss: () => import(/* webpackChunkName: "syntax" */ 'prismjs/components/prism-scss'),
   json: () => import('prismjs/components/prism-json'),
   tsx: () => [
-    import(/* webpackChunkName: "prism" */ 'prismjs/components/prism-typescript'),
-    import(/* webpackChunkName: "prism" */ 'prismjs/components/prism-jsx'),
-    import(/* webpackChunkName: "prism"*/ 'prismjs/components/prism-tsx'),
+    import(/* webpackChunkName: "syntax" */ 'prismjs/components/prism-typescript'),
+    import(/* webpackChunkName: "syntax" */ 'prismjs/components/prism-jsx'),
+    import(/* webpackChunkName: "syntax"*/ 'prismjs/components/prism-tsx'),
   ],
 };
 
@@ -31,10 +31,7 @@ async function applySyntaxHighlight() {
     return;
   }
 
-  const [{ highlightAll }] = await Promise.all([
-    import(/* webpackChunkName: "prism" */ 'prismjs'),
-    import('@/styles/monokai.css'),
-  ]);
+  const [{ highlightAll }] = await Promise.all([import('prismjs'), import('@/styles/monokai.css')]);
 
   for (const block of codeBlocks) {
     const key = getLanguageFromClass(block.className);

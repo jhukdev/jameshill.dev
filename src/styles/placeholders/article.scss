@@ -117,18 +117,17 @@
     }
   }
 
-  pre[class*='language-'] {
+  pre code[class*='language-'] {
     display: inline-block;
     width: 100%;
-    max-width: 100%;
-    padding: rem(15) !important;
+    padding: rem(15);
+    background: #23241f;
     box-sizing: border-box;
     border-radius: rem(4);
-    background: #23241f;
 
     @include breakpoint('md') {
       width: 100%;
-      max-width: rem(620);
+      max-width: rem(640);
     }
   }
 
