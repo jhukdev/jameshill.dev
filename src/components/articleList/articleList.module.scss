@@ -26,13 +26,18 @@
   &:after {
     display: block;
     content: '';
-    width: 90%;
+    width: 100%;
     height: rem(1);
     margin: rem(30) auto 0;
     border-bottom: rem(1) solid #d6d6d6;
 
     @include breakpoint('md') {
       margin: rem(50) auto 0;
+      width: 90%;
     }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }

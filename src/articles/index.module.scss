@@ -92,7 +92,11 @@
 .profile {
   @extend %margin-normal;
 
-  order: 2;
+  display: none;
+
+  @include breakpoint('lg') {
+    display: block;
+  }
 }
 
 /* -----------------------------------
@@ -103,6 +107,4 @@
 
 .recent {
   @extend %margin-normal;
-
-  order: 1;
 }

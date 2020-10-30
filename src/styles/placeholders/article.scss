@@ -137,8 +137,8 @@
   code:not([class*='language-']) {
     display: inline-block;
     font-weight: 400;
-    background: #ddd;
-    border: rem(1) solid #ccc;
+    background: $colour-light;
+    border: rem(1) solid $colour-shadow;
     padding: 0 rem(4);
     border-radius: rem(2);
     font-size: inherit;
