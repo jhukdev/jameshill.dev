@@ -35,12 +35,12 @@
 .container {
   @extend %container;
 
-  padding-top: rem(40);
-  padding-bottom: rem(40);
+  padding-top: rem(35);
+  padding-bottom: rem(35);
 
   @include breakpoint('md') {
-    padding-top: rem(50);
-    padding-bottom: rem(50);
+    padding-top: rem(60);
+    padding-bottom: rem(60);
   }
 }
 
@@ -71,7 +71,7 @@
 
 .title {
   font-family: $font-accent;
-  font-size: rem(28);
+  font-size: rem(32);
   font-weight: 300;
   line-height: 1.2;
   margin: 0 0 0.8em;
