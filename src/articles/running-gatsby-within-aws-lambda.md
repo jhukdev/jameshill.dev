@@ -16,7 +16,7 @@ But once you've built your shiny new app, where to put it? How to build it? We'l
 
 ## The Status Quo
 
-Deploying and hosting statically generated pages has largely been solved for us; Mature and inexpensive (free) services have been setup in recent years to tackle the problem of building and deploying sites built in this way.
+Deploying and hosting statically generated pages has largely been solved for us; Mature and inexpensive (free) services have been setup in recent years to tackle the problem of generating and deploying sites built in this way.
 
 One of the frontrunners in this space is <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a>, they support a whole host of frameworks from Gatsby, to Hugo, and their portal allows for simple deployment straight from source control.
 
@@ -58,7 +58,7 @@ exports.handler = (event, context) => {
 };
 ```
 
-This gives us access to the underlying function that Gatsby's CLI uses, which returns a Promise. Bonus. Now we can instantiate Gatsby by doing the following:
+This gives us access to the underlying Promise based function that Gatsby's CLI uses. Bonus. Now we can instantiate Gatsby by doing the following:
 
 ```javascript
 const aws = require('aws-sdk');
@@ -76,4 +76,109 @@ exports.handler = (event, context) => {
 
 If you try to package this up and deploy to AWS, you'll quickly realise this isn't going to work. Lambda's have a series of hard size limits, the max being 250mb. Gatsby is a bit of a beast, coming in at aroung 500mb. Oh noes.
 
-So what can we do? Well <a href="https://aws.amazon.com/efs/" target="_blank" rel="noopener">EFS</a> to the rescue. Amazon have realised people want to do crazy things with Lambda's, so they've created a way for you to mount an EFS instance to a Lambda. There's a <a href="https://aws.amazon.com/de/blogs/aws/new-a-shared-file-system-for-your-lambda-functions/" target="_blank">great introduction</a> to this here on the AWS blog.
+## Super size the Lambda
+
+So what can we do? Well <a href="https://aws.amazon.com/efs/" target="_blank" rel="noopener">EFS</a> to the rescue. Amazon have realised people want to do crazy things with Lambda's, so they've created a way for you to mount an EFS instance to a Lambda. There's a <a href="https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/" target="_blank">great walkthrough</a> of this here on the AWS blog.
+
+Bottom line is, once we have Gatsby installed in an EFS instance, we'll need to tell NPM to look there for some of our packages. As the post above mentions, we can achieve this by using the <a href="https://www.npmjs.com/package/app-module-path" target="_blank" rel="noopener">app-module-path</a> package.
+
+From the docs, we use this by declaring the package at the very top of our Lambda, with the path to our mounted EFS instance:
+
+```javascript
+// ***IMPORTANT**: The following line should be added to the very
+//                 beginning of your main script!
+require('app-module-path').addPath('/mnt/efs/node/node_modules/');
+
+/*[...]*/
+
+exports.handler = (event, context) => {
+  const gatsby = require('gatsby/dist/commands/build');
+
+  /*[...]*/
+};
+```
+
+## Running the thing
+
+Ok, so we've now got our Lambda deployed, but when we go to test, there's an error:
+
+```bash
+error TypeError: Cannot read property 'name' of undefined
+```
+
+After some digging, it looks like we're missing some of the properties that Gatsby would define outside of the build function. In this case, Gatsby's looking for the _name_ property of our `package.json`. Simple fix:
+
+```javascript
+const aws = require('aws-sdk');
+
+exports.handler = (event, context) => {
+  const gatsby = require('gatsby/dist/commands/build');
+
+  gatsby({
+    directory: __dirname, // <- Working directory
+    sitePackageJson: require('./package.json'),
+  })
+    .then(context.succeed)
+    .catch(context.fail);
+};
+```
+
+There are other properties that we can define, things like `verbose: boolean`, or `browserslist: ['>0.25%', 'not dead']`. But for now, the above seems like the bare minimum we'll need.
+
+If we now try to run this, there's another problem. Lambda's only allow us to write to the `./tmp` directory, but by default, Gatsby outputs our site to `./public`. Again, we've got some guidance here from the <a href="https://gist.github.com/digitalkaoz/94933c246ba67032a1507083e2605a30#file-index-js-L37" target="_blank" rel="noopener">Gist</a>.
+
+We need to mock the filesystem, and provide an alias for the output directory:
+
+```javascript
+const aws = require('aws-sdk');
+const { link } = require('linkfs'); // <-- We need this package
+const mock = require('mock-require'); // <-- And this package
+const fs = require('fs');
+const tmpDir = require('os').tmpdir();
+
+/*[...]*/
+
+exports.handler = (event, context) => {
+  mockFileSystem();
+
+  const gatsby = require('gatsby/dist/commands/build');
+
+  /*[...]*/
+};
+
+function mockFileSystem() {
+  const linkedFs = link(fs, [
+    [`${__dirname}/.cache`, tmpDir + '/.cache'],
+    [`${__dirname}/public`, tmpDir + '/public'],
+  ]);
+
+  linkedFs.ReadStream = fs.ReadStream;
+  linkedFs.WriteStream = fs.WriteStream;
+
+  mock('fs', linkedFs);
+}
+```
+
+## Wrapping it all up
+
+Now that we can successfully run our Lambda, and Gatsby's writing our files to the correct location, all we need to do is deploy these to our S3 bucket.
+
+```javascript
+exports.handler = (event, context) => {
+  /*[...]*/
+
+  gatsby({
+    directory: __dirname,
+    sitePackageJson: require('./package.json'),
+  })
+    .then(deployFiles) // <-- This function does the deploy
+    .then(context.succeed)
+    .catch(context.fail);
+};
+```
+
+And that's it! All that's left for us to do is zip our Lambda up with it's relevant dependencies, those of our actual site, and of course all of the Gatsby config files needed for it to run.
+
+If you'd like to see a more complete version, check out the <a href="https://github.com/jhukdev/gatsby-lambda" target="_blank" rel="noopener">repo here</a>. I've opted for TypeScript there, coz why not, but the general structure is the same.
+
+Happy building.
