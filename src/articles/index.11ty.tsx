@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { ICollections } from '@/model/collections.model';
+import { IPage } from '@/model/page.model';
 import style from './index.module.scss';
 
 /* -----------------------------------
@@ -32,11 +33,11 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-function Page({ collections: { articles } }: IData) {
+function Page(this: IPage, { collections: { articles } }: IData) {
   return (
     <Html
       title="Articles - 11ty"
-      cssFile={this.stylesheet('articles/index.11ty.css')}
+      cssFile={this.styles('articles/index.11ty.css')}
       jsPath="articleList.entry.js"
     >
       <div class={style.wrapper}>

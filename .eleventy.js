@@ -34,7 +34,7 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addJavaScriptFunction('stylesheet', inlineStylesheet);
+  config.addJavaScriptFunction('styles', inlineStylesheet);
 
   config.addCollection('articles', (collection) =>
     collection
@@ -81,10 +81,13 @@ function inlineStylesheet(path) {
 function transformFileHash(content) {
   const assets = require('./src/_js/assets.json');
   const keys = Object.keys(assets);
-  const regex = (key) => new RegExp(`(script|link)(.*)(src|href)="(.*)${key}"`);
 
   return keys.reduce(
-    (result, key) => result.replace(regex(key), `$1$2$3="$4${assets[key]}"`),
+    (result, key) =>
+      result.replace(
+        new RegExp(`(script|link)(.*)(src|href)="(.*)${key}"`),
+        `$1$2$3="$4${assets[key]}"`
+      ),
     content
   );
 }

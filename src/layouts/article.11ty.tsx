@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
 import { ICollections } from '@/model/collections.model';
+import { IPage } from '@/model/page.model';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -39,22 +40,25 @@ import { Footer } from '@/components/footer';
  *
  * -------------------------------- */
 
-function Page({
-  title,
-  excerpt,
-  image,
-  content,
-  cssPath = 'layouts/article.11ty.css',
-  jsPath = 'article.entry.js',
-  tags,
-  collections: { articles },
-}: IData) {
+function Page(
+  this: IPage,
+  {
+    title,
+    excerpt,
+    image,
+    content,
+    cssPath = 'layouts/article.11ty.css',
+    jsPath = 'article.entry.js',
+    tags,
+    collections: { articles },
+  }: IData
+) {
   return (
     <Html
       title={title}
       summary={excerpt}
       image={`https://jameshill.dev/articles/_images/${image}`}
-      cssFile={this.stylesheet(cssPath)}
+      cssFile={this.styles(cssPath)}
       jsPath={jsPath}
     >
       <div class={style.wrapper}>
@@ -67,10 +71,7 @@ function Page({
             <div class={style.layout}>
               <article>
                 <h1 class={style.title}>{title}</h1>
-                <div
-                  class={style.article}
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <div class={style.article} dangerouslySetInnerHTML={{ __html: content }} />
               </article>
               <aside>
                 <ProfileImage className={style.profile} />
