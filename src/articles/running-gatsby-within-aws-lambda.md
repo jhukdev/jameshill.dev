@@ -10,7 +10,7 @@ article: true
 layout: article.11ty.js
 ---
 
-I you haven't tried it already, <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener">Gatsby</a> is a fantastic tool for building a statically generated app or site. So much of the time consuming setup required for tooling, performance, and data layers is already done for you, right out of the box.
+If you haven't tried it already, <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener">Gatsby</a> is a fantastic tool for building a statically generated app or site. So much of the time consuming setup required for config, performance, and data layer is already done for you, right out of the box.
 
 But once you've built your shiny new app, where to put it? How to build it? We'll look at going it alone, and running Gatsby within a triggered <a href="https://aws.amazon.com/lambda/" target="_blank" rel="noopener">Lambda</a>.
 
@@ -18,7 +18,7 @@ But once you've built your shiny new app, where to put it? How to build it? We'l
 
 Deploying and hosting statically generated pages has largely been solved for us; Mature and inexpensive (free) services have been setup in recent years to tackle the problem of generating and deploying sites built in this way.
 
-One of the frontrunners in this space is <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a>, they support a whole host of frameworks from Gatsby, to Hugo, and their portal allows for simple deployment straight from source control.
+One of the front runners in this space is <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a>, they support a whole host of frameworks from Gatsby, to Hugo, and their portal allows for simple deployment straight from source control.
 
 But what if you don't want to use a third party? Or perhaps you can't? In this scenario, it's AWS to the rescue.
 
@@ -32,7 +32,7 @@ So, we've got our AWS account, now we need to write a Lambda that'll run Gatsby.
 - Run Gatsby against our project
 - Publish the output to an S3 bucket
 
-The first point is already handled for us by AWS; If you have an API that handles your data, you can create a <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html" target="_blank" rel="noopener">public endpoint</a> to call from there. Or, if your publishing data to a bucket, setup an <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html" target="_blank" rel="noopener">S3 event</a> that's called when data changes.
+The first point is already handled for us by AWS; If you have an API that handles your data, you can create a <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html" target="_blank" rel="noopener">public endpoint</a> to call from there. Or, if you're publishing data to a bucket, setup an <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html" target="_blank" rel="noopener">S3 event</a> that's called when data changes.
 
 Now all we need is our Lambda. Let's take the below as a starting point:
 
@@ -85,8 +85,6 @@ Bottom line is, once we have Gatsby installed in an EFS instance, we'll need to 
 From the docs, we use this by declaring the package at the very top of our Lambda, with the path to our mounted EFS instance:
 
 ```javascript
-// ***IMPORTANT**: The following line should be added to the very
-//                 beginning of your main script!
 require('app-module-path').addPath('/mnt/efs/node/node_modules/');
 
 /*[...]*/
@@ -124,6 +122,8 @@ exports.handler = (event, context) => {
 ```
 
 There are other properties that we can define, things like `verbose: boolean`, or `browserslist: ['>0.25%', 'not dead']`. But for now, the above seems like the bare minimum we'll need.
+
+It's also worth pointing out that we'll need to ensure our `process.env.NODE_ENV` is set to production; Many plugins you might use rely on this, and as we're not using the CLI, this won't _necessarily_ be defined correctly.
 
 If we now try to run this, there's another problem. Lambda's only allow us to write to the `./tmp` directory, but by default, Gatsby outputs our site to `./public`. Again, we've got some guidance here from the <a href="https://gist.github.com/digitalkaoz/94933c246ba67032a1507083e2605a30#file-index-js-L37" target="_blank" rel="noopener">Gist</a>.
 
