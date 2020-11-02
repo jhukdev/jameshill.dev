@@ -50,7 +50,8 @@ async function applySyntaxHighlight() {
   const syntax = Object.keys(loadList).map((key) => loadList[key]());
 
   await Promise.all([].concat(...syntax));
-  await highlightAll(true);
+
+  highlightAll();
 }
 
 /* -----------------------------------
