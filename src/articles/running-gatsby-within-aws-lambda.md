@@ -5,12 +5,12 @@ tags: ['tooling', 'gatsby', 'serverless', 'aws', 'lambda']
 excerpt: If you're unable or unwilling to use some of the great services out there, it's fairly trivial to setup your own deployment pipeline.
 image: gatsby-thumbnail.jpg
 date: 2020-11-02
-publish: false
+publish: true
 article: true
 layout: article.11ty.js
 ---
 
-If you haven't tried it already, <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener">Gatsby</a> is a fantastic tool for building a statically generated app or site. So much of the time consuming setup required for config, performance, and data layer is already done for you, right out of the box.
+If you haven't tried it already, <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener">Gatsby</a> is fantastic for building a statically generated app or site. So much of the time consuming setup required for config, performance, and data layer is already done for you, right out of the box.
 
 But once you've built your shiny new app, where to put it? How to build it? We'll look at going it alone, and running Gatsby within a triggered <a href="https://aws.amazon.com/lambda/" target="_blank" rel="noopener">Lambda</a>.
 
@@ -123,7 +123,7 @@ exports.handler = (event, context) => {
 
 There are other properties that we can define, things like `verbose: boolean`, or `browserslist: ['>0.25%', 'not dead']`. But for now, the above seems like the bare minimum we'll need.
 
-It's also worth pointing out that we'll need to ensure our `process.env.NODE_ENV` is set to production; Many plugins you might use rely on this, and as we're not using the CLI, this won't _necessarily_ be defined correctly.
+It's also worth pointing out that we'll need to ensure the value of `process.env.NODE_ENV` is set to production; Many plugins you might use rely on this, and as we're not using the CLI, this won't _necessarily_ already be defined correctly.
 
 If we now try to run this, there's another problem. Lambda's only allow us to write to the `./tmp` directory, but by default, Gatsby outputs our site to `./public`. Again, we've got some guidance here from the <a href="https://gist.github.com/digitalkaoz/94933c246ba67032a1507083e2605a30#file-index-js-L37" target="_blank" rel="noopener">Gist</a>.
 
@@ -226,7 +226,7 @@ async function deployFiles() {
 
 ## Wrapping it all up
 
-And that's it! All that's left for us to do is zip our Lambda up with it's relevant dependencies, those of our actual site, and of course all of the Gatsby config files needed for it to run.
+All that's left for us to do is zip our Lambda up with it's relevant dependencies, those of our actual site, and of course all of the Gatsby config files needed for it to run.
 
 If you'd like to see a more complete version, check out the <a href="https://github.com/jhukdev/gatsby-lambda" target="_blank" rel="noopener">repo here</a>. I've opted for TypeScript there, cos why not, but the general structure is the same.
 
