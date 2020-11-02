@@ -64,7 +64,7 @@ import { h, hydrate } from 'preact';
 function withHydration(uniqueName: string, component: any) {
   const preRender = typeof window === 'undefined';
 
-  const formatName = value.replace(/([a-z])([A-Z])/g, '$1-$2');
+  const formatName = uniqueName.replace(/([a-z])([A-Z])/g, '$1-$2');
   const elementName = `component-${formatName.toLowerCase()}`;
 
   if (!preRender) {
