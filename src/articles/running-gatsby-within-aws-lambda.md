@@ -136,17 +136,7 @@ const mock = require('mock-require'); // <-- And this package
 const fs = require('fs');
 const tmpDir = require('os').tmpdir();
 
-/*[...]*/
-
 exports.handler = (event, context) => {
-  mockFileSystem();
-
-  const gatsby = require('gatsby/dist/commands/build');
-
-  /*[...]*/
-};
-
-function mockFileSystem() {
   const linkedFs = link(fs, [
     [`${__dirname}/.cache`, tmpDir + '/.cache'],
     [`${__dirname}/public`, tmpDir + '/public'],
@@ -156,10 +146,14 @@ function mockFileSystem() {
   linkedFs.WriteStream = fs.WriteStream;
 
   mock('fs', linkedFs);
-}
+
+  const gatsby = require('gatsby/dist/commands/build');
+
+  /*[...]*/
+};
 ```
 
-## Wrapping it all up
+## Deploy the things
 
 Now that we can successfully run our Lambda, and Gatsby's writing our files to the correct location, all we need to do is deploy these to our S3 bucket.
 
@@ -177,8 +171,63 @@ exports.handler = (event, context) => {
 };
 ```
 
+There's a million and one guides detailing how to do this, but all we're looking to do is read our `./public` directory (recursively):
+
+```javascript
+const aws = require('aws-sdk');
+const path = require('path');
+const fs = require('fs');
+
+/*[...]*/
+
+async function getFilePaths(value) {
+  const directory = await fs.promises.readdir(value, { withFileTypes: true });
+
+  const files = await Promise.all(
+    directory.map((file) => {
+      const result = path.resolve(value, file.name);
+
+      return file.isDirectory() ? getFiles(result) : result;
+    })
+  );
+
+  return [].concat(...files);
+}
+```
+
+Once we have our list, we'll read the contents and upload to S3:
+
+```javascript
+const aws = require('aws-sdk');
+const path = require('path');
+const fs = require('fs');
+
+/*[...]*/
+
+async function deployFiles() {
+  const filePaths = getFilePaths('./public');
+
+  await Promise.all(
+    filePaths.map((filePath) => {
+      const file = filePath.split('public');
+      const data = fs.readFileSync(file);
+
+      return s3
+        .putObject({
+          Bucket: 'YOUR_BUCKET',
+          Key: file,
+          Body: data,
+        })
+        .promise();
+    })
+  );
+}
+```
+
+## Wrapping it all up
+
 And that's it! All that's left for us to do is zip our Lambda up with it's relevant dependencies, those of our actual site, and of course all of the Gatsby config files needed for it to run.
 
-If you'd like to see a more complete version, check out the <a href="https://github.com/jhukdev/gatsby-lambda" target="_blank" rel="noopener">repo here</a>. I've opted for TypeScript there, coz why not, but the general structure is the same.
+If you'd like to see a more complete version, check out the <a href="https://github.com/jhukdev/gatsby-lambda" target="_blank" rel="noopener">repo here</a>. I've opted for TypeScript there, cos why not, but the general structure is the same.
 
 Happy building.
