@@ -127,7 +127,7 @@
   pre code[class*='language-'] {
     display: inline-block;
     padding: rem(15);
-    width: 100%;
+    min-width: 100%;
     background: #23241f;
     border-radius: rem(4);
     box-sizing: border-box;
