@@ -1,6 +1,8 @@
 const { isValidElement } = require('preact');
 const fs = require('fs');
 const { render } = require('preact-render-to-string');
+const markdown = require('markdown-it');
+const markdownAnchor = require('markdown-it-anchor');
 
 /* -----------------------------------
  *
@@ -41,6 +43,17 @@ module.exports = function (config) {
       .getAllSorted()
       .filter(({ data: { article = false, publish = false } }) => article && publish)
       .reverse()
+  );
+
+  config.setLibrary(
+    'md',
+    markdown({ html: true, breaks: true, linkify: true }).use(markdownAnchor, {
+      permalink: true,
+      permalinkBefore: true,
+      permalinkClass: 'anchor',
+      permalinkSymbol: '',
+      slugify: slugifyTitleAnchors,
+    })
   );
 
   return {
@@ -89,5 +102,25 @@ function transformFileHash(content) {
         `$1$2$3="$4${assets[key]}"`
       ),
     content
+  );
+}
+
+/* -----------------------------------
+ *
+ * Anchors
+ *
+ * -------------------------------- */
+
+function slugifyTitleAnchors(value) {
+  return encodeURIComponent(
+    String(value)
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/&/g, '-and-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '')
   );
 }
