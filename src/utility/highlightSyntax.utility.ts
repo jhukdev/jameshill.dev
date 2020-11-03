@@ -49,7 +49,9 @@ async function applySyntaxHighlight() {
 
   const syntax = Object.keys(loadList).map((key) => loadList[key]());
 
-  await Promise.all([].concat(...syntax));
+  const plugins = [import('prismjs/plugins/highlight-keywords/prism-highlight-keywords')];
+
+  await Promise.all([...plugins].concat(...syntax));
 
   highlightAll();
 }

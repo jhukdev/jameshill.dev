@@ -40,12 +40,22 @@ function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IPr
         <meta charSet="utf-8" />
         <title>{title}</title>
         <link rel="icon" type="image/png" href={favicon} />
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1"
+        />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@jhukdev" />
         <meta name="twitter:title" content={title} />
         {summary && <meta name="twitter:description" content={summary} />}
         {image && <meta name="twitter:image:src" content={image} />}
+        {jsPath && (
+          <Fragment>
+            {scripts.map((script) => (
+              <link rel="preload" as="script" href={`/assets/${script}`} />
+            ))}
+          </Fragment>
+        )}
         {getAnalytics()}
         {getFontLink()}
         <style dangerouslySetInnerHTML={{ __html: cssFile }} />

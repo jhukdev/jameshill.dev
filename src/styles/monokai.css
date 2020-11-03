@@ -117,3 +117,11 @@ pre[class*='language-'] {
 .token.entity {
   cursor: help;
 }
+
+/*
+ * Keywords plugin
+ */
+
+.token.keyword-const {
+  color: #63d6ef;
+}
