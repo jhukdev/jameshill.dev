@@ -1,5 +1,5 @@
 ---
-title: Running Gatsby within an AWS Lambda
+title: Running Gatsby in an AWS Lambda
 tagline: The Great Gatsby
 tags: ['tooling', 'gatsby', 'serverless', 'aws', 'lambda']
 excerpt: If you're unable or unwilling to use some of the great services out there, it's fairly trivial to setup your own deployment pipeline.
