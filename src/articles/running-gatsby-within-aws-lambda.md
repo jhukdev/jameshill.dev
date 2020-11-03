@@ -197,7 +197,8 @@ const fs = require('fs');
 /*[...]*/
 
 const s3 = new aws.S3({
-  /*[...]*/
+  accessKeyId: 'KEY_ID',
+  secretAccessKey: 'ACCESS_KEY',
 });
 
 async function deployFiles() {
