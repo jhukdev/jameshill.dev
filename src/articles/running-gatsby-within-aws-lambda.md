@@ -204,18 +204,15 @@ async function deployFiles() {
   const filePaths = getFilePaths('./public');
 
   await Promise.all(
-    filePaths.map((filePath) => {
-      const file = filePath.split('public');
-      const data = fs.readFileSync(file);
-
-      return s3
+    filePaths.map((filePath) =>
+      s3
         .putObject({
           Bucket: 'YOUR_BUCKET',
-          Key: file,
-          Body: data,
+          Key: filePath.split('public'),
+          Body: fs.readFileSync(file),
         })
-        .promise();
-    })
+        .promise()
+    )
   );
 }
 ```
