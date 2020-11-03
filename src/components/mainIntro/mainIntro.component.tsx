@@ -15,7 +15,9 @@ function MainIntro() {
         <em class={style.callout}>there</em>
         <p class={style.text}>
           I'm Tech Lead for all things front-end at
-          <i class={style.company} role="img" />
+          <i class={style.company} role="img">
+            Groupon
+          </i>
           coupons
         </p>
         <a

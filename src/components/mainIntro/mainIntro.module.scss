@@ -103,6 +103,8 @@ component-main-intro {
   height: rem(16);
   vertical-align: middle;
   margin: 0 rem(4);
+  overflow: hidden;
+  text-indent: rem(9999);
 
   @include breakpoint('md') {
     width: rem(100);
