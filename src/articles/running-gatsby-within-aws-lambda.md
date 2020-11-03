@@ -113,7 +113,7 @@ exports.handler = (event, context) => {
   const gatsby = require('gatsby/dist/commands/build');
 
   gatsby({
-    directory: __dirname, // <- Working directory
+    directory: __dirname,
     sitePackageJson: require('./package.json'),
   })
     .then(context.succeed)
