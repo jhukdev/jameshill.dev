@@ -56,10 +56,13 @@ pre[class*='language-'] {
 
 .token.property,
 .token.tag,
-.token.constant,
 .token.symbol,
 .token.deleted {
   color: #f92672;
+}
+
+.token.constant {
+  color: #63d6ef;
 }
 
 .token.boolean,
@@ -123,5 +126,9 @@ pre[class*='language-'] {
  */
 
 .token.keyword-const {
+  color: #63d6ef;
+}
+
+.token.keyword-function {
   color: #63d6ef;
 }
