@@ -49,8 +49,6 @@ Let's assume Gatsby is handling the data requests via `gatsby-node.js` and using
 The first option to achieve this is the most obvious, we create a <a href="https://nodejs.org/api/child_process.html" target="_blank" rel="noopener">child_process</a> and handle the callback. However, ideally we'd like to do this programmatically. There's a <a href="https://gist.github.com/digitalkaoz/94933c246ba67032a1507083e2605a30" target="_blank" rel="noopener">great Gist</a> that shows a POC for doing just that:
 
 ```javascript
-const aws = require('aws-sdk');
-
 exports.handler = (event, context) => {
   const gatsby = require('gatsby/dist/commands/build');
 
@@ -61,8 +59,6 @@ exports.handler = (event, context) => {
 This gives us access to the underlying Promise based function that Gatsby's CLI uses. Bonus. Now we can instantiate Gatsby by doing the following:
 
 ```javascript
-const aws = require('aws-sdk');
-
 exports.handler = (event, context) => {
   const gatsby = require('gatsby/dist/commands/build');
 
@@ -107,8 +103,6 @@ error TypeError: Cannot read property 'name' of undefined
 After some digging, it looks like we're missing some of the properties that Gatsby would define outside of the build function. In this case, Gatsby's looking for the _name_ property of our `package.json`. Simple fix:
 
 ```javascript
-const aws = require('aws-sdk');
-
 exports.handler = (event, context) => {
   const gatsby = require('gatsby/dist/commands/build');
 
@@ -130,7 +124,6 @@ If we now try to run this, there's another problem. Lambda's only allow us to wr
 We need to mock the filesystem, and provide an alias for the output directory:
 
 ```javascript
-const aws = require('aws-sdk');
 const { link } = require('linkfs'); // <-- We need this package
 const mock = require('mock-require'); // <-- And this package
 const fs = require('fs');
@@ -174,7 +167,6 @@ exports.handler = (event, context) => {
 There's a million and one guides detailing how to do this, but all we're looking to do is read our `./public` directory (recursively):
 
 ```javascript
-const aws = require('aws-sdk');
 const path = require('path');
 const fs = require('fs');
 
@@ -203,6 +195,10 @@ const path = require('path');
 const fs = require('fs');
 
 /*[...]*/
+
+const s3 = new aws.S3({
+  /*[...]*/
+});
 
 async function deployFiles() {
   const filePaths = getFilePaths('./public');
