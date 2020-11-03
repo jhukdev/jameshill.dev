@@ -39,7 +39,9 @@ import { App } from './components/app';
 hydrate(document.getElementById('root'), <App />);
 ```
 
-This is all fine and well, and if your application is relatively small, this approach will probably be adequate. However, you'll find that much of your application is run for little to no reason when pre-rendered on the server. Typically, event handling happens in isolated areas, and in order for Preact to bind those events, it must run through the entire component tree. Less than ideal.
+This is all fine and well, and if your application is relatively small, this approach will probably be adequate. However, you'll find that much of your application is run for little to no reason when pre-rendered on the server.
+
+Typically, event handling and life cycle methods happen in isolated areas, and in order for Preact to bind and trigger those events, it must run through the entire component tree. Less than ideal.
 
 Take this component for example:
 
@@ -60,7 +62,9 @@ function App() {
 }
 ```
 
-Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />`. Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted, not to mention a bloated js file sent across the network.
+Here we have one `<Button />` component that must be hydrated in order to bind event listeners, and another _enormous_ tree under `<MegaHuge />` that is purely presentational.
+
+Following the single entry pattern shown above, we must run both of these components in order for Preact to recognise we have event handlers, and bind accordingly. This means some of the work done ahead of time to pre-render has been wasted, not to mention a bloated js file sent across the network.
 
 ## How do we fix this?
 
