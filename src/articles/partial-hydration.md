@@ -16,6 +16,16 @@ The days of shoving everything into a `vendor.js` file and calling it a day are 
 
 This article focuses on Preact, but is in no way exclusive to this library. In particular, we'll look at pre-rendered applications, be it server side or statically generated.
 
+## What to hydrate, where
+
+To start with, what do we mean by "hydration"? In the world of virtual DOM libraries, "hydration" refers to the re-binding of pre-built markup to a specific component. Both Preact and React provide a specific function that takes care of this, `hydrate()`.
+
+This function provides a kind of "soft" render, where the library does a quick comparison with whatever it might be expecting, and if all is well, simply attaches event listeners and runs the component's lifecycle methods, including <a href="https://preactjs.com/guide/v10/hooks/" target="_blank" rel="noopener">hooks</a>.
+
+This way, we bypass the work needed to render this component on the client, but still make use of the interactive methods that the component might provide.
+
+Not all components will _need_ to be hydrated however, some are simply static and are purely presentational. Meaning, it would be wasted work to hydrate many of our applications components that will not provide any benefit from being run client side. This is where "partial hydration" comes in.
+
 ## Common patterns
 
 In your typical SPA, you'll either have a single entry file, or one per page that's responsible for rendering the application. This can look something like the following:
