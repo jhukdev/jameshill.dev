@@ -179,7 +179,7 @@ async function getFilePaths(value) {
     directory.map((file) => {
       const result = path.resolve(value, file.name);
 
-      return file.isDirectory() ? getFiles(result) : result;
+      return file.isDirectory() ? getFilePaths(result) : result;
     })
   );
 
@@ -210,7 +210,7 @@ async function deployFiles() {
         .putObject({
           Bucket: 'YOUR_BUCKET',
           Key: filePath.split('public'),
-          Body: fs.readFileSync(file),
+          Body: fs.readFileSync(filePath),
         })
         .promise()
     )
