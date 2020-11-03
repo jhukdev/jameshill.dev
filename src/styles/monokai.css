@@ -57,6 +57,7 @@ pre[class*='language-'] {
 .token.property,
 .token.tag,
 .token.symbol,
+.token.interpolation-punctuation,
 .token.deleted {
   color: #f92672;
 }
