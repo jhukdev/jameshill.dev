@@ -16,7 +16,7 @@ function MainIntro() {
         <p class={style.text}>
           I'm Tech Lead for all things front-end at
           <i class={style.company} role="img">
-            Groupon
+            &nbsp;Groupon&nbsp;
           </i>
           coupons
         </p>
