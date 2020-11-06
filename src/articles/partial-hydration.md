@@ -10,7 +10,7 @@ article: true
 layout: article.11ty.js
 ---
 
-In the "modern" web, there's an increasing emphasis on performance, and quite right to. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
+Today, there's an increasing emphasis on performance, and quite right too. Ensuring you only ship code that is absolutely essential for the initial render should be at the forefront of every front-end developers mind.
 
 The days of shoving everything into a `vendor.js` file and calling it a day are long gone. DevRels and others across the internet are promoting an open and accessible web, where regardless of how powerful your device may be, an app performs as best it can.
 
