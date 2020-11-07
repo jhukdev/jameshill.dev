@@ -50,7 +50,7 @@ module.exports = function (config) {
     markdown({ html: true, breaks: true, linkify: true }).use(markdownAnchor, {
       permalink: true,
       permalinkBefore: true,
-      permalinkClass: 'anchor',
+      permalinkClass: 'title-anchor',
       permalinkSymbol: '',
       slugify: slugifyTitleAnchors,
     })
