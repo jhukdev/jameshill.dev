@@ -36,7 +36,7 @@ import { App } from './components/app';
 
 /*[...]*/
 
-hydrate(document.getElementById('root'), <App />);
+hydrate(<App />, document.getElementById('root'));
 ```
 
 This is all fine and well, and if your application is relatively small, this approach will probably be adequate. However, you'll find that much of your application is run for little to no reason when pre-rendered on the server.
