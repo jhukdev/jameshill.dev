@@ -1,4 +1,4 @@
-import { h, hydrate as preactHydrate, ComponentFactory } from 'preact';
+import { h, render as preactRender, ComponentFactory } from 'preact';
 
 /* -----------------------------------
  *
@@ -44,7 +44,7 @@ function getElementRoots(elementName: string) {
  *
  * -------------------------------- */
 
-function applyHydration(uniqueName: string, component: ComponentFactory<any>) {
+function applyHydration<T>(uniqueName: string, component: ComponentFactory<T>) {
   const isPrerender = typeof window === 'undefined';
   const elementName = getElementName(uniqueName);
 
@@ -52,7 +52,7 @@ function applyHydration(uniqueName: string, component: ComponentFactory<any>) {
     return hydrate(elementName, component);
   }
 
-  return (props: any) =>
+  return (props: T) =>
     h(elementName, {}, [
       h('script', {
         type: 'application/json',
@@ -68,10 +68,10 @@ function applyHydration(uniqueName: string, component: ComponentFactory<any>) {
  *
  * -------------------------------- */
 
-function hydrate(elementName: string, component: ComponentFactory<any>) {
+function hydrate<T>(elementName: string, component: ComponentFactory<T>) {
   const roots = getElementRoots(elementName);
 
-  roots.forEach(({ root, props }) => preactHydrate(h(component, props), root));
+  roots.forEach(({ root, props }) => preactRender(h(component, props), root));
 
   return component;
 }

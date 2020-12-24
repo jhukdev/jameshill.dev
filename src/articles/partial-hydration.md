@@ -71,24 +71,24 @@ Following the single entry pattern shown above, we must run both of these compon
 Well, first we need to some how isolate the components we know need hydration. One way to approach this is by applying a high order component (HOC) to the section in question. This gives you a point of control to hydrate your component, access any properties that the server has provided, and finally, render within a root element. The HOC could look something like this:
 
 ```typescript
-import { h, hydrate } from 'preact';
+import { h, hydrate, ComponentFactory } from 'preact';
 
 /*[...]*/
 
-function withHydration(uniqueName: string, component: any) {
+function applyHydration<T>(uniqueName: string, component: ComponentFactory<T>) {
   const preRender = typeof window === 'undefined';
 
   const formatName = uniqueName.replace(/([a-z])([A-Z])/g, '$1-$2');
   const elementName = `component-${formatName.toLowerCase()}`;
 
   if (!preRender) {
-    const root = document?.querySelectorAll(elementName);
+    const root = document?.querySelector(elementName);
     const data = root?.querySelector('[type="application/json"]');
 
     return hydrate(h(component, JSON.parse(data?.innerHTML)), root);
   }
 
-  return (props: any) =>
+  return (props: T) =>
     h(elementName, {}, [
       h('script', {
         type: 'application/json',
@@ -123,15 +123,15 @@ If the function is running on the server, we simply return a function that accep
 
 ## Using the higher order function
 
-Finally, to use the `withHydration()` function, you'll do something like the this:
+Finally, to use the `applyHydration()` function, you'll do something like the this:
 
 ```tsx
 import { LoginForm as Component } from './login-form';
-import { withHydration } from './withHydration';
+import { applyHydration } from './applyHydration';
 
 /*[...]*/
 
-const LoginForm = withHydration('LoginForm', Component);
+const LoginForm = applyHydration('LoginForm', Component);
 ```
 
 Now that you've isolated the component, and provided a way to hydrate it with data, all you'll need to do is run it on the client. This can be achieved by importing the file into your entry point:
