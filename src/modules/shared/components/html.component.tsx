@@ -31,7 +31,7 @@ import favicon from '@/styles/images/favicon.png';
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', summary, image, inlineCss, jsPath, children }: IProps) {
+function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
