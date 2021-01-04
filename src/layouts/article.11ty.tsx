@@ -53,12 +53,14 @@ function Page(
     collections: { articles },
   }: IData
 ) {
+  const inlineCss = this.getFileContents(cssPath);
+
   return (
     <Html
       title={title}
       summary={excerpt}
       image={`https://jameshill.dev/articles/_images/${image}`}
-      cssFile={this.styles(cssPath)}
+      inlineCss={inlineCss}
       jsPath={jsPath}
     >
       <div class={style.wrapper}>

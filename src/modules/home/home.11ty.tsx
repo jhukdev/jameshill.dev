@@ -20,12 +20,10 @@ import { Footer } from '@/modules/shared/components/footer';
  * -------------------------------- */
 
 function Page(this: IPage) {
+  const inlineCss = this.getFileContents('home/home.11ty.css');
+
   return (
-    <Html
-      title="Home - JH"
-      cssFile={this.styles('home/home.11ty.css')}
-      jsPath="home/home.entry.js"
-    >
+    <Html title="Home - JH" inlineCss={inlineCss} jsPath="home/home.entry.js">
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>

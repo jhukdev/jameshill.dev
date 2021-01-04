@@ -34,12 +34,10 @@ import { Footer } from '@/modules/shared/components/footer';
  * -------------------------------- */
 
 function Page(this: IPage, { collections: { articles } }: IData) {
+  const inlineCss = this.getFileContents('articles/list.11ty.css');
+
   return (
-    <Html
-      title="Articles - 11ty"
-      cssFile={this.styles('articles/list.11ty.css')}
-      jsPath="articles/list.entry.js"
-    >
+    <Html title="Articles - 11ty" inlineCss={inlineCss} jsPath="articles/list.entry.js">
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>

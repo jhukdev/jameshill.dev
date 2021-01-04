@@ -12,7 +12,7 @@ interface IProps {
   title?: string;
   summary?: string;
   image?: string;
-  cssFile?: string;
+  inlineCss?: string;
   jsPath?: string;
   children: any;
 }
@@ -31,7 +31,7 @@ import favicon from '@/styles/images/favicon.png';
  *
  * -------------------------------- */
 
-function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IProps) {
+function Html({ title = '11ty', summary, image, inlineCss, jsPath, children }: IProps) {
   const scripts = ['vendor.js', jsPath];
 
   return (
@@ -58,7 +58,7 @@ function Html({ title = '11ty', summary, image, cssFile, jsPath, children }: IPr
         )}
         {getAnalytics()}
         {getFontLink()}
-        <style dangerouslySetInnerHTML={{ __html: cssFile }} />
+        <style dangerouslySetInnerHTML={{ __html: inlineCss }} />
       </head>
       <body class={style.body}>
         {children}

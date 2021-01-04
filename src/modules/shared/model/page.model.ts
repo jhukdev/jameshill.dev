@@ -5,7 +5,7 @@
  * -------------------------------- */
 
 interface IPage {
-  styles: (file: string) => string;
+  getFileContents: (file: string) => string;
 }
 
 /* -----------------------------------

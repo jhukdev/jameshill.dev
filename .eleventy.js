@@ -36,7 +36,7 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addJavaScriptFunction('styles', inlineStylesheet);
+  config.addJavaScriptFunction('getFileContents', getFileContents);
 
   config.addCollection('articles', (collection) =>
     collection
@@ -69,11 +69,11 @@ module.exports = function (config) {
 
 /* -----------------------------------
  *
- * Stylesheet
+ * Contents
  *
  * -------------------------------- */
 
-function inlineStylesheet(path) {
+function getFileContents(path) {
   const assets = require('./src/_js/assets.json');
 
   if (!assets[path]) {
