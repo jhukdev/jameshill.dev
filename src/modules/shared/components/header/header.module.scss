@@ -61,6 +61,10 @@
     text-decoration: none;
     margin: 0 rem(20);
 
+    @include breakpoint('md') {
+      font-size: rem(22);
+    }
+
     &:last-child {
       margin-right: 0;
     }
