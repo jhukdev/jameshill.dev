@@ -7,7 +7,7 @@ import style from './footer.module.scss';
  *
  * -------------------------------- */
 
-import { SocialMenu } from '@/components/socialMenu';
+import { SocialMenu } from '@/modules/shared/components/socialMenu';
 
 /* -----------------------------------
  *

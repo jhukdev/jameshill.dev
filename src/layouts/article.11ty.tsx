@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
-import { ICollections } from '@/model/collections.model';
-import { IPage } from '@/model/page.model';
+import { ICollections } from '@/modules/shared/model/collections.model';
+import { IPage } from '@/modules/shared/model/page.model';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -27,12 +27,12 @@ interface IData {
  *
  * -------------------------------- */
 
-import { Html } from '../components/shared';
-import { Header } from '@/components/header';
-import { Banner } from '@/components/banner';
-import { ProfileImage } from '@/components/profileImage';
-import { RecentArticles } from '@/components/recentArticles';
-import { Footer } from '@/components/footer';
+import { Html } from '@/modules/shared/components';
+import { Header } from '@/modules/shared/components/header';
+import { Banner } from '@/modules/shared/components/banner';
+import { ProfileImage } from '@/modules/shared/components/profileImage';
+import { RecentArticles } from '@/modules/articles/components/recentArticles';
+import { Footer } from '@/modules/shared/components/footer';
 
 /* -----------------------------------
  *
@@ -48,7 +48,7 @@ function Page(
     image,
     content,
     cssPath = 'layouts/article.11ty.css',
-    jsPath = 'article.entry.js',
+    jsPath = 'articles/article.entry.js',
     tags,
     collections: { articles },
   }: IData

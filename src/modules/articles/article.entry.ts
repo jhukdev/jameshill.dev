@@ -6,7 +6,7 @@ import { applySyntaxHighlight } from '@/utility/highlightSyntax.utility';
  *
  * -------------------------------- */
 
-import '@/components/header';
+import '@/modules/shared/components/header';
 
 /* -----------------------------------
  *

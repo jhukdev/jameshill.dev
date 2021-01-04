@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { IArticle } from '@/model/article.model';
+import { IArticle } from '@/modules/articles/model/article.model';
 import style from './articleTile.module.scss';
 
 /* -----------------------------------

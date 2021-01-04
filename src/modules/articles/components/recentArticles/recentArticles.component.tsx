@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import { ICollection } from '@/model/collection.model';
-import { IArticle } from '@/model/article.model';
+import { ICollection } from '@/modules/shared/model/collection.model';
+import { IArticle } from '@/modules/articles/model/article.model';
 import style from './recentArticles.module.scss';
 
 /* -----------------------------------

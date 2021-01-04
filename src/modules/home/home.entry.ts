@@ -4,4 +4,5 @@
  *
  * -------------------------------- */
 
-import '@/components/header';
+import '@/modules/shared/components/header';
+import '@/modules/home/components/mainIntro';
