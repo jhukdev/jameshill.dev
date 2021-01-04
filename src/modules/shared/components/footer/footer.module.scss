@@ -24,9 +24,5 @@
  * -------------------------------- */
 
 .social {
-  margin: 0 auto;
-
-  @include breakpoint('md') {
-    margin: 0 0 0 auto;
-  }
+  margin: 0 0 0 auto;
 }
