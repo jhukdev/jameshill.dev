@@ -58,7 +58,7 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
         )}
         {getAnalytics()}
         {getFontLink()}
-        <style dangerouslySetInnerHTML={{ __html: inlineCss }} />
+        {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
       </head>
       <body class={style.body}>
         {children}
