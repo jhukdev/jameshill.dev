@@ -39,6 +39,7 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
+        <meta name="description" content={summary} />
         <link rel="icon" type="image/png" href={favicon} />
         <meta
           name="viewport"
