@@ -34,7 +34,7 @@ After sometime, I came across <a href="https://www.11ty.dev/" target="_blank" re
 
 I'm a total convert to TypeScript, and from what I could tell 11ty didn't have first class support. Whatever examples I could find didn't quite fit my needs. So after a quick round of boilerplate to get this site building, I decided to have a crack at creating my own setup with all of the great DX of Gatsby, but with the simplicity of 11ty.
 
-What I came up with was this: <a href="https://github.com/jhukdev/11tyboo" target="_blank" rel="noopener">11tyboo</a> (tickety-boo, right?). This aims to give me a simple starting point to bootstrap whatever project I needed, without the hassle of setup and wasted hours debugging the basics. It has first class TypeScript support, it has SASS and CSS module support and it provides the relevant setup needed for [partial hydration](/articles/partial-hydration).
+What I came up with was this: <a href="https://github.com/jhukdev/11tyby" target="_blank" rel="noopener">11tyby</a>. This aims to provide a simple starting point to bootstrap whatever project you might need, without the hassle of setup and wasted hours debugging the basics. It aims to replicate some of the great DX of Gatsby, but using 11ty! It has first class TypeScript support, SASS and CSS module support and it provides the relevant setup needed for [partial hydration](/articles/partial-hydration).
 
 The end result of all of this is fantastic. My site builds in under 9s, in contrast to Gatsby @ ~20s. I get to use all of the great stuff I know and love, Preact, CSS Modules, and I have **full** control over my sites structure to tune for performance. As the title of the article says, I was and am very impressed with what 11ty has to offer.
 
