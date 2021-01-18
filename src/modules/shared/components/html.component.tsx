@@ -45,6 +45,10 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1"
         />
+        <meta
+          name="google-site-verification"
+          content="mHNYu_uJnuUYYZmD8zONumXaKqZX4-TNzTs-60O6oEY"
+        />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@jhukdev" />
         <meta name="twitter:title" content={title} />
