@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { ICollections } from '@/modules/shared/model/collections.model';
-import { IPage } from '@/modules/shared/model/page.model';
+import { IPage, IData } from '@/modules/shared/model/page.model';
 import style from './list.module.scss';
 
 /* -----------------------------------
@@ -9,7 +9,8 @@ import style from './list.module.scss';
  *
  * -------------------------------- */
 
-interface IData {
+interface IProps extends IData {
+  permalink: string;
   collections?: ICollections;
 }
 
@@ -33,11 +34,15 @@ import { Footer } from '@/modules/shared/components/footer';
  *
  * -------------------------------- */
 
-function Page(this: IPage, { collections: { articles } }: IData) {
-  const inlineCss = this.getFileContents('articles/list.11ty.css');
+function Page(this: IPage, { siteMeta, collections: { articles }, ...props }: IProps) {
+  const inlineCss = this.getAssetContents('articles/list.11ty.css');
 
   return (
-    <Html title="Articles - 11ty" inlineCss={inlineCss} jsPath="articles/list.entry.js">
+    <Html
+      title={`Articles - ${siteMeta.pageTitle}`}
+      inlineCss={inlineCss}
+      jsPath="articles/list.entry.js"
+    >
       <div class={style.wrapper}>
         <Header />
         <main class={style.content}>

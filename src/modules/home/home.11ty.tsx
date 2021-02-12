@@ -1,6 +1,16 @@
 import { h } from 'preact';
-import { IPage } from '@/modules/shared/model/page.model';
+import { IPage, IData } from '../shared/model/page.model';
 import style from './home.module.scss';
+
+/* -----------------------------------
+ *
+ * IProps
+ *
+ * -------------------------------- */
+
+interface IProps extends IData {
+  permalink: string;
+}
 
 /* -----------------------------------
  *
@@ -19,12 +29,12 @@ import { Footer } from '@/modules/shared/components/footer';
  *
  * -------------------------------- */
 
-function Page(this: IPage) {
-  const inlineCss = this.getFileContents('home/home.11ty.css');
+function Page(this: IPage, { siteMeta }: IProps) {
+  const inlineCss = this.getAssetContents('home/home.11ty.css');
 
   return (
     <Html
-      title="Home - JH"
+      title={siteMeta.pageTitle}
       summary="Tech Lead for all things front-end"
       inlineCss={inlineCss}
       jsPath="home/home.entry.js"

@@ -19,6 +19,7 @@ module.exports = function (config) {
   });
 
   config.setUseGitIgnore(false);
+  config.setDataDeepMerge(true);
 
   config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
@@ -36,7 +37,7 @@ module.exports = function (config) {
     return content;
   });
 
-  config.addJavaScriptFunction('getFileContents', getFileContents);
+  config.addJavaScriptFunction('getAssetContents', getAssetContents);
 
   config.addCollection('articles', (collection) =>
     collection
@@ -58,32 +59,16 @@ module.exports = function (config) {
 
   return {
     passthroughFileCopy: true,
+    jsDataFileSuffix: '.data',
     dir: {
       input: 'src/_js',
       output: 'dist',
+      data: 'data',
       layouts: 'layouts',
       includes: '_includes',
     },
   };
 };
-
-/* -----------------------------------
- *
- * Contents
- *
- * -------------------------------- */
-
-function getFileContents(path) {
-  const assets = require('./src/_js/assets.json');
-
-  if (!assets[path]) {
-    return;
-  }
-
-  const filePath = `./src/_js/assets/${assets[path]}`;
-
-  return fs.readFileSync(filePath).toString();
-}
 
 /* -----------------------------------
  *
@@ -103,6 +88,24 @@ function transformFileHash(content) {
       ),
     content
   );
+}
+
+/* -----------------------------------
+ *
+ * Contents
+ *
+ * -------------------------------- */
+
+function getAssetContents(path) {
+  const assets = require('./src/_js/assets.json');
+
+  if (!assets[path]) {
+    return;
+  }
+
+  const filePath = `./src/_js/assets/${assets[path]}`;
+
+  return fs.readFileSync(filePath).toString();
 }
 
 /* -----------------------------------

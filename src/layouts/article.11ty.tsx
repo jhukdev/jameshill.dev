@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import { h } from 'preact';
 import { ICollections } from '@/modules/shared/model/collections.model';
-import { IPage } from '@/modules/shared/model/page.model';
+import { IPage, IData } from '@/modules/shared/model/page.model';
 import style from './article.module.scss';
 
 /* -----------------------------------
@@ -10,7 +10,7 @@ import style from './article.module.scss';
  *
  * -------------------------------- */
 
-interface IData {
+interface IProps extends IData {
   title: string;
   excerpt: string;
   image: string;
@@ -50,14 +50,15 @@ function Page(
     cssPath = 'layouts/article.11ty.css',
     jsPath = 'articles/article.entry.js',
     tags,
+    siteMeta,
     collections: { articles },
-  }: IData
+  }: IProps
 ) {
-  const inlineCss = this.getFileContents(cssPath);
+  const inlineCss = this.getAssetContents(cssPath);
 
   return (
     <Html
-      title={title}
+      title={`${title} - ${siteMeta.pageTitle}`}
       summary={excerpt}
       image={`https://jameshill.dev/articles/_images/${image}`}
       inlineCss={inlineCss}

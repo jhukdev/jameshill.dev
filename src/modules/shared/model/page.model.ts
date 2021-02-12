@@ -1,3 +1,5 @@
+import * as siteMeta from '@/data/siteMeta';
+
 /* -----------------------------------
  *
  * IPage
@@ -5,7 +7,22 @@
  * -------------------------------- */
 
 interface IPage {
-  getFileContents: (file: string) => string;
+  slug: string;
+  url: string;
+  getCollectionItem: (page: string) => any;
+  getPreviousCollectionItem: (page: string) => any;
+  getNextCollectionItem: (page: string) => any;
+  getAssetContents: (file: string) => string;
+}
+
+/* -----------------------------------
+ *
+ * IData
+ *
+ * -------------------------------- */
+
+interface IData {
+  siteMeta: typeof siteMeta;
 }
 
 /* -----------------------------------
@@ -14,4 +31,4 @@ interface IPage {
  *
  * -------------------------------- */
 
-export { IPage };
+export { IPage, IData };
