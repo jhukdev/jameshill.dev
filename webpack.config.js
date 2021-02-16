@@ -259,6 +259,7 @@ const entry = {
             options: {
               compilerOptions: {
                 target: 'es5',
+                module: 'esnext',
               },
             },
           },
@@ -312,8 +313,7 @@ const entry = {
   },
   optimization: {
     usedExports: true,
-    mergeDuplicateChunks: true,
-    moduleIds: 'hashed',
+    mergeDuplicateChunks: false,
     runtimeChunk: false,
     splitChunks: {
       name: true,
@@ -324,7 +324,6 @@ const entry = {
           test: /[\\/]node_modules[\\/]/,
           name: splitVendorChunks,
           chunks: 'all',
-          enforce: true,
         },
       },
     },
@@ -370,6 +369,8 @@ function getSourceFile(result, file) {
 
 function splitVendorChunks(module, chunks) {
   const chunkNames = chunks.filter(({ name }) => !(name || '').endsWith('.entry'));
+
+  console.log('chunks', chunks);
 
   if (chunkNames.length) {
     return chunkNames[0].name;

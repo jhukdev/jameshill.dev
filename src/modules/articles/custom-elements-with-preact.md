@@ -10,6 +10,8 @@ article: true
 layout: article.11ty.js
 ---
 
+> TL/DR: The package <a href="https://github.com/jhukdev/preactement" target="_blank" rel="noopener">preactement</a> allows you to easily wrap any Preact component in a custom element. It provides both synchronous, and asynchronous rendering.
+
 Preact is a fantastic fit for bringing the power of a virtual DOM, and JSX, to existing projects. For one, it's small and light, enough not to exacerbate any pre-existing issues from other frameworks that might be in use. It's also API compatible with React, so you get access to the powerful ecosystem of third party components that exist today.
 
 However, for non trivial uses, manually triggering the render of your components within an existing code base can become messy.
@@ -27,17 +29,29 @@ These two methods allow us to hook into whenever the DOM recognises an element e
 For example, take this custom element: `<social-share>`
 
 ```typescript
-class SocialShare extends HTMLElement {
+import { h, render } from 'preact';
+import { SocialShare } from './socialShare.component';
+
+/*[...]*/
+
+class SocialElement extends HTMLElement {
+  /*[...]*/
+
   public connectedCallback() {
-    // fires when element exists
+    render(h(SocialShare, {}), this); // magic!
   }
 
   public disconnectedCallback() {
-    // fires when element is removed
+    // triggers componentWillUnmount
+    render(null, this);
   }
 }
 
 /*[...]*/
 
-customElements.define('social-share', SocialShare);
+customElements.define('social-share', SocialElement);
 ```
+
+Now that we've defined our custom element, whenever `<social-share>` exists in the DOM, `connectedCallback` will be fired. If the element were to be removed, `disconnectedCallback` would likewise be called.
+
+We can make use of these DOM lifecyle methods to trigger our Preact component's render, completely isolated from the rest of our code base. If we go back to our hypothetical jQuery project, all we'd need to do is define our component as seen above, and then use jQuery to add the respective element, `<social-share>` when needed.
