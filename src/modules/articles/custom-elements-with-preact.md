@@ -85,7 +85,7 @@ public async connectedCallback() {
 }
 ```
 
-This is better, but we're still introducing lots of boilerplate. For every component we create, a custom element must be defined with the above pattern. A handful of these don't pose to much of an issue, but if your goal is a grandual refactor towards Preact (or React, etc) components, this will grow over time.
+This is better, but we're still introducing lots of boilerplate. For every component we create, a custom element must be defined with the above pattern. A handful of these don't pose to much of an issue, but if your goal is a gradual refactor towards Preact (or React, etc) components, this will grow over time.
 
 What we _now_ need, is some kind of re-usability for the above.
 
