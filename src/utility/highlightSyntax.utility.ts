@@ -51,6 +51,7 @@ async function applySyntaxHighlight() {
 
   const plugins = [
     import('prismjs/plugins/highlight-keywords/prism-highlight-keywords'),
+    import('prismjs/plugins/toolbar/prism-toolbar'),
     import('prismjs/plugins/show-language/prism-show-language'),
   ];
 

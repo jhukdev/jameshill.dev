@@ -370,8 +370,6 @@ function getSourceFile(result, file) {
 function splitVendorChunks(module, chunks) {
   const chunkNames = chunks.filter(({ name }) => !(name || '').endsWith('.entry'));
 
-  console.log('chunks', chunks);
-
   if (chunkNames.length) {
     return chunkNames[0].name;
   }

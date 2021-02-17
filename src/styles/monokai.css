@@ -133,3 +133,21 @@ pre[class*='language-'] {
 .token.keyword-function {
   color: #63d6ef;
 }
+
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar .toolbar {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 14px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.code-toolbar:hover .toolbar {
+  opacity: 1;
+}
