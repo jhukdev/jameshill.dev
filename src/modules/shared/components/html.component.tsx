@@ -88,13 +88,17 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
 function getFontLink() {
   const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500;600'];
   const result = fonts.map((font) => `family=${font}`).join('&');
+  const href = `https://fonts.googleapis.com/css2?${result}&display=swap`;
 
-  return h('link', {
-    href: `https://fonts.googleapis.com/css2?${result}&display=swap`,
-    rel: 'stylesheet',
-    media: 'none',
-    onload: "if(media!='all')media='all'",
-  });
+  return h(Fragment, {}, [
+    h('link', { rel: 'preload', as: 'style', href }),
+    h('link', {
+      href,
+      rel: 'stylesheet',
+      media: 'none',
+      onload: "if(media!='all')media='all'",
+    }),
+  ]);
 }
 
 /* -----------------------------------
