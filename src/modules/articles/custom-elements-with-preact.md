@@ -80,7 +80,7 @@ Luckily for us, there's a great library created by the guys behind Preact: <a hr
 
 > I honestly cannot express enough what an incredible job the team behind Preact are doing, they all deserve huge appreciation from everyone.
 
-This package is fantastic if you're happy to statically import your components, but it doesn't provide (at time of writing) the ability to defer loading of your code until needed via dynamic imports. I needed just this usecase, so, standing on the shoulders and all of that, I _borrowed_ a good chunk of this library to solve my needs.
+This package is fantastic if you're happy to statically import your components. It doesn't, however, provide (at time of writing) the ability to defer loading of your code until needed via dynamic imports. I needed just this usecase, so, standing on the shoulders and all of that, I _borrowed_ a good chunk of this library to solve my needs.
 
 The result of this was <a href="https://github.com/jhukdev/preactement" target="_blank" rel="noopener">preactement</a>. Having _borrowed_ the general workings of `preact-custom-element`, I went to work extending this slightly to allow for asynchronous loading of Preact components within `connectedCallback()`.
 
