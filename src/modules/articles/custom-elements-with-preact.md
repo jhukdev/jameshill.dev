@@ -18,6 +18,15 @@ However, for non trivial uses, manually triggering the render of your components
 
 For example, say you want to Preact-ify some component that's rendered after a user interaction. Say the code base is largely built in jQuery, for the sake of argument. Now, we could call Preact's `render` function with our component directly in the event handler that displays this piece of content, or setup some kind of event system.
 
+```javascript
+import { h, render } from 'preact';
+import { SocialShare } from './socialShare';
+
+$('.menu').click(() => {
+  render(h(SocialShare, {}), $('.output').get(0));
+});
+```
+
 That works, but we're getting into a pretty muddy world that will only grow in complexity as time goes on. What we really need, is some way to make use of Preact in an isolated, well organised way. Here enters _Web Components_, or more accurately, <a href="https://developers.google.com/web/fundamentals/web-components/customelements" target="_blank" rel="noopener">HTML Custom Elements</a>
 
 ## Anatomy of the DOM
@@ -54,7 +63,13 @@ customElements.define('social-share', SocialElement);
 
 Now that we've defined our custom element, whenever `<social-share>` exists in the DOM, `connectedCallback` will be fired. If the element were to be removed, `disconnectedCallback` would likewise be called.
 
-We can make use of these DOM lifecyle methods to trigger our Preact component's render, completely isolated from the rest of our code base. If we go back to our hypothetical jQuery project, all we'd need to do is define our component as seen above, and then use jQuery to add the respective element, `<social-share>` when needed.
+We can make use of these DOM lifecyle methods to trigger our Preact component's render, completely isolated from the rest of our code base. If we go back to our hypothetical jQuery project, all we'd need to do is define our component as seen above, and then use jQuery to add the respective element, `<social-share>` when needed:
+
+```javascript
+$('.menu').click(() => {
+  $('<social-share/>').appendTo('.output');
+});
+```
 
 ## Split all the things
 
@@ -94,4 +109,17 @@ import { define } from 'preactement';
 define('social-share', () => import('./socialShare'));
 ```
 
-That's it, your shiny new component will now be chunked via your bundler, and only loaded when the `<social-share>` element exists on your page, wherever that might be.
+Your shiny new component will now be chunked via your bundler, and only loaded when the `<social-share>` element exists on your page, wherever that might be.
+
+This package also provides some other useful bits and bobs. Say you want to provide some pre-built markup for your Preact component to consume via `props.children`. All you need to do is add this markup within your custom element:
+
+```html
+<social-share>
+  <h3>Share this</h3>
+  <p>Get me likes</p>
+</social-share>
+```
+
+When the component is rendered via `preactement`, this markup will be available via the children prop. This is useful if your custom element is being rendered by something other than Preact, like PHP etc. All you need to do is render your element using your template system of choice, and then run `define()` with your tag name, and component instance.
+
+Thanks DOM.
