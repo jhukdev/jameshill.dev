@@ -54,6 +54,7 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
         <meta name="twitter:title" content={title} />
         {summary && <meta name="twitter:description" content={summary} />}
         {image && <meta name="twitter:image:src" content={image} />}
+        {getFontPreload()}
         {jsPath && (
           <Fragment>
             {scripts.map((script) => (
@@ -62,7 +63,6 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
           </Fragment>
         )}
         {getAnalytics()}
-        {getFontLink()}
         {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
       </head>
       <body class={style.body}>
@@ -85,20 +85,21 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
  *
  * -------------------------------- */
 
-function getFontLink() {
-  const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500;600'];
-  const result = fonts.map((font) => `family=${font}`).join('&');
-  const href = `https://fonts.googleapis.com/css2?${result}&display=swap`;
+function getFontPreload() {
+  const preloadFonts = ['poppins-100', 'poppins-300', 'roboto-300', 'roboto-400'];
 
-  return h(Fragment, {}, [
-    h('link', { rel: 'preload', as: 'style', href }),
-    h('link', {
-      href,
-      rel: 'stylesheet',
-      media: 'none',
-      onload: "if(media!='all')media='all'",
-    }),
-  ]);
+  return (
+    <Fragment>
+      {preloadFonts.map((font) => (
+        <link
+          rel="preload"
+          as="font"
+          crossOrigin="anonymous"
+          href={`/assets/${font}.woff`}
+        />
+      ))}
+    </Fragment>
+  );
 }
 
 /* -----------------------------------

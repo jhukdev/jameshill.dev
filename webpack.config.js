@@ -205,6 +205,18 @@ const pages = {
           },
         ],
       },
+      {
+        test: /\.(woff(2)?)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets',
+            },
+          },
+        ],
+      },
     ],
   },
   optimization: {
@@ -305,6 +317,17 @@ const entry = {
             loader: 'file-loader',
             options: {
               name: '[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
             },
           },
         ],
