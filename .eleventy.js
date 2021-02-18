@@ -136,5 +136,7 @@ function slugifyTitleAnchors(value) {
  * -------------------------------- */
 
 function normaliseTitleAnchors(value) {
-  return value.replace(/-/g, ' ').replace(/\b[a-z]/g, (...args) => args[0].toUpperCase());
+  const result = value.replace(/-/g, ' ');
+
+  return result.charAt(0).toUpperCase() + result.slice(1);
 }
