@@ -54,7 +54,7 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
         <meta name="twitter:title" content={title} />
         {summary && <meta name="twitter:description" content={summary} />}
         {image && <meta name="twitter:image:src" content={image} />}
-        {getFontPreload()}
+        {getFontLink()}
         {jsPath && (
           <Fragment>
             {scripts.map((script) => (
@@ -77,6 +77,28 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
       </body>
     </html>
   );
+}
+
+/* -----------------------------------
+ *
+ * Fonts
+ *
+ * -------------------------------- */
+
+function getFontLink() {
+  const fonts = ['Poppins:wght@100;300;400;500;600', 'Roboto:wght@300;400;500;600'];
+  const result = fonts.map((font) => `family=${font}`).join('&');
+  const href = `https://fonts.googleapis.com/css2?${result}&display=swap`;
+
+  return h(Fragment, {}, [
+    h('link', { rel: 'preload', as: 'style', href }),
+    h('link', {
+      href,
+      rel: 'stylesheet',
+      media: 'none',
+      onload: "if(media!='all')media='all'",
+    }),
+  ]);
 }
 
 /* -----------------------------------
