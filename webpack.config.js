@@ -334,7 +334,7 @@ const entry = {
   },
   optimization: {
     usedExports: true,
-    mergeDuplicateChunks: false,
+    mergeDuplicateChunks: true,
     moduleIds: 'deterministic',
     runtimeChunk: false,
     splitChunks: {
@@ -346,6 +346,7 @@ const entry = {
           test: /[\\/]node_modules[\\/]/,
           name: splitVendorChunks,
           chunks: 'all',
+          enforce: true,
         },
       },
     },
