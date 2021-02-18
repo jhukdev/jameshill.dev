@@ -5,6 +5,7 @@
  * -------------------------------- */
 
 const pageTitle = 'James';
+const metaDescription = 'Tech Lead for all things front-end at Groupon coupons';
 
 /* -----------------------------------
  *
@@ -12,4 +13,4 @@ const pageTitle = 'James';
  *
  * -------------------------------- */
 
-export { pageTitle };
+export { pageTitle, metaDescription };

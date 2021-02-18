@@ -103,29 +103,6 @@ function getFontLink() {
 
 /* -----------------------------------
  *
- * Fonts
- *
- * -------------------------------- */
-
-function getFontPreload() {
-  const preloadFonts = ['poppins-100', 'poppins-300', 'roboto-300', 'roboto-400'];
-
-  return (
-    <Fragment>
-      {preloadFonts.map((font) => (
-        <link
-          rel="preload"
-          as="font"
-          crossOrigin="anonymous"
-          href={`/assets/${font}.woff`}
-        />
-      ))}
-    </Fragment>
-  );
-}
-
-/* -----------------------------------
- *
  * Analytics
  *
  * -------------------------------- */

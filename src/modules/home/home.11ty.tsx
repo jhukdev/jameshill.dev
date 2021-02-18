@@ -35,7 +35,7 @@ function Page(this: IPage, { siteMeta }: IProps) {
   return (
     <Html
       title={siteMeta.pageTitle}
-      summary="Tech Lead for all things front-end"
+      summary={siteMeta.metaDescription}
       inlineCss={inlineCss}
       jsPath="home/home.entry.js"
     >

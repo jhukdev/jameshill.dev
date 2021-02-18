@@ -8,12 +8,13 @@
 
 .banner {
   display: block;
-  padding: rem(10) 0;
   background: $colour-light;
   border-bottom: rem(1) solid $colour-shadow;
+  box-sizing: border-box;
+  height: rem(68);
 
   @include breakpoint('md') {
-    padding: rem(20) 0;
+    height: rem(100);
   }
 }
 
@@ -25,6 +26,10 @@
 
 .container {
   @extend %container;
+
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 /* -----------------------------------
