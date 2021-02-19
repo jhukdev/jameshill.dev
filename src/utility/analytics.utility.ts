@@ -127,6 +127,10 @@ function getQueryParams({ type, event, error }: IProps) {
  * -------------------------------- */
 
 function track({ type = 'pageview', event, error }: IProps = {}) {
+  if (__DEV__) {
+    return; // no-op
+  }
+
   navigator.sendBeacon(analyticsEndpoint, getQueryParams({ type, event, error }));
 }
 

@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+const { DefinePlugin } = require('webpack');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AssetsManifestPlugin = require('webpack-assets-manifest');
@@ -58,6 +59,9 @@ const data = {
     },
   },
   plugins: [
+    new DefinePlugin({
+      __DEV__: !RELEASE,
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -120,6 +124,9 @@ const pages = {
     },
   },
   plugins: [
+    new DefinePlugin({
+      __DEV__: !RELEASE,
+    }),
     new ExtractCssPlugin({
       filename: RELEASE ? 'assets/[name].[contenthash:8].css' : 'assets/[name].css',
     }),
@@ -257,6 +264,9 @@ const entry = {
     new AssetsManifestPlugin({
       output: '../assets.json',
       merge: true,
+    }),
+    new DefinePlugin({
+      __DEV__: !RELEASE,
     }),
   ],
   module: {
