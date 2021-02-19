@@ -127,12 +127,6 @@ function getQueryParams({ type, event, error }: IProps) {
  * -------------------------------- */
 
 function track({ type = 'pageview', event, error }: IProps = {}) {
-  if (process.env.node_env === 'production') {
-    // no-op;
-
-    return;
-  }
-
   navigator.sendBeacon(analyticsEndpoint, getQueryParams({ type, event, error }));
 }
 
