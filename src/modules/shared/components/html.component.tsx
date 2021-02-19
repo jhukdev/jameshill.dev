@@ -32,7 +32,7 @@ import favicon from '@/styles/images/favicon.png';
  * -------------------------------- */
 
 function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: IProps) {
-  const scripts = ['vendor.js', jsPath];
+  const scripts = ['vendor.js', 'shared/shared.entry.js', jsPath];
 
   return (
     <html lang="en" class={style.html}>
@@ -62,7 +62,7 @@ function Html({ title = 'James', summary, image, inlineCss, jsPath, children }: 
             ))}
           </Fragment>
         )}
-        {getAnalytics()}
+        {/* {getAnalytics()} */}
         {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
       </head>
       <body class={style.body}>
