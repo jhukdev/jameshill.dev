@@ -26,6 +26,26 @@ function ArticleTile({ article, url, className = '' }: IProps) {
       <a href={url} class={style.image}>
         <img src={`/${article.image}`} alt="Post" loading="lazy" />
       </a>
+      <h2 class={style.title}>
+        <a href={url} class={style.link}>
+          {article.title}
+        </a>
+      </h2>
+      <div class={style.content}>
+        <h3 class={style.tagline}>{article.tagline}</h3>
+        <p class={style.excerpt}>{article.excerpt}</p>
+      </div>
+    </section>
+  );
+}
+
+/*
+function ArticleTile({ article, url, className = '' }: IProps) {
+  return (
+    <section class={`${style.tile} ${className}`}>
+      <a href={url} class={style.image}>
+        <img src={`/${article.image}`} alt="Post" loading="lazy" />
+      </a>
       <div class={style.content}>
         <h2 class={style.title}>
           <a href={url} class={style.link}>
@@ -38,6 +58,7 @@ function ArticleTile({ article, url, className = '' }: IProps) {
     </section>
   );
 }
+*/
 
 /* -----------------------------------
  *
