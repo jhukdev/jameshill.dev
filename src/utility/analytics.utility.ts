@@ -65,6 +65,22 @@ function getClientId() {
 
 /* -----------------------------------
  *
+ * Document
+ *
+ * -------------------------------- */
+
+function getDocumentMeta() {
+  let referrer;
+
+  if (document.referrer.indexOf(location.host) < 0) {
+    referrer = document.referrer;
+  }
+
+  return { dr: referrer };
+}
+
+/* -----------------------------------
+ *
  * Device
  *
  * -------------------------------- */
@@ -75,7 +91,7 @@ function getDeviceMeta() {
   let viewPort;
 
   if (options.colourDepth && screen.colorDepth) {
-    colourDepth = `${screen.colorDepth}-bits`;
+    colourDepth = `${screen.colorDepth}-bit`;
   }
 
   if (options.screenSize && self.visualViewport) {
@@ -105,7 +121,6 @@ function getQueryParams({ type, event, error }: IProps) {
     tid: trackingId,
     cid: getClientId(),
     t: type,
-    dr: document.referrer || void 0,
     dt: document.title,
     dl: origin + pathname + search,
     ul: options.language ? (navigator.language || '').toLowerCase() : void 0,
@@ -116,6 +131,7 @@ function getQueryParams({ type, event, error }: IProps) {
     ev: event?.value || void 0,
     exd: error?.message || void 0,
     exf: typeof error?.fatal !== 'undefined' && !!error?.fatal === false ? '0' : void 0,
+    ...getDocumentMeta(),
     ...getDeviceMeta(),
   });
 }
