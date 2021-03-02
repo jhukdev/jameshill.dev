@@ -59,9 +59,9 @@ component-main-intro {
 
   &:first-of-type {
     font-weight: 300;
-    text-shadow: 0 0 rem(100) #fff, 0 0 rem(200) #fff, 0 0 rem(300) $colour-accent,
-      0 0 rem(400) $colour-accent, 0 0 rem(500) $colour-accent, 0 0 rem(1000) $colour-accent,
-      0 0 rem(1000) $colour-accent;
+    text-shadow: 0 0 100px #fff, 0 0 200px #fff, 0 0 300px $colour-accent,
+      0 0 400px $colour-accent, 0 0 500px $colour-accent, 0 0 1000px $colour-accent,
+      0 0 1000px $colour-accent;
   }
 }
 
