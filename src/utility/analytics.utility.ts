@@ -114,7 +114,7 @@ function getDeviceMeta() {
 function getQueryParams({ type, event, error }: IProps) {
   const { origin, pathname, search } = document.location;
 
-  return new URLSearchParams({
+  const payload = {
     v: '1',
     ds: 'web',
     aip: options.anonymizeIp ? '1' : void 0,
@@ -133,7 +133,13 @@ function getQueryParams({ type, event, error }: IProps) {
     exf: typeof error?.fatal !== 'undefined' && !!error?.fatal === false ? '0' : void 0,
     ...getDocumentMeta(),
     ...getDeviceMeta(),
-  });
+  };
+
+  Object.keys(payload).forEach((key) =>
+    payload[key] === void 0 ? delete payload[key] : {}
+  );
+
+  return new URLSearchParams(payload);
 }
 
 /* -----------------------------------
