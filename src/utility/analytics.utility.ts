@@ -106,7 +106,7 @@ function getQueryParams({ type, event, error }: IProps) {
     cid: getClientId(),
     t: type,
     dt: document.title,
-    dr: document.referrer,
+    // dr: document.referrer,
     dl: origin + pathname + search,
     ul: options.language ? (navigator.language || '').toLowerCase() : void 0,
     de: options.characterSet ? document.characterSet : void 0,
