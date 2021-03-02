@@ -65,6 +65,22 @@ function getClientId() {
 
 /* -----------------------------------
  *
+ * Document
+ *
+ * -------------------------------- */
+
+function getDocumentMeta() {
+  let referrer;
+
+  if (document.referrer.indexOf(location.host) < 0) {
+    referrer = document.referrer;
+  }
+
+  return { dr: referrer };
+}
+
+/* -----------------------------------
+ *
  * Device
  *
  * -------------------------------- */
@@ -106,7 +122,6 @@ function getQueryParams({ type, event, error }: IProps) {
     cid: getClientId(),
     t: type,
     dt: document.title,
-    dr: document.referrer,
     dl: origin + pathname + search,
     ul: options.language ? (navigator.language || '').toLowerCase() : void 0,
     de: options.characterSet ? document.characterSet : void 0,
@@ -116,6 +131,7 @@ function getQueryParams({ type, event, error }: IProps) {
     ev: event?.value || void 0,
     exd: error?.message || void 0,
     exf: typeof error?.fatal !== 'undefined' && !!error?.fatal === false ? '0' : void 0,
+    ...getDocumentMeta(),
     ...getDeviceMeta(),
   });
 }
