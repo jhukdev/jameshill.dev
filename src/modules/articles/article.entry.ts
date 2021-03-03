@@ -1,5 +1,3 @@
-import { applySyntaxHighlight } from '@/utility/highlightSyntax.utility';
-
 /* -----------------------------------
  *
  * Components
@@ -7,11 +5,3 @@ import { applySyntaxHighlight } from '@/utility/highlightSyntax.utility';
  * -------------------------------- */
 
 import '@/modules/shared/components/header';
-
-/* -----------------------------------
- *
- * Setup
- *
- * -------------------------------- */
-
-applySyntaxHighlight();

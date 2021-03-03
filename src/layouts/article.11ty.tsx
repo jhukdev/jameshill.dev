@@ -3,6 +3,7 @@ import { h } from 'preact';
 import { ICollections } from '@/modules/shared/model/collections.model';
 import { IPage, IData } from '@/modules/shared/model/page.model';
 import style from './article.module.scss';
+import '@/styles/monokai.css';
 
 /* -----------------------------------
  *

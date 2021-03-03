@@ -1,6 +1,7 @@
 const { isValidElement } = require('preact');
 const fs = require('fs');
 const { render } = require('preact-render-to-string');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdown = require('markdown-it');
 const markdownAnchor = require('markdown-it-anchor');
 
@@ -20,6 +21,8 @@ module.exports = function (config) {
 
   config.setUseGitIgnore(false);
   config.setDataDeepMerge(true);
+
+  config.addPlugin(syntaxHighlight);
 
   config.addTransform('jsx', (content) => {
     if (isValidElement(content)) {
