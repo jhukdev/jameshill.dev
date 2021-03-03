@@ -90,12 +90,17 @@ function getDeviceMeta() {
   let screenSize;
   let viewPort;
 
+  const visual = {
+    width: Math.floor((self.visualViewport || {}).width),
+    height: Math.floor((self.visualViewport || {}).height),
+  };
+
   if (options.colourDepth && screen.colorDepth) {
     colourDepth = `${screen.colorDepth}-bit`;
   }
 
   if (options.screenSize && self.visualViewport) {
-    viewPort = `${(self.visualViewport || {}).width}x${(self.visualViewport || {}).height}`;
+    viewPort = `${visual.width}x${visual.height}`;
   }
 
   if (options.screenSize) {
