@@ -253,6 +253,9 @@ const entry = {
     path: path.join(__dirname, '/src/_js/assets'),
     filename: RELEASE ? '[name].[chunkhash:8].js' : '[name].js',
     publicPath: '/assets/',
+    environment: {
+      arrowFunction: false,
+    },
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss'],
