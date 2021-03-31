@@ -1,5 +1,5 @@
+import { define } from 'preactement';
 import { MainIntro as Component } from './mainIntro.component';
-import { applyHydration } from '@/utility/hydrate.utility';
 
 /* -----------------------------------
  *
@@ -7,7 +7,7 @@ import { applyHydration } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-const MainIntro = applyHydration('MainIntro', Component);
+const MainIntro = define('main-intro', () => Component);
 
 /* -----------------------------------
  *

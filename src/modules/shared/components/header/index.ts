@@ -1,5 +1,5 @@
+import { define } from 'preactement';
 import { Header as Component } from './header.component';
-import { applyHydration } from '@/utility/hydrate.utility';
 
 /* -----------------------------------
  *
@@ -7,7 +7,7 @@ import { applyHydration } from '@/utility/hydrate.utility';
  *
  * -------------------------------- */
 
-const Header = applyHydration('Header', Component);
+const Header = define('header', () => Component);
 
 /* -----------------------------------
  *

@@ -17,8 +17,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "preact": "10.5.9",
-    "preact-render-to-string": "5.1.12"
+    "preact": "10.5.13",
+    "preact-render-to-string": "5.1.18",
+    "preactement": "1.2.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "0.11.1",

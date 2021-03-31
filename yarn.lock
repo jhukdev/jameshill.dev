@@ -3879,6 +3879,11 @@ postcss@^8.2.4:
     nanoid "^3.1.20"
     source-map "^0.6.1"
 
+preact-markup@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/preact-markup/-/preact-markup-2.1.1.tgz#0451e7eed1dac732d7194c34a7f16ff45a2cfdd7"
+  integrity sha512-8JL2p36mzK8XkspOyhBxUSPjYwMxDM0L5BWBZWxsZMVW8WsGQrYQDgVuDKkRspt2hwrle+Cxr/053hpc9BJwfw==
+
 preact-render-to-string@5.1.12:
   version "5.1.12"
   resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.12.tgz#3d258a177ef8947f768dd0f2c56629e7fda2dc39"
@@ -3890,6 +3895,13 @@ preact@10.5.9:
   version "10.5.9"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.9.tgz#8caba9288b4db1d593be2317467f8735e43cda0b"
   integrity sha512-X4m+4VMVINl/JFQKALOCwa3p8vhMAhBvle0hJ/W44w/WWfNb2TA7RNicDV3K2dNVs57f61GviEnVLiwN+fxiIg==
+
+preactement@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/preactement/-/preactement-1.2.1.tgz#12cb8a050bf2abc70e0339dc24d8d92ca7d18785"
+  integrity sha512-hIJkhknYsa05o8LotWAc8TwoGofqNAPgv3fq5M9rcm84U+HIafVtNXDNi9RthsjrnvnLTtjIEWF2ceumST4CNw==
+  dependencies:
+    preact-markup "^2.1.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
