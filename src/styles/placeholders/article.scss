@@ -139,14 +139,10 @@
   }
 
   pre {
-    font-size: rem(17);
+    font-size: 0.8em;
     margin: 2em 0;
     border-radius: rem(4);
     overflow: auto;
-
-    @include breakpoint('md') {
-      font-size: rem(19);
-    }
   }
 
   pre code[class*='language-'] {
