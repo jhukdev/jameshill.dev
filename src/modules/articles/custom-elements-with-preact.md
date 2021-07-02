@@ -106,7 +106,7 @@ import { define } from 'preactement';
 
 /*[...]*/
 
-define('social-share', () => import('./socialShare'));
+define('social-share', () => import('./socialShare.component'));
 ```
 
 Your shiny new component will now be chunked via your bundler, and only loaded when the `<social-share>` element exists on your page, wherever that might be.
