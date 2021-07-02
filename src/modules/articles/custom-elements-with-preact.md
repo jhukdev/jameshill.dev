@@ -79,7 +79,7 @@ The above example is a great start, but what if we're super performance savvy, a
 /*[...]*/
 
 public async connectedCallback() {
-  const { SocialShare } = await import('./socialShare');
+  const { SocialShare } = await import('./socialShare.component');
 
   render(h(SocialShare, {}), this); // chunked!
 }
